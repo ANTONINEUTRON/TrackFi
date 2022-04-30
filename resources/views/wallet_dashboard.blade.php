@@ -211,13 +211,13 @@
                                 History</span>
                         </div>
                     </div>
-                    <div style="position: relative;height: 30vh;">
-                        <div class="d-flex align-items-center p-2" style="font-weight: bold;
+                    <div style="position: relative;height: 30vh;" class="pt-3">
+                        {{-- <div class="d-flex align-items-center p-2" style="font-weight: bold;
                         height: 2em;margin-left: 1em;border: #00ffbb 1px solid;margin-top: 0.5em;width: fit-content;">
                             $ XX,XXX,XXX <div style="color: #2DB020;margin-left: 1em;"><img alt="dashboard-angle-arrow"
                                     width="10" height="10" src="{{asset('images/dashboard-angle-arrow.svg')}}"><span
                                     style="font-size: small;margin-left: 0.6em;">5%</span></div>
-                        </div>
+                        </div> --}}
                         <canvas id="myChart"></canvas>
                     </div>
 
@@ -1247,6 +1247,16 @@
         window.onload = async (event)=>{
             document.getElementById("keyval").innerHTML = address;
             await displayBalance();
+
+            var transactionHistory = await getArrayOfTranxHistory();
+            if(transactionHistory.length < 1){
+                var canvas = document.getElementById("myChart");
+                var ctx = canvas.getContext("2d");
+                ctx.font = "30px Arial";
+                ctx.fillText("No Transaction has been recorded on this account", 10, 50);
+            }else{
+                await showChart(transactionHistory);
+            }
         }
 
         async function displayBalance() {
@@ -1262,7 +1272,17 @@
         }
 
         async function getArrayOfTranxHistory() {
-            
+            try {
+                let response = await client.searchForTransactions()
+                    .address(address)
+                    .txType("pay").do();
+                console.log("txn_type: pay = " + JSON.stringify(response, undefined, 2));
+
+                return response.transactions;
+            } catch (error) {
+                console.error(error);
+            }
+            return [];
         }
     </script>
 
