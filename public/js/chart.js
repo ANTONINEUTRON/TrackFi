@@ -90,9 +90,8 @@ async function showChart(transactionHistory) {
             tickColor: 'white'
           },
           ticks: {
-            // Include a dollar sign in the ticks
             callback: function (value, index, ticks) {
-              return '$' + value;
+              return value+" Algo";
             },
             color: 'white'
           }

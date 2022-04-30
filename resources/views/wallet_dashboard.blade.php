@@ -211,7 +211,7 @@
                                 History</span>
                         </div>
                     </div>
-                    <div style="position: relative;height: 30vh;" class="pt-3">
+                    <div style="position: relative;height: 30vh;" class="pt-5">
                         {{-- <div class="d-flex align-items-center p-2" style="font-weight: bold;
                         height: 2em;margin-left: 1em;border: #00ffbb 1px solid;margin-top: 0.5em;width: fit-content;">
                             $ XX,XXX,XXX <div style="color: #2DB020;margin-left: 1em;"><img alt="dashboard-angle-arrow"
@@ -237,7 +237,7 @@
                 <!--start of third table -->
 
                 <!--second section-->
-                <div id="first-dashboard-table" class="mt-4">
+                <div id="first-dashboard-table" class="d-none mt-4">
                     <div class="row">
                         <div class=" col-7 col-md-10">
                             <h1 class="d-flex justify-content-center"><span
@@ -245,12 +245,12 @@
                                         width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"></span><span
                                     style="margin-left: 0.5em;">Tokens</span></h1>
                         </div>
-                        <div class="col-5 col-md-2 d-flex justify-content-between">
+                        {{-- <div class="col-5 col-md-2 d-flex justify-content-between">
                             <span>Total: #4, 792</span>
                             <button id="fourth_table_dropdown-1" class="btn btn-sm table-expand-toggler"
                                 name="first-dashboard-table" onclick="view(this.name)"><i
                                     id="first_dashboard_table_dropdown_icon" class="fas fa-angle-down"></i></button>
-                        </div>
+                        </div> --}}
                     </div>
                     <!--table body-->
                     <div class="mb-3 w-100" style="overflow-x: auto;">
@@ -260,12 +260,11 @@
                                 style="width: 100%; font-size: large;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width5" style="padding-left: 9%;">Token</div>
                                 <div class="table-width6 ">Balance</div>
-                                <div class="table-width6">Price</div>
-                                <div class="table-width6">Value
-                                </div>
+                                <div class="table-width6">Price<br>(Algo)</div>
+                                <div class="table-width6">Value<br>(Algo)</div>
                             </div>
                             <div id="first-dashboard-t-b-l-1" class="table-body-links-1 mt-2">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0 body-text2">
+                                {{-- <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
                                     <div class="d-flex align-items-center table-width5">
                                         <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
                                         </div>
@@ -408,25 +407,7 @@
                                     <div class="d-flex align-items-center table-width6">
                                         #205
                                     </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
+                                </a> --}}
                             </div>
 
                         </div>
@@ -441,20 +422,20 @@
                 <!--end of connect wallet modal-->
 
                 <!--third section-->
-                <div id="second-dashboard-table" class="mt-3">
+                <div id="second-dashboard-table" class="d-none mt-3">
                     <div class="row">
                         <div class="col-7 col-md-10">
                             <h1 class="d-flex justify-content-center align-items-center"><img alt="dashboard-token-icon"
-                                    width="15" height="15" src="static/dashboard-token-icon.svg"><span
+                                    width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"><span
                                     style="margin-left: 0.5em;">LP
                                     Tokens</span></h1>
                         </div>
-                        <div class="col-5 col-md-2 d-flex justify-content-between">
+                        {{-- <div class="col-5 col-md-2 d-flex justify-content-between">
                             <span>Total: #4, 792</span>
                             <button id="fourth_table_dropdown-2" class="btn btn-sm table-expand-toggler"
                                 name="second-dashboard-table" onclick="view(this.name)"><i
                                     id="second_dashboard_table_dropdown_icon" class="fas fa-angle-down"></i></button>
-                        </div>
+                        </div> --}}
                     </div>
                     <!--table body-->
                     <div class="mb-3 w-100" style="overflow-x: auto; ">
@@ -464,12 +445,11 @@
                                 style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width7" style="padding-left: 5%;">Platform</div>
                                 <div class="table-width8 ">Asset</div>
-                                <div class="table-width8 d-flex justify-content-center">Balance</div>
-                                <div class="d-flex justify-content-center table-width8">Value
-                                </div>
+                                <div class="table-width8 d-flex justify-content-center">Balance<br>(Algo)</div>
+                                <div class="d-flex justify-content-center table-width8">Value<br>(Algo)</div>
                             </div>
                             <div id="second-dashboard-t-b-l-1" class="table-body-links mt-4">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
+                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
                                     style="font-size: medium;height: 3em;">
                                     <div class="d-flex align-items-center table-width7">
                                         <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
@@ -606,30 +586,7 @@
                                     <div class="d-flex align-items-center justify-content-center table-width8">
                                         #205
                                     </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
+                                </a> --}}
                             </div>
 
                         </div>
@@ -637,7 +594,7 @@
                     <!--end of table body-->
                 </div>
                 <!--end of third section-->
-
+{{-- 
                 <!--fourth section-->
                 <div id="third-dashboard-table" class="mt-3">
                     <div class="row">
@@ -1172,7 +1129,7 @@
                     </div>
                     <!--end of table body-->
                 </div>
-                <!--end of sixth section-->
+                <!--end of sixth section--> --}}
 
                 <!--mobile add placeholder visible only on small screens-->
                 <div class="d-block d-md-none mt-4 mb-4 crossed mr-2 ml-2"
@@ -1237,6 +1194,7 @@
 
     <script>
         const address = "{{$address}}";
+        var accountInfo;
 
         let token = "";
         let port = ""
@@ -1257,13 +1215,18 @@
             }else{
                 await showChart(transactionHistory);
             }
+
+            let listOfAssetsDetails = await getAssetsDetails();
+            if(listOfAssetsDetails.length > 0){
+                await displayAssets(listOfAssetsDetails);
+                console.log(JSON.stringify(accountInfo,null,4));
+            }
         }
 
         async function displayBalance() {
             var balanceHold = document.getElementById("balance");
             try {
-                let accountInfo = await client.lookupAccountByID(address).do();
-                console.log("Information for Account: " + JSON.stringify(accountInfo, undefined, 2));
+                accountInfo = await client.lookupAccountByID(address).do();
                 balanceHold.innerHTML = accountInfo.account.amount/1000000+" Algo";
             } catch (error) {
                 console.error(error);
@@ -1276,13 +1239,121 @@
                 let response = await client.searchForTransactions()
                     .address(address)
                     .txType("pay").do();
-                console.log("txn_type: pay = " + JSON.stringify(response, undefined, 2));
-
                 return response.transactions;
             } catch (error) {
                 console.error(error);
             }
             return [];
+        }
+
+        async function getAssetsDetails(){
+            //Get and return assets details of user {name, balance, unitname, price, value}
+            let listOfAssets = [];
+            try {
+                //loop through assets in accounts
+                let acctAssets = accountInfo.account.assets;
+                for(var i = 0; i<acctAssets.length; i++){
+                    //Get asset info
+                    let assetIndex = acctAssets[i];
+                    let assetId = assetIndex["asset-id"];
+                    let assetInfo = await client.searchForAssets()
+                        .index(assetId).do();
+                    console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
+                    let assetParams = assetInfo.assets[0].params;
+                    let balance = assetIndex.amount/10**assetParams.decimals;
+                    let price = await getPrice(assetId);
+
+                    listOfAssets.push({
+                        name: assetParams.name, 
+                        balance: balance,
+                        unitName: assetParams['unit-name'],
+                        price: price,
+                        value: balance * price
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+            }
+
+            return listOfAssets;
+        }
+
+        async function getPrice(assetId){
+            let url = "https://algocharts.net/apiv2/?asset_in="+assetId+"&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
+            
+            const config = {
+                'mode' : 'cors',
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }
+
+            let response = await fetch(url, config);
+            let data = await response.json();//Returns price, 24h price change, USD token value and Algorand to USD value saved for asset:
+
+            console.log("Value from AlgoCharts "+JSON.stringify(data,null,4));
+            return Number.parseFloat(data.data[0]).toFixed(5);
+        }
+
+        async function displayAssets(listOfAssetsDetails) {
+            //Filter through list of assets and display to appropriete field
+            for (let index = 0; index < listOfAssetsDetails.length; index++) {
+                const assetDetail = listOfAssetsDetails[index]; //{name, balance, unitname, price, value}
+                if(assetDetail.name.indexOf("-") > -1){
+                    document.getElementById("second-dashboard-table").classList.remove("d-none");
+                    showAssetOnPoolSection(assetDetail);
+                }else{
+                    document.getElementById("first-dashboard-table").classList.remove("d-none");
+                    showAssetOnTokenSection(assetDetail);
+                }
+            }
+        }
+
+        function showAssetOnPoolSection(assetDetail){
+            let layout = `<a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
+                                    style="font-size: medium;height: 3em;">
+                                    <div class="d-flex align-items-center table-width7">
+                                        <div style="margin-left: 5%;margin-right: 5%;"><i
+                                                class="fas fa-angle-down text-dark"></i></div>
+                                        <div class="img-box t-p-div"></div>
+                                        `+assetDetail.name+`
+                                    </div>
+                                    <div class="d-flex align-items-center table-width8">
+                                        <div class="img-box2 t-p-div2"></div>
+                                        `+assetDetail.unitName+`
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
+                                        style="line-height: 2px;">
+                                        `+assetDetail.balance+`
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center table-width8">
+                                        `+assetDetail.value+`
+                                    </div>
+                                </a>`;
+
+            document.getElementById("second-dashboard-t-b-l-1").innerHTML += layout;
+        }
+
+        function showAssetOnTokenSection(assetDetail){
+            let layout = `<a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
+                <div class="d-flex align-items-center table-width5">
+                    <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="img-box t-p-div" style="margin-left: 10px;"></div>
+                    <div>`+assetDetail.unitName+`</div>
+                </div>
+                <div class="d-flex align-items-center table-width6">
+                    `+assetDetail.balance+`
+                </div>
+                <div class="d-flex align-items-center table-width6">
+                    `+assetDetail.price+`
+                </div>
+                <div class="d-flex align-items-center table-width6">
+                    `+assetDetail.value+`
+                </div>
+            </a>`;
+            document.getElementById("first-dashboard-t-b-l-1").innerHTML += layout;
         }
     </script>
 

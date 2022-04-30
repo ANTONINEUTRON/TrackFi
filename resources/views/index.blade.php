@@ -132,7 +132,7 @@
           <!-- //left modal -->
 
           <div class="col-10" id="search_bar">
-            <form class="form-horizontal" id="search_form" method="POST" action="/dashboard" onkeydown="return event.key != 'Enter';">
+            <form class="form-horizontal" id="search_form" method="POST" action="/wallet_dashboard" onkeydown="return event.key != 'Enter';">
               {{ csrf_field() }}
               <div class="form-group">
                 <input id='nav-search' name="address" type="text" class=" form-control" style="width: 100%;"
