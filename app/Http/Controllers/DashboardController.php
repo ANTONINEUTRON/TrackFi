@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,9 +12,9 @@ class DashboardController extends Controller
         // die($currentUserAddress);
         //Check address
         if(!empty($address)){
-            return view('dashboard')->with('address',$address);
+            return view('wallet_dashboard')->with('address',$address);
         }else if(!empty($currentUserAddress)){
-            return view('dashboard')->with('address',$currentUserAddress);
+            return view('wallet_dashboard')->with('address',$currentUserAddress);
         }else{
             //Return home view with session error that is alerted
             return view('index')->with('error',"Invalid Address! \\nEither you connect your wallet address or paste a wallet address");
@@ -23,3 +22,4 @@ class DashboardController extends Controller
         //Returns dashboard view which has a js trigger for the address
     }
 }
+?>

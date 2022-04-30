@@ -42,7 +42,7 @@
                                                         class="fas fa-wallet" style="margin-right: 0.5em;"></i><span
                                                         class="ml-3">Connect Wallet</span></div>
                                             </a>
-                                            <a href="/dashboard"
+                                            <a href="/wallet_dashboard"
                                                 class="w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
                                                 <div class="d-flex align-items-center" style="width: 100%;"><i
                                                         class="fas fa-tachometer-alt"
@@ -307,11 +307,9 @@
     <!--footer section-->
     @include('includes.footer')
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script> -->
-    <!--locally hosted comment out during production and uncomment the one above-->
-    <script src="{{asset('css/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        crossorigin="anonymous"></script>
     <script src="{{asset('js/main.js')}}"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/algosdk@v1.15.0/dist/browser/algosdk.min.js"
@@ -326,8 +324,8 @@
         let token = "";
         let port = ""
         let server = "https://node.algoexplorerapi.io";
-        //https://api.algoexplorer.io -- mainnet https://api.testnet.algoexplorer.io
-        //https://node.algoexplorerapi.io
+        //https://node.algoexplorerapi.io -- mainnet https://api.testnet.algoexplorer.io
+        
         const client  = new algosdk.Algodv2(token, server, port);//connection client
 
         var email;
@@ -336,6 +334,7 @@
         window.onload = async (event)=>{
             value = await getToolxValueInAlgo();
         }
+
         //Get toolx 
         async function getToolxValueInAlgo() {
             let toolxId = 394014424;

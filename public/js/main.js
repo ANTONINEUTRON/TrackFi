@@ -172,7 +172,7 @@ function myFunction(e) {
   /* Get the text field */
 
   if (e == "dashboard_address") {
-    var copyText = document.getElementById("address").innerHTML;
+    var copyText = document.getElementById("keyval").innerHTML;
   } else if (e == "presale_address") {
     var copyText = document.getElementById("keyval").innerText;
   }

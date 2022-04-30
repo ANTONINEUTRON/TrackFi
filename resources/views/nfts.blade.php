@@ -44,7 +44,7 @@
                                                         class="fas fa-wallet" style="margin-right: 0.5em;"></i><span
                                                         class="ml-3">Connect Wallet</span></div>
                                             </a>
-                                            <a href="/dashboard"
+                                            <a href="/wallet_dashboard"
                                                 class="w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
                                                 <div class="d-flex align-items-center" style="width: 100%;"><i
                                                         class="fas fa-tachometer-alt"

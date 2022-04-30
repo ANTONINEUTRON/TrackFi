@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PresalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
+Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard']);
+Route::get('/nfts', function () {
+    return view('nfts');
+});
+Route::get('/stats', function() {
+    return view('stats');
+});
+Route::get('/presale', [PresalesController::class, 'showPresales']);
+Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 
-Route::get('/dashboard', function () {
+
+
+Route::get('dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
