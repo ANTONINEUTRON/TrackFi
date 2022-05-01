@@ -32,7 +32,19 @@ Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
 
 
 Route::get('dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('wallet', function () {
+    return view('admin.wallet');
+})->middleware(['auth'])->name('wallet');
+
+Route::get('presale', function () {
+    return view('admin.presale');
+})->middleware(['auth'])->name('presale');
+
+Route::get('advert', function () {
+    return view('admin.advert');
+})->middleware(['auth'])->name('advert');
 
 require __DIR__.'/auth.php';
