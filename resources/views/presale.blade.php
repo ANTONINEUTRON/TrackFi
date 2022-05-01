@@ -23,127 +23,10 @@
 
                     </div>
                     <!--navbar modal-->
-                    <div class="modal modal_outer left_modal fade" id="get_quote_modal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <form method="post" id="get_quote_frm">
-                                <div class="modal-content ">
-
-                                    <div class="modal-body h-100 p-0 pt-4" style="font-size: small;">
-                                        <div style="height: 70%;">
-                                            <a href="/"
-                                                class="w-100 g-0 btn btn-block d-flex justify-content-center text-light">
-                                                <div class="d-flex  align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-home" style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">Home</span></div>
-                                            </a>
-                                            <a href="#" id="connect" data-bs-toggle="modal" data-bs-target="#modal1"
-                                                class="w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-wallet" style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">Connect Wallet</span></div>
-                                            </a>
-                                            <a href="/wallet_dashboard"
-                                                class="w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-tachometer-alt"
-                                                        style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">Dashboard</span></div>
-                                            </a>
-                                            <a href="/nfts"
-                                                class="w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-image" style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">NFTS</span></div>
-                                            </a>
-                                            <a href="/stats" class="w-100 g-0 text-light btn btn-block d-flex mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;">
-                                                    <img alt="bar-chart" style="width: 20px;height: 20px;"
-                                                        src="{{asset('images/bar-chart-2.svg')}}"><span
-                                                        style="margin-left: 0.5em;">STATS</span>
-                                                </div>
-                                            </a>
-
-                                            <a href="/presale"
-                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2 active">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-tag" style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">PreSale</span></div>
-                                            </a>
-
-
-                                            <div class="dropdown mt-2">
-                                                <button class="w-100 btn btn-block text-light dropdown-toggle"
-                                                    type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                    <span class="col-4" style="margin-right: 1em;">
-                                                        <img style="width: 20px;height: 20px;"
-                                                            alt="more-horizontal-icon" src="{{asset('images/more-horizontal.svg')}}">
-                                                    </span>
-
-                                                    More
-                                                </button>
-                                                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1"
-                                                    style="background:inherit">
-                                                    <div class="d-grid justify-content-center">
-                                                        <a class="dropdown-item text-dark d-flex align-items-center "
-                                                            style="background-color: #00ffbb;" href="#">
-                                                            <div class="img-box m-p-div"></div><span>Placeholder</span>
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--settings dropdown start-->
-                                        <div>
-                                            <div class="dropdown mt-2">
-                                                <button class="w-100 btn btn-block text-light dropdown-toggle"
-                                                    type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false">
-
-                                                    <span style="margin-right: 10px;"><i
-                                                            class="fas fa-cog"></i></span>Settings
-                                                </button>
-                                                <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton2"
-                                                    style="background:inherit">
-                                                    <div class="d-grid justify-content-center">
-
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center" href="#">
-                                                            <div class="img-box m-p-div"></div>Placeholder
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--settings dropdown end -->
-                                    </div>
-
-
-
-                                </div><!-- //modal-content -->
-                            </form>
-                        </div><!-- modal-dialog -->
-                    </div><!-- modal -->
+                    
+                    @include('includes.navbar')
+                    <!-- modal -->
                     <!-- //left modal -->
-
-
 
 
                 </div>
@@ -224,12 +107,12 @@
                                     <form autocomplete="off" id="tranxForm" method="POST" class="form-horizontal mb-5">
                                         {{ csrf_field() }}
                                         <input name="transaction_id" type="hidden" id="trxIdVal" value="">
-                                        <div class="mb-3  ml-5 mr-5">
-                                            {{-- <label class="ml-5 form-label">
+                                        {{-- <div class="mb-3  ml-5 mr-5">
+                                             <label class="ml-5 form-label">
                                                 <b>Email</b>
-                                            </label> --}}
+                                            </label>
                                             <input name="email" type="email" id="email" class="form-control" placeholder="Email" required>
-                                        </div>
+                                        </div> --}}
                                         <div class="mb-3  ml-5 mr-5">
                                             {{-- <label class="ml-5 form-label">
                                                 <b>Amount</b> (Algo)
@@ -273,6 +156,7 @@
                         <line x1="0" y1="0" x2="100%" y2="100%" />
                     </svg>
                 </div>
+                
             </div>
         </div>
 
@@ -393,7 +277,7 @@
             document.getElementById("processing_section").classList.remove("d-none");
             document.getElementById("transId").innerHTML = txId;
 
-            document.getElementById("transResponse").innerHTML = "Transaction processing ......"
+            document.getElementById("transResponse").innerHTML = "Transaction processing ......";
 
             // Submit the transaction
             await client.sendRawTransaction(signedTxn.blob).do();
@@ -452,10 +336,10 @@
         async function initiateTranx() {
             //check if wallet is connected
             if(isWalletConnected()){
-                if(amt){
+                if(amt>1){
                     await performTransaction();//returns true if transaction is successful
                 }else{
-                    alert("Invalid amount entered");
+                    alert("Amount shouldn't be less than 1 Algo");
                 }
             }else{
                 let text = "You have not connected a wallet. \n You need a connected wallet in order to perform this transaction";
