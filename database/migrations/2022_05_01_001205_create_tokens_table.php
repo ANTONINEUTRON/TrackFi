@@ -17,10 +17,8 @@ class CreateTokensTable extends Migration
             $table->string("token_id",100)->primary();
             $table->text("name");
             $table->string("ticker",100);
-            $table->integer("decimals");
             $table->double("price");
             $table->double("price_change_24");
-            $table->double("token_value_in_dollars");
         });
     }
 

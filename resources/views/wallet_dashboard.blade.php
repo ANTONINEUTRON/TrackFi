@@ -1211,7 +1211,7 @@
                 var canvas = document.getElementById("myChart");
                 var ctx = canvas.getContext("2d");
                 ctx.font = "30px Arial";
-                ctx.fillText("No Transaction has been recorded on this account", 10, 50);
+                ctx.fillText("No Transaction Yet", 10, 50);
             }else{
                 await showChart(transactionHistory);
             }

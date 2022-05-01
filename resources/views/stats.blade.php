@@ -204,9 +204,9 @@
                         </div>
                         <div class="pt-1 pb-4 table-body">
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
-                                <span>Token</span><span>Price</span><span style="margin-right: 14px;">24H%</span>
+                                <span style="width: 40%">Token</span><span style="width: 32%">Price</span><span style="width: 10%">24H%</span>
                             </div>
-                            <div id="first-table-body-links-1" class="table-body-links-1">
+                            {{-- <div id="first-table-body-links-1" class="table-body-links-1">
                                 <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
                                     style="font-size: small;padding-right: 10px;">
                                     <span class="d-flex align-items-center">
@@ -214,15 +214,18 @@
                                     </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
                                             alt="gains-line-up" width="10" height="10"
                                             src="{{asset('images/gains-line-up.svg')}}"></span>
-                                </a>
+                                </a> --}}
+                                @for($i=0; $i <= 10; $i++)
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
+                                    <span class="d-flex align-items-center" style="width: 22%">
+                                    <span class="img-box t-p-div"></span>{{$result[$i]->ticker}}
+                                    </span><span style="width: 32%">{{$result[$i]->price}}</span><span>
+                                    <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                             alt="gains-line-up" width="10" height="10"
                                             src="{{asset('images/gains-line-up.svg')}}"></span>
                                 </a>
+                                @endfor
                                 {{-- <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
                                     <span class="d-flex align-items-center">
                                         <span class="img-box t-p-div"></span>Token
@@ -301,7 +304,7 @@
                         <div class="row">
                             <div class="col-9">
                                 <h3 class="d-flex align-items-center"><span style="margin-right: 10px;">Biggest
-                                        Loosers</span><img alt="chart-down-icon" width="10" height="10"
+                                        Losers</span><img alt="chart-down-icon" width="10" height="10"
                                         src="{{asset('images/chart-down-icon.svg')}}">
                                 </h3>
                             </div>
@@ -312,88 +315,23 @@
                         </div>
                         <div class="pt-1 pb-4 table-body">
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
-                                <span>Token</span><span>Price</span><span style="margin-right: 14px;">24H%</span>
+                                <span style="width: 40%">Token</span>
+                                <span style="width: 32%">Price</span>
+                                <span style="width: 10%">24H%</span>
                             </div>
                             <div id="second-table-body-links-1" class="table-body-links-1">
-                                <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
+                                @for($i= (count($result)-1); $i >= (count($result)-10); $i--)
+                                <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
                                     style="font-size: small;padding-right: 10px;">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
+                                    <span class="d-flex align-items-center" style="width: 22%">
+                                        <span class="img-box t-p-div"></span>{{$result[$i]->ticker}}
+                                    </span>
+                                    <span style="width: 32%">{{$result[$i]->price}}</span><span>
+                                    <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                             alt="lossess-line-down" width="10" height="10"
                                             src="{{asset('images/losses-line-down.svg')}}"></span>
                                 </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="{{asset('images/losses-line-down.svg')}}"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="{{asset('images/losses-line-down.svg')}}"></span>
-                                </a>
-                                {{-- <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a>
-                                <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
-                                    <span class="d-flex align-items-center">
-                                        <span class="img-box t-p-div"></span>Token
-                                    </span><span>$0.0034743</span><span><span style="margin-right: 5px;">10%</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="static/losses-line-down.svg"></span>
-                                </a> --}}
+                                @endfor
                             </div>
 
                         </div>
@@ -437,7 +375,8 @@
                                 </div>
                             </div>
                             <div id="third-table-body-links-1" class="table-body-links">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
+                                COMING SOON ......
+                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
                                         Platform
@@ -495,7 +434,7 @@
                                         <span><span style="margin-right: 5px;">10%</span><img width="10" height="10"
                                                 alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
                                     </div>
-                                </a>
+                                </a> --}}
                                 {{-- <a href="#" class="d-flex mb-1 btn pb-0 pt-0 table-links">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div">
@@ -829,7 +768,8 @@
                                 </div>
                             </div>
                             <div id="fourth-table-body-links-1" class="table-body-links">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
+                                COMING SOON .....
+                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
                                         Platform
@@ -864,7 +804,7 @@
                                         <span><span style="margin-right: 5px;">10%</span><img width="10" height="10"
                                                 alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
                                     </div>
-                                </a>
+                                </a> --}}
                                 {{-- <a href="#" class="d-flex mb-1 btn pb-0 pt-0 table-links">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div">

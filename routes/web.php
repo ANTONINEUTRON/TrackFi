@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresalesController;
 use App\Http\Controllers\WalletController;
+use App\Http\Controllers\StatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,12 @@ use App\Http\Controllers\WalletController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard'])->name('dashboard');
-Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
+Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
+Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard']);
 Route::get('/nfts', function () {
     return view('nfts');
 });
-Route::get('/stats', function() {
-    return view('stats');
-});
+Route::get('/stats', [StatsController::class, 'showStats']);
 Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
