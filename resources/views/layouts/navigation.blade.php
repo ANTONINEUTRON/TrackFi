@@ -15,15 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('wallet')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
                         {{ __('Wallet') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('presale')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('view_presale')" :active="request()->routeIs('view_presale')">
                         {{ __('Presale') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('advert')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('advert')" :active="request()->routeIs('advert')">
                         {{ __('Adverts') }}
                     </x-nav-link>
+                    {{-- <x-nav-link :href="route('tokens')" :active="request()->routeIs('dashboard')">
+                        {{ __('Tokens') }}
+                    </x-nav-link> --}}
                 </div>
             </div>
 

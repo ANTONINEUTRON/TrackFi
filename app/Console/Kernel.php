@@ -38,11 +38,11 @@ class Kernel extends ConsoleKernel
             //Add to Db
             DB::table('tokens')->insert($arrayOfTokens);
         })
-        ->daily();
+        ->everyMinute();
     }
 
     private function getTokensFromTinyChart(){
-        $url = "https://free-api.vestige.fi/assets";
+        $url = "https://free-api.vestige.fi/assets/list";
         $response = Http::get($url);
         return json_decode($response->body()); //Returns an array of token details on the algorand network
     }

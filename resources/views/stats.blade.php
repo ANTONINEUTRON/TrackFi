@@ -89,8 +89,8 @@
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
                                 <span style="width: 40%">Token</span><span style="width: 32%">Price</span><span style="width: 10%">24H%</span>
                             </div>
-                            {{-- <div id="first-table-body-links-1" class="table-body-links-1">
-                                <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
+                            <div id="first-table-body-links-1" class="table-body-links-1">
+                                {{-- <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
                                     style="font-size: small;padding-right: 10px;">
                                     <span class="d-flex align-items-center">
                                         <span class="img-box t-p-div"></span>Token
@@ -102,7 +102,7 @@
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
                                     <span class="d-flex align-items-center" style="width: 22%">
-                                    <span class="img-box t-p-div"></span>{{$result[$i]->ticker}}
+                                    <span class="img-box t-p-div"></span>{{$result[$i]->name}}
                                     </span><span style="width: 32%">{{$result[$i]->price}}</span><span>
                                     <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                             alt="gains-line-up" width="10" height="10"
@@ -207,7 +207,7 @@
                                 <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
                                     style="font-size: small;padding-right: 10px;">
                                     <span class="d-flex align-items-center" style="width: 22%">
-                                        <span class="img-box t-p-div"></span>{{$result[$i]->ticker}}
+                                        <span class="img-box t-p-div"></span>{{$result[$i]->name}}
                                     </span>
                                     <span style="width: 32%">{{$result[$i]->price}}</span><span>
                                     <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img

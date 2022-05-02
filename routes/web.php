@@ -39,12 +39,14 @@ Route::get('wallet', function () {
     return view('admin.wallet');
 })->middleware(['auth'])->name('wallet');
 
-Route::get('presale', function () {
-    return view('admin.presale');
-})->middleware(['auth'])->name('presale');
+Route::get('view_presale', [App\Http\Controllers\admin\PresalesController::class, 'showPresales'])->middleware(['auth'])->name('view_presale');
 
 Route::get('advert', function () {
     return view('admin.advert');
 })->middleware(['auth'])->name('advert');
+
+Route::get('tokens', function () {
+    return view('admin.tokens');
+})->middleware(['auth'])->name('tokens');
 
 require __DIR__.'/auth.php';

@@ -89,16 +89,6 @@
                             <span class="bg-light text-dark" style="width: 13em;overflow-x: auto;">
                                 4B7S3A73Y643XSA.......BM</span>
                         </span>
-                        <span class="body-text2 text-center mt-3">
-                            Please note that Algo is strictly accepted from an Algo wallet. Exchanges are yet to be
-                            facilitated!
-                        </span>
-                        <span class="body-text2 text-center mt-3">
-                            Follow our social media handles as all information regarding the presale will be posted
-                            there.
-                            This includes the date and time presale would be held and any further information to be
-                            disseminated.
-                        </span>
 
                         <!--Form starts here  -->
                         <div class="justify-content-center text-center mt-5">
@@ -142,6 +132,17 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <span class="body-text2 text-center mt-3">
+                            Please note that Algo is strictly accepted from an Algo wallet. Exchanges are yet to be
+                            facilitated!
+                        </span>
+                        <span class="body-text2 text-center mt-3">
+                            Follow our social media handles as all information regarding the presale will be posted
+                            there.
+                            This includes the date and time presale would be held and any further information to be
+                            disseminated.
+                        </span>
                     </div>
 
                 </div>
@@ -273,14 +274,14 @@
             const myAlgoConnect = new MyAlgoConnect();
             const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
             
+            // Submit the transaction
+            await client.sendRawTransaction(signedTxn.blob).do();
+
             //show user transaction id with support for copy
             document.getElementById("processing_section").classList.remove("d-none");
             document.getElementById("transId").innerHTML = txId;
 
             document.getElementById("transResponse").innerHTML = "Transaction processing ......";
-
-            // Submit the transaction
-            await client.sendRawTransaction(signedTxn.blob).do();
 
             // Wait for confirmation
             let confirmedTxn = await algosdk.waitForConfirmation(client, txId, 4);
@@ -336,7 +337,7 @@
         async function initiateTranx() {
             //check if wallet is connected
             if(isWalletConnected()){
-                if(amt>1){
+                if(amt){
                     await performTransaction();//returns true if transaction is successful
                 }else{
                     alert("Amount shouldn't be less than 1 Algo");
