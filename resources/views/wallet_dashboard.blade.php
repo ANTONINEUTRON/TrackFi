@@ -86,7 +86,8 @@
                                 <span style="padding-left: 0">
                                     <i style="font-size: small;padding-left: 0;" class="fas fa-sync text-light btn"></i>
                                 </span>
-                                <span style="word-wrap: break-word; width: 90%;" id='keyval'>HTI7.......aTzN9</span>
+                                <span style="word-wrap: break-word; width: 90%;" class="d-none" id='keyval'>HTI7.......aTzN9</span>
+                                <span style="word-wrap: break-word; width: 90%;" id='addr_key'>HTI7.......aTzN9</span>
                             </span>
                         </div>
                         <div class="h-50 d-flex justify-content-center align-items-center">
@@ -1087,6 +1088,7 @@
         const client  = new algosdk.Indexer(token, server, port);//connection client
 
         window.onload = async (event)=>{
+            document.getElementById("addr_key").innerHTML = truncate(address);
             document.getElementById("keyval").innerHTML = address;
             await displayBalance();
 
@@ -1116,6 +1118,10 @@
                 console.error(error);
                 balanceHold.innerHTML = "Couldn't fetch Balance";
             }
+        }
+
+        function truncate(address){
+            return address.substring(0,6)+"........."+address.substring(address.length-7, address.length-1);
         }
 
         async function getArrayOfTranxHistory() {

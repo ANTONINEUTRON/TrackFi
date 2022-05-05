@@ -13,6 +13,6 @@ class WalletController extends Controller
         // $response = new Response("200");
         // $response->withCookie();
 
-        return redirect('dashboard')->withCookie(cookie()->forever('trackfi_wallet_address', $address,null,null,null,false,false,null));
+        return redirect('wallet_dashboard')->withCookie(cookie()->forever('trackfi_wallet_address', $address,null,null,null,false,false,null));
     }
 }

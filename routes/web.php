@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresalesController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\admin\AdminWalletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +36,11 @@ Route::get('dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('wallet', function () {
-    return view('admin.wallet');
-})->middleware(['auth'])->name('wallet');
+Route::get('wallet', [AdminWalletController::class,'display'])
+->middleware(['auth'])->name('wallet');
 
-Route::get('view_presale', [App\Http\Controllers\admin\PresalesController::class, 'showPresales'])->middleware(['auth'])->name('view_presale');
+Route::get('view_presale', [App\Http\Controllers\admin\PresalesController::class, 'showPresales'])
+->middleware(['auth'])->name('view_presale');
 
 Route::get('advert', function () {
     return view('admin.advert');
@@ -48,5 +49,8 @@ Route::get('advert', function () {
 Route::get('tokens', function () {
     return view('admin.tokens');
 })->middleware(['auth'])->name('tokens');
+
+Route::post('set_wallet', [AdminWalletController::class,'setWallet'])
+->middleware(['auth'])->name('set_wallet');
 
 require __DIR__.'/auth.php';
