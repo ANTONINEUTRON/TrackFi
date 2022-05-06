@@ -86,8 +86,8 @@
                                 <span style="padding-left: 0">
                                     <i style="font-size: small;padding-left: 0;" class="fas fa-sync text-light btn"></i>
                                 </span>
-                                <span style="word-wrap: break-word; width: 90%;" class="d-none" id='keyval'>HTI7.......aTzN9</span>
-                                <span style="word-wrap: break-word; width: 90%;" id='addr_key'>HTI7.......aTzN9</span>
+                                <span class="d-none" id='keyval'>HTI7.......aTzN9</span>
+                                <span id='addr_key'>HTI7.......aTzN9</span>
                             </span>
                         </div>
                         <div class="h-50 d-flex justify-content-center align-items-center">
@@ -122,13 +122,14 @@
                 <!--start of third table -->
 
                 <!--second section-->
-                <div id="first-dashboard-table" class="d-none mt-4">
+                <div id="first-dashboard-table" class="mt-4">
                     <div class="row">
-                        <div class=" col-7 col-md-10">
+                        <div class=" col-7 col-md-12">
                             <h1 class="d-flex justify-content-center"><span
-                                    style="margin-right:10px; font-size: large;"><img alt="dashboard-token-icon"
-                                        width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"></span><span
-                                    style="margin-left: 0.5em;">Tokens</span></h1>
+                                    style="margin-right:10px; font-size: large;">
+                                    <img alt="dashboard-token-icon" width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"></span>
+                                    <span style="margin-left: 0.5em;">Tokens</span>
+                            </h1>
                         </div>
                         {{-- <div class="col-5 col-md-2 d-flex justify-content-between">
                             <span>Total: #4, 792</span>
@@ -145,154 +146,12 @@
                                 style="width: 100%; font-size: large;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width5" style="padding-left: 9%;">Token</div>
                                 <div class="table-width6 ">Balance</div>
-                                <div class="table-width6">Price<br>(Algo)</div>
-                                <div class="table-width6">Value<br>(Algo)</div>
+                                <div class="table-width6" style="margin-left: 10px;">Price<br>(Algo)</div>
+                                <div class="table-width6"  style="margin-left: 10px;">Value<br>(Algo)</div>
                             </div>
                             <div id="first-dashboard-t-b-l-1" class="table-body-links-1 mt-2">
-                                {{-- <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
-                                    <div class="d-flex align-items-center table-width5">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                                        <div>Token</div>
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-
-                                        2.568
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #139
-                                    </div>
-                                    <div class="d-flex align-items-center table-width6">
-                                        #205
-                                    </div>
-                                </a> --}}
+                                <span id="no_token_found">Loading Token .......</span>
+                                {{-- The tokens will be loaded here --}}
                             </div>
 
                         </div>
@@ -307,11 +166,11 @@
                 <!--end of connect wallet modal-->
 
                 <!--third section-->
-                <div id="second-dashboard-table" class="d-none mt-3">
+                <div id="second-dashboard-table" class="mt-3">
                     <div class="row">
                         <div class="col-7 col-md-10">
                             <h1 class="d-flex justify-content-center align-items-center"><img alt="dashboard-token-icon"
-                                    width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"><span
+                                    width="15" height="15" src=" {{asset('images/dashboard-token-icon.svg')}}"><span
                                     style="margin-left: 0.5em;">LP
                                     Tokens</span></h1>
                         </div>
@@ -333,145 +192,9 @@
                                 <div class="table-width8 d-flex justify-content-center">Balance<br>(Algo)</div>
                                 <div class="d-flex justify-content-center table-width8">Value<br>(Algo)</div>
                             </div>
-                            <div id="second-dashboard-t-b-l-1" class="table-body-links mt-4">
-                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a> --}}
+                            <div id="second-dashboard-t-b-l-1" class="table-body-links-1 mt-4">
+                                <span id="no_pool_found">Loading Liquidity Pool .......</span>
+                                {{-- The LP tokens will be loaded here --}}
                             </div>
 
                         </div>
@@ -1062,6 +785,23 @@
         </div>
         <!--End of right sidebar-->
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="assetDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div style="width: 100%;" class="modal-content bg-dark">
+            <div class="modal-header">
+              <h5 class="modal-title" id="assetDetailTitle">Modal title</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="assetDetailBody" class="modal-body text-light">
+                {{-- The token details will be here --}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+
     @include('includes.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -1079,18 +819,25 @@
 
     <script>
         const address = "{{$address}}";
-        var accountInfo;
+        
+        const noPoolFoundSpan = document.getElementById("no_pool_found");
+        const noTokenFoundSpan = document.getElementById("no_token_found");
 
         let token = "";
         let port = ""
         let server = " https://algoindexer.algoexplorerapi.io";
+        let USER_BALANCE = 0;
         
         const client  = new algosdk.Indexer(token, server, port);//connection client
+
+        
+        var accountInfo;
+        var listOfAssetsDetails;
 
         window.onload = async (event)=>{
             document.getElementById("addr_key").innerHTML = truncate(address);
             document.getElementById("keyval").innerHTML = address;
-            await displayBalance();
+            await fetchAccountDetails();
 
             var transactionHistory = await getArrayOfTranxHistory();
             if(transactionHistory.length < 1){
@@ -1102,26 +849,43 @@
                 await showChart(transactionHistory);
             }
 
-            let listOfAssetsDetails = await getAssetsDetails();
+            listOfAssetsDetails = await getAssetsDetails();
             if(listOfAssetsDetails.length > 0){
                 await displayAssets(listOfAssetsDetails);
                 console.log(JSON.stringify(accountInfo,null,4));
+            }
+            
+            if(noPoolFoundSpan.style.display != 'none'){
+                noPoolFoundSpan.innerHTML = "No Pool Found";
+            }
+
+            if(noTokenFoundSpan.style.display != 'none'){
+                noTokenFoundSpan.innerHTML = "No Token Found";
+            }
+            await displayBalance();
+        }
+
+        async function fetchAccountDetails(){
+            try {
+                accountInfo = await client.lookupAccountByID(address).do();
+            } catch (error) {
+                console.error(error);
+                alert("couldn't fetch your wallet details, refresh page");
             }
         }
 
         async function displayBalance() {
             var balanceHold = document.getElementById("balance");
-            try {
-                accountInfo = await client.lookupAccountByID(address).do();
-                balanceHold.innerHTML = accountInfo.account.amount/1000000+" Algo";
-            } catch (error) {
-                console.error(error);
-                balanceHold.innerHTML = "Couldn't fetch Balance";
+            if(accountInfo){
+                USER_BALANCE += accountInfo.account.amount/1000000;
+                balanceHold.innerHTML = formatNumber(Number.parseFloat(USER_BALANCE).toFixed(5))+" Algo";
+            }else{
+                balanceHold.innerHTML = "Couldn't fetch Account Details";
             }
         }
 
         function truncate(address){
-            return address.substring(0,6)+"........."+address.substring(address.length-7, address.length-1);
+            return address.substring(0,6)+"............"+address.substring(address.length-7, address.length-1);
         }
 
         async function getArrayOfTranxHistory() {
@@ -1129,11 +893,18 @@
                 let response = await client.searchForTransactions()
                     .address(address)
                     .txType("pay").do();
-                return response.transactions;
+                return filterForOnlyPayments(response.transactions);
             } catch (error) {
                 console.error(error);
             }
             return [];
+        }
+
+        function filterForOnlyPayments(transactionHistory){
+            //Filter the list of transactions for only transactions that inolve payment
+            return transactionHistory.filter(element => {
+                return element["tx-type"] == "pay";
+            });
         }
 
         async function getAssetsDetails(){
@@ -1141,25 +912,35 @@
             let listOfAssets = [];
             try {
                 //loop through assets in accounts
+                console.log(JSON.stringify(accountInfo,null,4));
                 let acctAssets = accountInfo.account.assets;
-                for(var i = 0; i<acctAssets.length; i++){
-                    //Get asset info
-                    let assetIndex = acctAssets[i];
-                    let assetId = assetIndex["asset-id"];
-                    let assetInfo = await client.searchForAssets()
-                        .index(assetId).do();
-                    console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
-                    let assetParams = assetInfo.assets[0].params;
-                    let balance = assetIndex.amount/10**assetParams.decimals;
-                    let price = await getPrice(assetId);
+                if(acctAssets){
+                    for(var i = 0; i<acctAssets.length; i++){
+                        //Get asset info
+                        let assetIndex = acctAssets[i];
+                        let assetId = assetIndex["asset-id"];
+                        let assetInfo = await client.searchForAssets()
+                            .index(assetId).do();
+                        console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
+                        let assetParams = assetInfo.assets[0].params;
+                        let balance = assetIndex.amount/10**assetParams.decimals;
+                        let priceAndPriceChange = await getPrice(assetId);
+                        let price = priceAndPriceChange.price
+                        let priceChange = priceAndPriceChange.price_change_24;
+                        let value = balance * price;
+                        USER_BALANCE += value;
 
-                    listOfAssets.push({
-                        name: assetParams.name, 
-                        balance: balance,
-                        unitName: assetParams['unit-name'],
-                        price: price,
-                        value: balance * price
-                    });
+                        listOfAssets.push({
+                            id: assetId,
+                            name: assetParams.name, 
+                            balance: balance,
+                            unitName: assetParams['unit-name'],
+                            priceChange: priceChange,
+                            price: price,
+                            value: value,
+                            url: assetParams.url
+                        });
+                    }
                 }
             } catch (error) {
                 console.error(error);
@@ -1170,9 +951,9 @@
 
         async function getPrice(assetId){
             let url = "https://algocharts.net/apiv2/?asset_in="+assetId+"&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
-            
+            //"/price"+assetId;
             const config = {
-                'mode' : 'cors',
+                mode: 'cors',
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -1180,29 +961,40 @@
             }
 
             let response = await fetch(url, config);
-            let data = await response.json();//Returns price, 24h price change, USD token value and Algorand to USD value saved for asset:
+            let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
 
-            console.log("Value from AlgoCharts "+JSON.stringify(data,null,4));
-            return Number.parseFloat(data.data[0]).toFixed(5);
+            console.log("Value from SERVER ABT COIN "+JSON.stringify(data,null,4));
+            //return data[0];//Number.parseFloat().toFixed(5);
+            return {
+                price: data.data[0],
+                price_change_24: data.data[1]
+            }
         }
 
         async function displayAssets(listOfAssetsDetails) {
             //Filter through list of assets and display to appropriete field
             for (let index = 0; index < listOfAssetsDetails.length; index++) {
                 const assetDetail = listOfAssetsDetails[index]; //{name, balance, unitname, price, value}
-                if(assetDetail.name.indexOf("-") > -1){
-                    document.getElementById("second-dashboard-table").classList.remove("d-none");
-                    showAssetOnPoolSection(assetDetail);
-                }else{
-                    document.getElementById("first-dashboard-table").classList.remove("d-none");
-                    showAssetOnTokenSection(assetDetail);
+                if(assetDetail.balance > 0){
+                    if(assetDetail.name.indexOf("-") > -1){
+                        //hide no pool found
+                        noPoolFoundSpan.style.display= 'none';
+                        // document.getElementById("second-dashboard-table").classList.remove("d-none");
+                        showAssetOnPoolSection(assetDetail);
+                    }else{
+                        //hide no token found
+                        noTokenFoundSpan.style.display= 'none';
+                        // document.getElementById("first-dashboard-table").classList.remove("d-none");
+                        showAssetOnTokenSection(assetDetail);
+                    }
                 }
             }
+            
         }
 
         function showAssetOnPoolSection(assetDetail){
-            let layout = `<a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
+            let layout = `<a href="" id="`+assetDetail.id+`" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0" data-bs-toggle="modal" data-bs-target="#assetDetailsModal"
+                                    onclick="showAssetDetailOnModal(`+assetDetail.id+`)" style="font-size: medium;height: 3em;">
                                     <div class="d-flex align-items-center table-width7">
                                         <div style="margin-left: 5%;margin-right: 5%;"><i
                                                 class="fas fa-angle-down text-dark"></i></div>
@@ -1213,7 +1005,7 @@
                                         <div class="img-box2 t-p-div2"></div>
                                         `+assetDetail.unitName+`
                                     </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
+                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8"
                                         style="line-height: 2px;">
                                         `+assetDetail.balance+`
                                     </div>
@@ -1226,7 +1018,8 @@
         }
 
         function showAssetOnTokenSection(assetDetail){
-            let layout = `<a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2">
+            let layout = `<a href="" id="`+assetDetail.id+`" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2"
+                onclick="showAssetDetailOnModal(`+assetDetail.id+`)" data-bs-toggle="modal" data-bs-target="#assetDetailsModal">
                 <div class="d-flex align-items-center table-width5">
                     <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
                     </div>
@@ -1236,14 +1029,40 @@
                 <div class="d-flex align-items-center table-width6">
                     `+assetDetail.balance+`
                 </div>
-                <div class="d-flex align-items-center table-width6">
-                    `+assetDetail.price+`
+                <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
+                    `+Number.parseFloat(assetDetail.price).toFixed(8)+`
                 </div>
-                <div class="d-flex align-items-center table-width6">
-                    `+assetDetail.value+`
+                <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
+                    `+Number.parseFloat(assetDetail.value).toFixed(8)+`
                 </div>
             </a>`;
             document.getElementById("first-dashboard-t-b-l-1").innerHTML += layout;
+        }
+
+        function showAssetDetailOnModal(assetId){
+            // id: assetId,
+            //                 name: assetParams.name, 
+            //                 balance: balance,
+            //                 unitName: assetParams['unit-name'],
+            //                 priceChange: priceChange,
+            //                 price: price,
+            //                 value: value,
+            //                 url: assetParams.url
+            let assetObj = listOfAssetsDetails.filter(element=>{
+                return element.id == assetId;
+            })[0];
+            console.log(JSON.stringify(assetObj,null,4));
+            let detailsBody = assetObj.name+`<br>
+                        <b>ID: </b>  `+assetObj.id+`<br>
+                        <b>Price: </b>  `+assetObj.price+`<br>
+                        <b>Price Change(24h): </b>  `+assetObj.priceChange+`<br>
+                        <a  class="text-success" target="_blank" href="`+assetObj.url+`">Website</a>`;
+            document.getElementById("assetDetailTitle").innerHTML = assetObj.unitName;
+            document.getElementById("assetDetailBody").innerHTML = detailsBody;
+        }
+
+        function formatNumber(x) {
+            return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
 

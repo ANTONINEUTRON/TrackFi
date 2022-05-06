@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 array_push($arrayOfTokens, $arr);
             }
             //Add to Db
-            DB::table('tokens')->insert($arrayOfTokens);
+            DB::table('tokens')->upsert($arrayOfTokens);
         })
         ->everyMinute();
     }

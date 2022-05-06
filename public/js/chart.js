@@ -3,12 +3,12 @@ var yAxisLabel;
 
 async function showChart(transactionHistory) {
   //Get date range
-  xAxisLabel = getDateRange(transactionHistory);
+  xAxisLabel = getTransactionDate(transactionHistory);//getDateRange(transactionHistory);
   //Get amount
-  yAxisLabel = getTransactionAmt(transactionHistory);
+  yAxisLabel = getDateAndAmountPair(transactionHistory);
 
 
-
+  
   //getting min val to use for mobile and large screens
   let width = window.innerWidth;
 
@@ -126,28 +126,9 @@ async function showChart(transactionHistory) {
 
 
 
-function getTransactionAmt(transactionHistory){//Returns list
-  var transactionsList = []; //to contains object that will show points
-  var dateAndAmountObj = getDateAndAmountPair(transactionHistory);
-
-  for(var i = 0; i < xAxisLabel.length; i++){
-    var xDate = xAxisLabel[i];
-    for(var j = 0; j < dateAndAmountObj.length; j++){
-      var dateAndAmt = dateAndAmountObj[j];
-      if(dateAndAmt.date == xDate){
-        transactionsList.push({x: dateAndAmt.date, y: dateAndAmt.amount})
-      }
-    }
-
-    // if(transactionsList.length == xAxisLabel)
-  }
-
-  return transactionsList;
-}
-
 function getDateAndAmountPair(transactionHistory){
   var listOfAmtAndDate = [];
-  for(var i = 0; i<transactionHistory.length; i++){
+  for(var i = transactionHistory.length - 1; i>=0; i--){
     var trx = transactionHistory[i];
     //get date
     var dte = new Date(trx["round-time"] * 1000);
@@ -155,34 +136,22 @@ function getDateAndAmountPair(transactionHistory){
     //get amount
     var amt = trx["payment-transaction"].amount/1000000;
     //save as object to list
-    listOfAmtAndDate.push({date: ddate, amount: amt});
+    listOfAmtAndDate.push({x: ddate, y: amt});
   }
 
   console.log("PaiRS "+JSON.stringify(listOfAmtAndDate,null,4));
-  return listOfAmtAndDate;
+  return listOfAmtAndDate.slice(Math.max(transactionHistory.length - 17, 0));
 }
-    
-function getDateRange(transactionHistory){
-  var listOfDate = [];
 
-  var initTrans = transactionHistory[transactionHistory.length-1];
-  var startTimeStamp = initTrans["round-time"];
-  // console.log("List length "+transactionHistory.length+" ==START "+startTimeStamp+" ACTUAL="+new Date(startTimeStamp *1000));
-
-  var finalTrans = transactionHistory[0];
-  var endTimeStamp = finalTrans["round-time"];
-  // console.log(" ==END "+endTimeStamp+" ACTUAL="+new Date(endTimeStamp *1000));
-
-  var startDate = new Date(startTimeStamp * 1000);
-  // console.log("start "+startDate);
-  var endDate = new Date();
-  // console.log("End "+endDate);
-  for(var dt = new Date(startDate); dt<= new Date(endDate); dt.setDate(dt.getDate()+1)){
-    var dte = new Date(dt);
-    listOfDate.push(getDateFormat(dte));
+function getTransactionDate(transactionHistory){
+  let arrOfDates = [];
+  for(var i=transactionHistory.length-1; i>=0; i--){
+    let element = transactionHistory[i];
+    let datee = new Date(element["round-time"]*1000);
+    console.log(JSON.stringify(datee,null,4));
+    arrOfDates.push(getDateFormat(datee));
   }
-  console.log("List of  Date -"+listOfDate.toString());
-  return listOfDate.slice(Math.max(transactionHistory.length - 20, 0));
+  return arrOfDates.slice(Math.max(transactionHistory.length - 17, 0));
 }
 
 function getDateFormat(dte){

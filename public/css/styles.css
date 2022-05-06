@@ -122,7 +122,7 @@ a.dropdown-item:hover {
   width: 100%;
 }
 .table-body-links-1 {
-  height: 28vh;
+  /* height: 28vh; */
   overflow: auto;
 }
 .table-body-links-1::-webkit-scrollbar {
@@ -367,7 +367,7 @@ a {
     width: 20%;
   }
   .table-width4 {
-    width: 15%;
+    width: 25%;
   }
 
   .table-width {

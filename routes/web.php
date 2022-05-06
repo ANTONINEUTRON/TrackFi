@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresalesController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\GetPriceDetailsController;
 use App\Http\Controllers\admin\AdminWalletController;
 
 /*
@@ -30,6 +31,7 @@ Route::get('/stats', [StatsController::class, 'showStats']);
 Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
+Route::get('/price/{assetid}',  [GetPriceDetailsController::class, 'getPrice']);
 
 
 Route::get('dashboard', function () {

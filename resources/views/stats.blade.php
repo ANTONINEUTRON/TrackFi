@@ -98,11 +98,11 @@
                                             alt="gains-line-up" width="10" height="10"
                                             src="{{asset('images/gains-line-up.svg')}}"></span>
                                 </a> --}}
-                                @for($i=0; $i <= 10; $i++)
+                                @for($i=0; $i < 10; $i++)
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
                                     <span class="d-flex align-items-center" style="width: 22%">
-                                    <span class="img-box t-p-div"></span>{{$result[$i]->name}}
+                                    <span class="img-box t-p-div"></span>{{$result[$i]->ticker ?: $result[$i]->name}}
                                     </span><span style="width: 32%">{{$result[$i]->price}}</span><span>
                                     <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                             alt="gains-line-up" width="10" height="10"
@@ -204,16 +204,16 @@
                             </div>
                             <div id="second-table-body-links-1" class="table-body-links-1">
                                 @for($i= (count($result)-1); $i >= (count($result)-10); $i--)
-                                <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
-                                    style="font-size: small;padding-right: 10px;">
-                                    <span class="d-flex align-items-center" style="width: 22%">
-                                        <span class="img-box t-p-div"></span>{{$result[$i]->name}}
-                                    </span>
-                                    <span style="width: 32%">{{$result[$i]->price}}</span><span>
-                                    <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
-                                            alt="lossess-line-down" width="10" height="10"
-                                            src="{{asset('images/losses-line-down.svg')}}"></span>
-                                </a>
+                                    <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
+                                        style="font-size: small;padding-right: 10px;">
+                                        <span class="d-flex align-items-center" style="width: 22%">
+                                            <span class="img-box t-p-div"></span>{{$result[$i]->ticker ?: $result[$i]->name}}
+                                        </span>
+                                        <span style="width: 32%">{{$result[$i]->price}}</span><span>
+                                        <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
+                                                alt="lossess-line-down" width="10" height="10"
+                                                src="{{asset('images/losses-line-down.svg')}}"></span>
+                                    </a>
                                 @endfor
                             </div>
 
@@ -1061,38 +1061,14 @@
         </div>
         <!--End of right sidebar-->
     </div>
-    {{-- <footer id="footer" class="d-flex text-dark justify-content-between mt-1" style="height: 5vh">
-        <div><img alt="footer-trackfi" src="static/footer-trackfi.svg"></div>
-        <div class="h1 d-flex justify-content-around footer-icons align-items-center h-100">
-            <a href="#">
-                <i class="fab fa-reddit-square"></i></a>
-            <a href="#">
-                <i class="fab fa-twitter-square"></i></a>
-            <a href="#">
-                <div class="d-flex justify-content-center align-items-center"
-                    style="width: 0.85em;height: 0.85em; background-color: #03031b;position: relative;">
-                    <i class='fab fa-telegram tel-sty'></i>
-                </div>
-            </a>
-            <a href="#">
-                <i class="fas fa-envelope-square"></i></a>
-            <a href="#">
-                <i class="fab fa-discord"></i></a>
-        </div>
-    </footer> --}}
+    
     @include('includes.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <!--locally hosted comment out during production and uncomment the one above-->
-    <script src="asset('js/main.js')"></script>
-    <script>
-        {{--
-        //Fetch all assets from tinycharts
-        //check and show price from algocharts
-        --}}
-    </script>
+    <script src="{{asset('js/main.js')}}"></script>
 
 </body>
 
