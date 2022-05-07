@@ -92,7 +92,7 @@
 
                         <!--Form starts here  -->
                         <div class="justify-content-center text-center mt-5">
-                            <div class="col-md-8 card bg-dark mx-auto">
+                            <div class="col-md-8 card mx-auto" style="background-color: #03031b;">
                                 <div class="card-body text-center">
                                     <form autocomplete="off" id="tranxForm" method="POST" class="form-horizontal mb-5">
                                         {{ csrf_field() }}
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                         
-                        <span class="body-text2 text-center mt-3">
+                        <span class="body-text2 text-center">
                             Please note that Algo is strictly accepted from an Algo wallet. Exchanges are yet to be
                             facilitated!
                         </span>

@@ -24,7 +24,8 @@
 
                             <x-input id="wallet" class="block mt-1 w-full" type="text" name="wallet" placeholder="{{$wallet}}"  autofocus required/>
                         </div>
-                        <x-button class="mt-3">
+                        
+                        <x-button class="bg-blue-500 hover:bg-blue-700 mt-3">
                             {{ __('Submit') }}
                         </x-button>
                     </form>
