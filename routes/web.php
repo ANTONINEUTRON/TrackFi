@@ -7,6 +7,7 @@ use App\Http\Controllers\WalletController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\GetPriceDetailsController;
 use App\Http\Controllers\admin\AdminWalletController;
+use App\Http\Controllers\admin\AdvertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
 Route::get('/price/{assetid}',  [GetPriceDetailsController::class, 'getPrice']);
+Route::post('/add_adverts', [AdvertController::class, 'createNewAdvert'])->name("add.advert");
 
 
 Route::get('dashboard', function () {
