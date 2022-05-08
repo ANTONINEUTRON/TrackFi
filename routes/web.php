@@ -33,7 +33,6 @@ Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
 Route::get('/price/{assetid}',  [GetPriceDetailsController::class, 'getPrice']);
-Route::post('/add_adverts', [AdvertController::class, 'createNewAdvert'])->name("add.advert");
 
 
 Route::get('dashboard', function () {
@@ -46,9 +45,7 @@ Route::get('wallet', [AdminWalletController::class,'display'])
 Route::get('view_presale', [App\Http\Controllers\admin\PresalesController::class, 'showPresales'])
 ->middleware(['auth'])->name('view_presale');
 
-Route::get('advert', function () {
-    return view('admin.advert');
-})->middleware(['auth'])->name('advert');
+Route::get('advert', [AdvertController::class, 'displayAdminAdsPanel'])->middleware(['auth'])->name('advert');
 
 Route::get('tokens', function () {
     return view('admin.tokens');
@@ -56,5 +53,12 @@ Route::get('tokens', function () {
 
 Route::post('set_wallet', [AdminWalletController::class,'setWallet'])
 ->middleware(['auth'])->name('set_wallet');
+
+
+Route::post('/add_adverts', [AdvertController::class, 'createNewAdvert'])
+->middleware(['auth'])->name("add.advert");
+
+Route::post('/delete_advert', [AdvertController::class, 'deleteAdvert'])
+->middleware(['auth'])->name("delete.ads");
 
 require __DIR__.'/auth.php';

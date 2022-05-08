@@ -12,29 +12,45 @@
                     <x-button type="button" class="m-5" data-modal-toggle="authentication-modal">
                         {{ __('Add New Advert') }}
                     </x-button>
+                    @if (!empty($actionResponse))
+                        <span class="text-green-500 block text-center text-xl m-8">
+                            {{$actionResponse}}
+                        </span>
+                    @endif
                     <div class="container mx-auto">
-                        <hr>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 ">
-                            <div class="md:col-span-1"> 
-                                <span id="organization" class="font-semibold font-serif text-3xl">Organization</span><br>
-                                <span id="views">Views</span><br>
-                                <span id="clicks">Clicks</span><br>
-                                <span id="email">Email address of organization</span>
+                        @if (count($data)>0)
+                            @foreach ($data as $item)
                                 <hr>
-                                <x-button class="m-3">
-                                    {{ __('Edit') }}
-                                </x-button>
-                                <x-button class="m-3 bg-red-500">
-                                    {{ __('Delete') }}
-                                </x-button>
-                            </div>
-                            <div class="md:col-span-1">
-                              <img id="big_banner" class="p-2 inline" src="https://picsum.photos/200" />
-                            </div>
-                            <div class="md:col-span-1">
-                              <img id="small_banner" class="p-2 inline" src="https://picsum.photos/200" />
-                            </div>
-                        </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 ">
+                                    <div class="md:col-span-1"> 
+                                        <span id="organization" class="font-semibold font-serif text-3xl">{{$item->organization}}</span><br>
+                                        <span id="views">{{$item->views_gotten}}/{{$item->views}}</span><br>
+                                        <span id="clicks">{{$item->clicks_gotten}}/{{$item->clicks}}</span><br>
+                                        <span id="email">{{$item->email}}</span>
+                                        <hr>
+                                        {{-- <x-button class="m-3">
+                                            {{ __('Edit') }}
+                                        </x-button> --}}
+                                        <form action="{{route('delete.ads')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{$item->id}}" name="id"/>
+                                            <x-button class="m-3 bg-red-500">
+                                                {{ __('Delete') }}
+                                            </x-button>
+                                        </form>
+                                    </div>
+                                    <div class="md:col-span-1">
+                                    <img id="big_banner" style="width: 350px; height:600px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->large_banner_url)}}" />
+                                    </div>
+                                    <div class="md:col-span-1">
+                                    <img id="small_banner" style="width: 350px; height:100px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->small_banner_url)}}" />
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p class="text-center text-2xl">No Adverts has been set yet!</p>
+                        @endif
+                        
                         <hr>
                     </div>
                 </div>
@@ -80,25 +96,25 @@
                         <div>
                             <label for="views" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                 Views</label>
-                            <input type="number" name="views" id="views"
+                            <input type="number" name="views" id="views" max="2100000000" min="1"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="Expected Views" required="">
                         </div>
                         <div>
                             <label for="clicks" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                 Clicks</label>
-                            <input type="number" name="clicks" id="clicks"
+                            <input type="number" name="clicks" id="clicks" max="2100000000" min="1"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="Expected Clicks" required="">
                         </div>
                        
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="big_banner">Upload Large Banner (300 width x 600 height)</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="big_banner">Upload Large Banner (350 width x 600 height)</label>
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="big_banner" id="big_banner" name="big_banner" type="file" required>
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="big_banner_help">Ensure the banner fit the specified resolution in order to avoid issues</div>
                         
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="small_banner">Upload Small Banner (300 width x 50 height)</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="small_banner">Upload Small Banner (350 width x 100 height)</label>
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="small_banner" id="small_banner" name="small_banner" type="file" required>
@@ -125,10 +141,4 @@
     </div>
 
     <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
-
-    @if (!empty($insertionResponse))
-        <script>
-            alert("{{$insertionResponse}}");
-        </script>
-    @endif
 </x-app-layout>

@@ -36,6 +36,22 @@ class AdvertController extends Controller
         DB::table('adverts')->insert($data);
         //return
 
-        return view('admin.advert', ['insertionResponse' => "The ads was inserted successfully"]);
+        return redirect()->route("advert")->with(['actionResponse' => "The advert was inserted successfully"]);
+    }
+    function displayAdminAdsPanel(Request $request){
+        //fetch ads from db
+        $data = DB::select('select * from adverts');
+
+        //get actionresponse
+        $res = $request->session()->get('actionResponse');
+        //pass to view for display
+        return view("admin.advert", ["data"=>$data, "actionResponse"=>$res]);
+    }
+    function deleteAdvert(Request $request){
+        $id = $request->input("id");
+
+        DB::delete('delete from adverts where id = ?', [$id]);
+        
+        return redirect()->route("advert")->with(['actionResponse' => "The advert was deleted successfully"]);
     }
 }
