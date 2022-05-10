@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresalesController;
 use App\Http\Controllers\WalletController;
@@ -33,7 +34,14 @@ Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
 Route::get('/price/{assetid}',  [GetPriceDetailsController::class, 'getPrice']);
-
+Route::post('/set_currency_choice', function (Request $request) {
+    $value = $request->input('test');
+    $mltp = $request->input('multiplier');
+    session([
+        'selectedCurrency' => $value,
+        'multiplier' => $mltp
+    ]);
+})->name('set_currency_choice');
 
 Route::get('dashboard', function () {
     return view('admin.dashboard');

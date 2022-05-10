@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TrackFi</title>
+    <title>TrackFi Dashboard</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -30,31 +30,7 @@
                             <div class="col-7 d-flex justify-content-center">
                                 <h2 class="text-center"><img alt="nav-header" src="{{asset('images/nav-header-trackfi.svg')}}"></h2>
                             </div>
-                            <div class="col-5 d-flex justify-content-end">
-                                <!--algo and usd buttons-->
-
-                                <form id="subjectName" name="abi" class="select" tabindex="1"
-                                    onchange="selectedSubjectName()">
-                                    <input checked class=" option-select selectopt" name="test" type="radio" id="opt1"
-                                        value="usd">
-                                    <label for="opt1" class="option d-flex justify-content-around"><img
-                                            alt="united-states-flag-icon" style="width: 20px;"
-                                            src="{{asset('images/united-states.svg')}}">USD</label>
-                                    <input class="option-select selectopt" name="test" type="radio" id="opt2"
-                                        value="algo">
-                                    <label for="opt2" class="option"><img alt="algorand-icon" width="30"
-                                            src="{{asset('images/algorand_logo_mark_white.svg')}}">ALGO</label>
-
-                                </form>
-
-
-                                <!--end of algo and usd buttons-->
-
-
-                                <div>
-
-                                </div>
-                            </div>
+                            @include('includes.currency_switch')
                         </div>
 
 
@@ -109,15 +85,7 @@
                 </div>
                 <!--End of first section-->
                 <!--mobile add placeholder-->
-                <div class="d-block d-md-none mt-4 crossed mr-2 ml-2"
-                    style="height: 20vh; background-color: #00ffbb;margin-left: 0.5em;margin-right: 0.5em;">
-                    <!--this is adds placeholder remove svg and replace with add -->
-                    <svg>
-                        <line x1="0" y1="100%" x2="100%" y2="0" />
-                        <line x1="0" y1="0" x2="100%" y2="100%" />
-                    </svg>
-
-                </div>
+                @include('includes.ad1')
 
                 <!--start of third table -->
 
@@ -146,8 +114,8 @@
                                 style="width: 100%; font-size: large;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width5" style="padding-left: 9%;">Token</div>
                                 <div class="table-width6 ">Balance</div>
-                                <div class="table-width6" style="margin-left: 10px;">Price<br>(Algo)</div>
-                                <div class="table-width6"  style="margin-left: 10px;">Value<br>(Algo)</div>
+                                <div class="table-width6" style="margin-left: 10px;">Price<br>({{session('selectedCurrency','Algo')}})</div>
+                                <div class="table-width6"  style="margin-left: 10px;">Value<br>({{session('selectedCurrency','Algo')}})</div>
                             </div>
                             <div id="first-dashboard-t-b-l-1" class="table-body-links-1 mt-2">
                                 <span id="no_token_found">Loading Token .......</span>
@@ -167,12 +135,21 @@
 
                 <!--third section-->
                 <div id="second-dashboard-table" class="mt-3">
-                    <div class="row">
-                        <div class="col-7 col-md-10">
-                            <h1 class="d-flex justify-content-center align-items-center"><img alt="dashboard-token-icon"
-                                    width="15" height="15" src=" {{asset('images/dashboard-token-icon.svg')}}"><span
-                                    style="margin-left: 0.5em;">LP
-                                    Tokens</span></h1>
+                    <div class="row w-100">
+                        {{-- <div class=" col-7 col-md-12">
+                            <h1 class="d-flex justify-content-center"><span
+                                    style="margin-right:10px; font-size: large;">
+                                    <img alt="dashboard-token-icon" width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"></span>
+                                    <span style="margin-left: 0.5em;">Tokens</span>
+                            </h1>
+                        </div> --}}
+                        <div class="col-8 w-100 col-md-10">
+                            <h1 class="d-flex justify-content-center">
+                                <span style="margin-right:10px; font-size: large;">
+                                <img alt="dashboard-token-icon" width="15" height="15" src=" {{asset('images/dashboard-token-icon.svg')}}">
+                                </span>    
+                                <span style="margin-left: 0.5em;">LP Tokens</span>
+                            </h1>
                         </div>
                         {{-- <div class="col-5 col-md-2 d-flex justify-content-between">
                             <span>Total: #4, 792</span>
@@ -189,8 +166,8 @@
                                 style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width7" style="padding-left: 5%;">Platform</div>
                                 <div class="table-width8 ">Asset</div>
-                                <div class="table-width8 d-flex justify-content-center">Balance<br>(Algo)</div>
-                                <div class="d-flex justify-content-center table-width8">Value<br>(Algo)</div>
+                                <div class="table-width8 d-flex justify-content-center">Balance</div>
+                                <div class="d-flex justify-content-center table-width8">Value<br>({{session('selectedCurrency','Algo')}})</div>
                             </div>
                             <div id="second-dashboard-t-b-l-1" class="table-body-links-1 mt-4">
                                 <span id="no_pool_found">Loading Liquidity Pool .......</span>
@@ -740,15 +717,7 @@
                 <!--end of sixth section--> --}}
 
                 <!--mobile add placeholder visible only on small screens-->
-                <div class="d-block d-md-none mt-4 mb-4 crossed mr-2 ml-2"
-                    style="height: 20vh; background-color: #00ffbb;margin-left: 0.5em;margin-right: 0.5em;">
-
-                    <svg>
-                        <line x1="0" y1="100%" x2="100%" y2="0" />
-                        <line x1="0" y1="0" x2="100%" y2="100%" />
-                    </svg>
-
-                </div>
+                    @include('includes.ad2')
                 <!--end of mobile placeholder-->
 
                 <!--start of third table -->
@@ -761,28 +730,8 @@
 
 
         <!-- Right sidebar-->
-        <div id="right-sidebar" class="col-md-3 d-none d-md-block" style="height: 90vh;position: fixed;right: 0;">
-
-            <div class="crossed" style="height: 15%;">
-
-                <svg style="background-color: #00ffbb;">
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 70%; background-color: white">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 15%; background: #00ffbb">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-        </div>
+        @include('includes.ad_banner')
+        
         <!--End of right sidebar-->
     </div>
     <!-- Modal -->
@@ -810,6 +759,8 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="{{asset('js/chart.js')}}"></script>
+    
+    @include('includes.processing')
     <script 
         src="https://cdn.jsdelivr.net/npm/algosdk@v1.15.0/dist/browser/algosdk.min.js"
         integrity="sha384-wURu1H0s7z6Nj/AiP4O+0EorWZNvjiXwex7pNwtJH77x60mNs0Wm2zR37iUtHMwH"
@@ -835,6 +786,7 @@
         var listOfAssetsDetails;
 
         window.onload = async (event)=>{
+            showProcessing("Loading Wallet Details");
             document.getElementById("addr_key").innerHTML = truncate(address);
             document.getElementById("keyval").innerHTML = address;
             await fetchAccountDetails();
@@ -856,13 +808,14 @@
             }
             
             if(noPoolFoundSpan.style.display != 'none'){
-                noPoolFoundSpan.innerHTML = "No Pool Found";
+                noPoolFoundSpan.innerHTML = "No Liquidity Pool Found";
             }
 
             if(noTokenFoundSpan.style.display != 'none'){
                 noTokenFoundSpan.innerHTML = "No Token Found";
             }
             await displayBalance();
+            hideProcessing();
         }
 
         async function fetchAccountDetails(){
@@ -877,8 +830,10 @@
         async function displayBalance() {
             var balanceHold = document.getElementById("balance");
             if(accountInfo){
-                USER_BALANCE += accountInfo.account.amount/1000000;
-                balanceHold.innerHTML = formatNumber(Number.parseFloat(USER_BALANCE).toFixed(5))+" Algo";
+                USER_BALANCE = USER_BALANCE + accountInfo.account.amount/1000000;
+                let formattedBalance = formatNumber(Number.parseFloat( USER_BALANCE * MULTIPLIER ).toFixed(5))
+                console.log("FORMATED Balan ce "+formattedBalance);
+                balanceHold.innerHTML = formattedBalance+" "+selectedCurr;
             }else{
                 balanceHold.innerHTML = "Couldn't fetch Account Details";
             }
@@ -925,19 +880,19 @@
                         let assetParams = assetInfo.assets[0].params;
                         let balance = assetIndex.amount/10**assetParams.decimals;
                         let priceAndPriceChange = await getPrice(assetId);
-                        let price = priceAndPriceChange.price
+                        let price = priceAndPriceChange.price * MULTIPLIER;//Number.parseFloat().toFixed(8);
                         let priceChange = priceAndPriceChange.price_change_24;
-                        let value = balance * price;
-                        USER_BALANCE += value;
+                        let value = balance * price;//Number.parseFloat().toFixed(8);
+                        USER_BALANCE = USER_BALANCE + value;
 
                         listOfAssets.push({
                             id: assetId,
                             name: assetParams.name, 
                             balance: balance,
                             unitName: assetParams['unit-name'],
-                            priceChange: priceChange,
-                            price: price,
-                            value: value,
+                            priceChange: Number.parseFloat(priceChange).toFixed(0),
+                            price: Number.parseFloat(price).toFixed(8),
+                            value: Number.parseFloat(value).toFixed(8),
                             url: assetParams.url
                         });
                     }
@@ -1007,10 +962,10 @@
                                     </div>
                                     <div class="d-flex align-items-center flex-wrap justify-content-center table-width8"
                                         style="line-height: 2px;">
-                                        `+assetDetail.balance+`
+                                        `+formatNumber(assetDetail.balance)+`
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center table-width8">
-                                        `+assetDetail.value+`
+                                        `+formatNumber(assetDetail.value)+`
                                     </div>
                                 </a>`;
 
@@ -1027,27 +982,19 @@
                     <div>`+assetDetail.unitName+`</div>
                 </div>
                 <div class="d-flex align-items-center table-width6">
-                    `+assetDetail.balance+`
+                    `+formatNumber(assetDetail.balance)+`
                 </div>
                 <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
-                    `+Number.parseFloat(assetDetail.price).toFixed(8)+`
+                    `+assetDetail.price+`
                 </div>
                 <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
-                    `+Number.parseFloat(assetDetail.value).toFixed(8)+`
+                    `+formatNumber(Number.parseFloat(assetDetail.value).toFixed(8))+`
                 </div>
             </a>`;
             document.getElementById("first-dashboard-t-b-l-1").innerHTML += layout;
         }
 
         function showAssetDetailOnModal(assetId){
-            // id: assetId,
-            //                 name: assetParams.name, 
-            //                 balance: balance,
-            //                 unitName: assetParams['unit-name'],
-            //                 priceChange: priceChange,
-            //                 price: price,
-            //                 value: value,
-            //                 url: assetParams.url
             let assetObj = listOfAssetsDetails.filter(element=>{
                 return element.id == assetId;
             })[0];
@@ -1055,8 +1002,8 @@
             let detailsBody = assetObj.name+`<br>
                         <b>ID: </b>  `+assetObj.id+`<br>
                         <b>Price: </b>  `+assetObj.price+`<br>
-                        <b>Price Change(24h): </b>  `+assetObj.priceChange+`<br>
-                        <a  class="text-success" target="_blank" href="`+assetObj.url+`">Website</a>`;
+                        <b>Price Change(24H%): </b>  `+assetObj.priceChange+`<br>
+                        <a  class="text-success" target="_blank" href="https://`+assetObj.url+`">Website</a>`;
             document.getElementById("assetDetailTitle").innerHTML = assetObj.unitName;
             document.getElementById("assetDetailBody").innerHTML = detailsBody;
         }

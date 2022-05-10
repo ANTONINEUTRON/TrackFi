@@ -10,9 +10,11 @@ use DB;
 
 class PresalesController extends Controller
 {
-    private $receiving_address = "N3QCM6QCHNLCVR2VNJDBCY4RMK7RC7HRPHADTM42S7WQH3P2GR6CMUU57Q";
     function showPresales(Request $request){
-        return view('presale')->with('address',$this->receiving_address);
+        $res = DB::select('select wallet_address from wallet limit 1');
+        $receiving_address = $res[0]->wallet_address;
+
+        return view('presale')->with('address',$receiving_address);
     }
 
     function acknowledgeTranx(Request $request){
@@ -21,7 +23,7 @@ class PresalesController extends Controller
         $algoAmount = $request->input("amount"); //Algos
     
         //save to database
-        DB::insert('insert into presales values (?,?, ?)', [$transactionId,$algoAmount],$toolxAmount);
+        DB::insert('insert into presales values (?,?, ?)', [$transactionId,$algoAmount,$toolxAmount]);
 
         //send message to the specified email address
         // Mail::to($email)->send(new PresalesMail($transactionId, $algoAmount, $toolxAmount));

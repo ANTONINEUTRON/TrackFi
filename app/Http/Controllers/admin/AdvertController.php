@@ -5,14 +5,14 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\File;
 
 class AdvertController extends Controller
 {
     function createNewAdvert(Request $request){
         $org = $request->input('organization');
         $email = $request->input('email');
-        $views = $request->input('views');
-        $clicks = $request->input('clicks');
+        $url = $request->input('url');
         //upload files
         $bigImage = $request->file('big_banner');
         $smallImage = $request->file('small_banner');
@@ -27,10 +27,9 @@ class AdvertController extends Controller
         $data = array(
             'organization'=>$org,
             'email'=>$email,
-            'views'=>$views,
-            'clicks'=>$clicks,
             'large_banner_url'=>$bigImageFileName,
-            'small_banner_url'=>$smallImageFileName
+            'small_banner_url'=>$smallImageFileName,
+            'url'=>$url
         );
 
         DB::table('adverts')->insert($data);
@@ -49,6 +48,10 @@ class AdvertController extends Controller
     }
     function deleteAdvert(Request $request){
         $id = $request->input("id");
+        $bigFilePath = $request->input("big_filepath");
+        $smallFilePath = $request->input("small_filepath");
+
+        File::delete($bigFilePath, $smallFilePath);
 
         DB::delete('delete from adverts where id = ?', [$id]);
         

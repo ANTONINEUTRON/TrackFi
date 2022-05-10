@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TrackFi</title>
+    <title>TrackFi Statistics</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -32,31 +32,8 @@
                                 <h2 class="text-center"><img alt="nav-header-trackfi"
                                         src="{{asset('images/nav-header-trackfi.svg')}}"></h2>
                             </div>
-                            <div class="col-5 d-flex justify-content-end"><!--algo and usd buttons-->
-
-                                <form id="subjectName" name="abi" class="select" tabindex="1"
-                                    onchange="selectedSubjectName()">
-                                    <input checked class=" option-select selectopt" name="test" type="radio" id="opt1"
-                                        value="usd">
-                                    <label for="opt1" class="option d-flex justify-content-around"><img
-                                            alt="united-states-flag-icon" style="width: 20px;"
-                                            src="{{asset('images/united-states.svg')}}">USD</label>
-                                    <input class="option-select selectopt" name="test" type="radio" id="opt2"
-                                        value="algo">
-                                    <label for="opt2" class="option"><img alt="algorand-icon" width="30"
-                                            src="{{asset('images/algorand_logo_mark_white.svg')}}">ALGO</label>
-
-                                </form>
-                                <!--end of algo and usd buttons-->
-
-
-
-
-
-                                <div>
-
-                                </div>
-                            </div>
+                            
+                            @include('includes.currency_switch')
                         </div>
 
 
@@ -87,7 +64,9 @@
                         </div>
                         <div class="pt-1 pb-4 table-body">
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
-                                <span style="width: 40%">Token</span><span style="width: 32%">Price</span><span style="width: 10%">24H%</span>
+                                <span style="width: 40%">Token</span>
+                                <span style="width: 32%">Price<br>({{session('selectedCurrency','Algo')}})</span>
+                                <span style="width: 10%">24H%</span>
                             </div>
                             <div id="first-table-body-links-1" class="table-body-links-1">
                                 {{-- <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
@@ -102,8 +81,8 @@
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
                                     <span class="d-flex align-items-center" style="width: 22%">
-                                    <span class="img-box t-p-div"></span>{{$result[$i]->ticker ?: $result[$i]->name}}
-                                    </span><span style="width: 32%">{{$result[$i]->price}}</span><span>
+                                    {{$result[$i]->ticker ?: $result[$i]->name}}
+                                    </span><span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>
                                     <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                             alt="gains-line-up" width="10" height="10"
                                             src="{{asset('images/gains-line-up.svg')}}"></span>
@@ -199,7 +178,7 @@
                         <div class="pt-1 pb-4 table-body">
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
                                 <span style="width: 40%">Token</span>
-                                <span style="width: 32%">Price</span>
+                                <span style="width: 32%">Price<br>({{session('selectedCurrency','Algo')}})</span>
                                 <span style="width: 10%">24H%</span>
                             </div>
                             <div id="second-table-body-links-1" class="table-body-links-1">
@@ -207,9 +186,9 @@
                                     <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
                                         style="font-size: small;padding-right: 10px;">
                                         <span class="d-flex align-items-center" style="width: 22%">
-                                            <span class="img-box t-p-div"></span>{{$result[$i]->ticker ?: $result[$i]->name}}
+                                        {{$result[$i]->ticker ?: $result[$i]->name}}
                                         </span>
-                                        <span style="width: 32%">{{$result[$i]->price}}</span><span>
+                                        <span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>
                                         <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
                                                 alt="lossess-line-down" width="10" height="10"
                                                 src="{{asset('images/losses-line-down.svg')}}"></span>
@@ -223,15 +202,7 @@
                     <!--End of second table-->
                 </div>
                 <!--mobile add placeholder-->
-                <div class="d-block d-md-none mt-1 crossed mr-2 ml-2"
-                    style="height: 15vh; background-color: #00ffbb;margin-left: 0.5em;margin-right: 0.5em;">
-
-                    <svg>
-                        <line x1="0" y1="100%" x2="100%" y2="0" />
-                        <line x1="0" y1="0" x2="100%" y2="100%" />
-                    </svg>
-
-                </div>
+                @include('includes.ad1')
 
                 <!--start of third table -->
                 <div id="third_table">
@@ -258,7 +229,7 @@
                                 </div>
                             </div>
                             <div id="third-table-body-links-1" class="table-body-links">
-                                COMING SOON ......
+                                UNABLE TO READ DATA
                                 {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
@@ -651,7 +622,7 @@
                                 </div>
                             </div>
                             <div id="fourth-table-body-links-1" class="table-body-links">
-                                COMING SOON .....
+                                UNABLE TO READ DATA
                                 {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
@@ -1019,15 +990,7 @@
 
                 <!--End of fourth table-->
                 <!--mobile add placeholder-->
-                <div class="d-block d-md-none mt-1 crossed mr-2 ml-2"
-                    style="height: 15vh; background-color: #00ffbb;margin-left: 0.5em;margin-right: 0.5em;">
-
-                    <svg>
-                        <line x1="0" y1="100%" x2="100%" y2="0" />
-                        <line x1="0" y1="0" x2="100%" y2="100%" />
-                    </svg>
-
-                </div>
+                @include('includes.ad2')
 
 
 
@@ -1037,28 +1000,7 @@
 
 
         <!-- Right sidebar-->
-        <div id="right-sidebar" class="col-md-3 d-none d-md-block" style="height: 90vh;position: fixed;right: 0;">
-
-            <div class="crossed" style="height: 15%;">
-
-                <svg style="background-color: #00ffbb;">
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 70%; background-color: white">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 15%; background: #00ffbb">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-        </div>
+        @include('includes.ad_banner')
         <!--End of right sidebar-->
     </div>
     

@@ -46,69 +46,7 @@
                                     class="ml-3">PreSale</span></div>
                         </a>
 
-
-                        <div class="dropdown mt-2">
-                            <button class="w-100 btn btn-block text-light dropdown-toggle"
-                                type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <span class="col-4" style="margin-right: 1em;">
-                                    <img style="width: 20px;height: 20px;"
-                                        alt="more-horizontal-icon" src="{{asset('images/more-horizontal.svg')}}">
-                                </span>
-
-                                More
-                            </button>
-                            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton1"
-                                style="background:inherit">
-                                <div class="d-grid justify-content-center">
-                                    <a class="dropdown-item text-dark d-flex align-items-center "
-                                        style="background-color: #00ffbb;" href="#">
-                                        <div class="img-box m-p-div"></div><span>Placeholder</span>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
-                    <!--settings dropdown start-->
-                    <div>
-                        <div class="dropdown mt-2">
-                            <button class="w-100 btn btn-block text-light dropdown-toggle"
-                                type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-
-                                <span style="margin-right: 10px;"><i
-                                        class="fas fa-cog"></i></span>Settings
-                            </button>
-                            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton2"
-                                style="background:inherit">
-                                <div class="d-grid justify-content-center">
-
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="img-box m-p-div"></div>Placeholder
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--settings dropdown end -->
                 </div>
 
 

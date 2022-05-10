@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->call(function(){
+            DB::table('tokens')->truncate();
             $arrayOfTokens = array();
             $listOfTokens = $this->getTokensFromTinyChart();
 
@@ -36,7 +37,7 @@ class Kernel extends ConsoleKernel
                 array_push($arrayOfTokens, $arr);
             }
             //Add to Db
-            DB::table('tokens')->upsert($arrayOfTokens);
+            DB::table('tokens')->insert($arrayOfTokens);
         })
         ->everyMinute();
     }

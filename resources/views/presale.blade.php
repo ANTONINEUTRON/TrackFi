@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>TrackFi</title>
+    <title>TrackFi Presales</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     @include('includes.head')
@@ -69,25 +69,25 @@
                             Hard Cap = 150,000 Algo
                         </span>
                         <span class="mt-3 body-text2 text-center">
-                            If you'd like to participate in our presale, an Algo wallet address shall be provided
-                            through which you will
-                            process the purchase of your TrackFi token
+                            If you'd like to participate in our presale, fill the form below to initiate transaction that will receive payment from your My Algo wallet
                         </span>
-                        <span class="body-text2 text-center mt-3">
+                        {{--an Algo wallet address shall be provided
+                            through which you will
+                            process the purchase of your TrackFi token <span class="body-text2 text-center mt-3">
                             Copy Presale Address here <br>
 
-                        </span>
-                        <span class="body-text2 w-100 d-flex justify-content-center align-items-center">
+                        </span> --}}
+                        {{-- <span class="body-text2 w-100 d-flex justify-content-center align-items-center">
                             <span class="btn " id="presale_address" style="position: relative;"
                                 onclick="myFunction(this.id)">
                                 <span class="popuptext d-none" id="myPopup">Copied</span>
                                 <i style=" font-size: small;" class="far fa-copy text-light"></i>
-                            </span>
-                            <span class="d-none" id='keyval'> 4B7S3A73Y643XSAYRKTLZFKKYQBFNMHDUHAI4AXHBKGK4576AZ4C3CUBM
-                            </span>
+                            </span> --}}
+                            {{-- <span class="d-none" id='keyval'> 4B7S3A73Y643XSAYRKTLZFKKYQBFNMHDUHAI4AXHBKGK4576AZ4C3CUBM
+                            </span> --}}
 
-                            <span class="bg-light text-dark" style="width: 13em;overflow-x: auto;">
-                                4B7S3A73Y643XSA.......BM</span>
+                            {{-- <span class="bg-light text-dark" style="width: 13em;overflow-x: auto;">
+                                4B7S3A73Y643XSA.......BM</span> --}}
                         </span>
 
                         <!--Form starts here  -->
@@ -123,7 +123,7 @@
                                             <i style=" font-size: small;" class="far fa-copy text-light"></i>
                                         </span>
                                         <span id="transId" class="mt-3 text-white">
-
+                                            No Transaction ID yet
                                         </span><br>
                                         <span id="transResponse" class="mt-3">
 
@@ -150,43 +150,14 @@
                 <br />
                 @include('includes.wallet')
 
-                <div class="d-block d-md-none d-xs-block crossed mt-1"
-                    style="height: 20vh; background-color: #00ffbb;margin-left: 1.5em;margin-right: 1.5em;">
-                    <svg>
-                        <line x1="0" y1="100%" x2="100%" y2="0" />
-                        <line x1="0" y1="0" x2="100%" y2="100%" />
-                    </svg>
-                </div>
+                @include('includes.ad2')
                 
             </div>
         </div>
 
         <!--end of main body section-->
         <!--right navbar visible only on medium and large screens-->
-
-        <div id="right-sidebar" class="col-md-3 d-none d-md-block" style="height: 90vh;">
-
-            <div class="crossed" style="height: 15%;">
-
-
-                <svg style="background-color: #00ffbb;">
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 70%; background-color: white">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-            <div class="mt-1 crossed" style="height: 15%; background: #00ffbb">
-                <svg>
-                    <line x1="0" y1="100%" x2="100%" y2="0" />
-                    <line x1="0" y1="0" x2="100%" y2="100%" />
-                </svg>
-            </div>
-        </div>
+        @include('includes.ad_banner')
         <!--end of right navbar-->
     </div>
     <!--footer section-->
@@ -195,6 +166,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    @include('includes.processing')
     <script src="{{asset('js/main.js')}}"></script>
     <script 
         src="https://cdn.jsdelivr.net/npm/algosdk@v1.15.0/dist/browser/algosdk.min.js"
@@ -269,28 +241,27 @@
             });
 
             var txId = txn.txID().toString();
-            
+            var responseSpan = document.getElementById("transResponse");
+            try {
+                const myAlgoConnect = new MyAlgoConnect();
+                const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+                
+                // Submit the transaction
+                await client.sendRawTransaction(signedTxn.blob).do();
 
-            const myAlgoConnect = new MyAlgoConnect();
-            const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
-            
-            // Submit the transaction
-            await client.sendRawTransaction(signedTxn.blob).do();
+                showProcessing("Transaction processing")
+                //show user transaction id with support for copy
+                document.getElementById("processing_section").classList.remove("d-none");
+                document.getElementById("transId").innerHTML = txId;
 
-            //show user transaction id with support for copy
-            document.getElementById("processing_section").classList.remove("d-none");
-            document.getElementById("transId").innerHTML = txId;
-
-            document.getElementById("transResponse").innerHTML = "Transaction processing ......";
-
-            // Wait for confirmation
-            let confirmedTxn = await algosdk.waitForConfirmation(client, txId, 4);
-            //Get the completed Transaction
-            console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
-            //TODO 
-            
-            let responseSpan = document.getElementById("transResponse");
-            if(confirmedTxn["confirmed-round"]){
+                // Wait for confirmation
+                let confirmedTxn = await algosdk.waitForConfirmation(client, txId, 4);
+                //Get the completed Transaction
+                console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
+                //TODO 
+                
+                hideProcessing();
+                showMsgSection();
                 //show successful message
                 responseSpan.innerHTML = "Transaction successful!";
                 responseSpan.classList.add("text-success");
@@ -299,11 +270,24 @@
                 document.getElementById("trxIdVal").value = txId;
                 // console.log("Toolx Value "+document.getElementById("toolxAmount").value);
                 document.getElementById("tranxForm").submit();
-            }else{
-                responseSpan.innerHTML = "Transaction Failed!";
+            } catch (error) {
+                hideProcessing();
+                showMsgSection();
+                responseSpan.innerHTML = "Transaction Failed!\n "+error.message;
                 responseSpan.classList.add("text-danger");
             }
 
+            
+            // if(confirmedTxn["confirmed-round"]){
+               
+            // }else{
+                
+            // }
+
+        }
+
+        function showMsgSection(){
+            document.getElementById("processing_section").classList.remove("d-none");
         }
         
         function getCookie(cname) {
@@ -326,7 +310,6 @@
             //check for cookie
             let cookieName = "trackfi_wallet_address"; 
             sender = getCookie(cookieName);
-            console.log("THE COOKIE "+sender);
             if(sender){
                 return true;
             }

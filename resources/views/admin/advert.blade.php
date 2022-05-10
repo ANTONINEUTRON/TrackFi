@@ -24,9 +24,8 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-3 ">
                                     <div class="md:col-span-1"> 
                                         <span id="organization" class="font-semibold font-serif text-3xl">{{$item->organization}}</span><br>
-                                        <span id="views">{{$item->views_gotten}}/{{$item->views}}</span><br>
-                                        <span id="clicks">{{$item->clicks_gotten}}/{{$item->clicks}}</span><br>
-                                        <span id="email">{{$item->email}}</span>
+                                        <span id="email"><b>Email: </b>{{$item->email}}</span><br>
+                                        <span id="email"><b>Landing Page: </b><a target="_blank" class="text-blue-500 hover:text-blue-800" href="{{$item->url}}">{{$item->url}}</a></span>
                                         <hr>
                                         {{-- <x-button class="m-3">
                                             {{ __('Edit') }}
@@ -34,6 +33,8 @@
                                         <form action="{{route('delete.ads')}}" method="POST">
                                             @csrf
                                             <input type="hidden" value="{{$item->id}}" name="id"/>
+                                            <input type="hidden" value="{{'public/images/ads/'.$item->large_banner_url}}" name="big_filepath"/>
+                                            <input type="hidden" value="{{'public/images/ads/'.$item->small_banner_url}}" name="small_filepath"/>
                                             <x-button class="m-3 bg-red-500">
                                                 {{ __('Delete') }}
                                             </x-button>
@@ -59,7 +60,7 @@
     </div>
 
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-5 right-0 left-0 z-50 w-full md:inset-0 h-modal h-full md:pt-40 justify-center items-center">
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-5 right-0 left-0 z-50 w-full md:inset-0 h-modal h-full pt-0 md:pt-55 justify-center items-center">
     {{-- sm:h-full justify-center items-center  flex --}}
         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
 
@@ -94,18 +95,11 @@
                                 placeholder="name@company.com" required="">
                         </div>
                         <div>
-                            <label for="views" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Views</label>
-                            <input type="number" name="views" id="views" max="2100000000" min="1"
+                            <label for="url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Link to landing page</label>
+                            <input type="url" name="url" id="url"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Expected Views" required="">
-                        </div>
-                        <div>
-                            <label for="clicks" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Clicks</label>
-                            <input type="number" name="clicks" id="clicks" max="2100000000" min="1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Expected Clicks" required="">
+                                placeholder="https://" required="">
                         </div>
                        
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="big_banner">Upload Large Banner (350 width x 600 height)</label>

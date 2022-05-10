@@ -30,22 +30,6 @@ async function showChart(transactionHistory) {
     type: "line",
     data: {
       // this labels are the x-axis values of chart
-      // labels: [
-      //   "5",
-      //   "10",
-      //   "15",
-      //   "20",
-      //   "25",
-      //   "30",
-      //   "35",
-      //   "40",
-      //   "45",
-      //   "50",
-      //   "52",
-      //   "60",
-      //   "67",
-      //   "70",
-      // ],
       labels: xAxisLabel,//Declared in the main html
       datasets: [
 
@@ -91,7 +75,7 @@ async function showChart(transactionHistory) {
           },
           ticks: {
             callback: function (value, index, ticks) {
-              return value+" Algo";
+              return value+" "+selectedCurr;
             },
             color: 'white'
           }
@@ -134,12 +118,11 @@ function getDateAndAmountPair(transactionHistory){
     var dte = new Date(trx["round-time"] * 1000);
     var ddate = getDateFormat(dte);
     //get amount
-    var amt = trx["payment-transaction"].amount/1000000;
+    var amt = (trx["payment-transaction"].amount/1000000)*MULTIPLIER;
     //save as object to list
     listOfAmtAndDate.push({x: ddate, y: amt});
   }
 
-  console.log("PaiRS "+JSON.stringify(listOfAmtAndDate,null,4));
   return listOfAmtAndDate.slice(Math.max(transactionHistory.length - 17, 0));
 }
 
@@ -148,7 +131,6 @@ function getTransactionDate(transactionHistory){
   for(var i=transactionHistory.length-1; i>=0; i--){
     let element = transactionHistory[i];
     let datee = new Date(element["round-time"]*1000);
-    console.log(JSON.stringify(datee,null,4));
     arrOfDates.push(getDateFormat(datee));
   }
   return arrOfDates.slice(Math.max(transactionHistory.length - 17, 0));

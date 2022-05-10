@@ -153,18 +153,44 @@ function view(event) {
 
 // which button is selected algo or usd
 
-function selectedSubjectName() {
+async function selectedSubjectName() {
   var radios = document.getElementsByName("test");
 
   for (var i = 0, length = radios.length; i < length; i++) {
     if (radios[i].checked) {
-      // do whatever you want with the checked radio
-      console.log(radios[i].value);
+      selectedCurr = radios[i].value;
 
+      if (selectedCurr != "Algo") {
+          MULTIPLIER = await getAlgoPrice();//get algo price in usd
+      }else{
+          MULTIPLIER = 1;
+      }
+      // do whatever you want with the checked radio
       // only one radio can be logically checked, don't check the rest
-      break;
+      document.getElementById("multiplier").value = MULTIPLIER;
+      document.getElementById("subjectName").submit();
+
+      location.reload();
     }
   }
+}
+
+
+async function getAlgoPrice(){
+  let url = "https://algocharts.net/apiv2/?asset_in=0&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
+
+  const config = {
+      mode: 'cors',
+      method: 'GET',
+      headers: {
+          'Accept': 'application/json'
+      }
+  }
+
+  let response = await fetch(url, config);
+  let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
+
+  return data.data[3];
 }
 
 //text copy
