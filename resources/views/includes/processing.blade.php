@@ -22,13 +22,6 @@
                 show: true //Display loader!
         });
         $("#loadMe").modal("show");
-            // setTimeout(function() {
-                
-            // }, 3500);
-        // $("#just_load_please").on("click", function(e) {
-            
-            
-        // });
     }
     function hideProcessing(){
         $("#loadMe").modal("hide");

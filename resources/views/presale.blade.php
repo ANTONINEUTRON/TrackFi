@@ -194,22 +194,27 @@
 
         //Get toolx 
         async function getToolxValueInAlgo() {
-            let toolxId = 394014424;
-            //connect to algocharts with toolx id
-            let url = "https://algocharts.net/apiv2/?asset_in="+toolxId+"&asset_out=0";//getting value of token from algocharts !!READ UP DOCS!!
-            
-            const config = {
-                'mode' : 'cors',
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json'
+            try {
+                let toolxId = 394014424;
+                //connect to algocharts with toolx id
+                let url = "https://algocharts.net/apiv2/?asset_in="+toolxId+"&asset_out=0";//getting value of token from algocharts !!READ UP DOCS!!
+                
+                const config = {
+                    // 'mode' : 'cors',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/plain'
+                    }
                 }
-            }
 
-            let response = await fetch(url, config);
-            let data = await response.json();
-            console.log(data.data[0]);
-            return Number.parseFloat(data.data[0]).toFixed(6);
+                let response = await fetch(url, config);
+                let data = await response.json();
+                console.log(data.data[0]);
+                return Number.parseFloat(data.data[0]).toFixed(6);
+            } catch (error) {
+                alert("An error occured while fetching the value of Toolx /\n Please reload the page");
+            }
+            return  1;
         }
 
         async function listenForAmount(){

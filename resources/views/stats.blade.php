@@ -1011,6 +1011,7 @@
         crossorigin="anonymous"></script>
     <!--locally hosted comment out during production and uncomment the one above-->
     <script src="{{asset('js/main.js')}}"></script>
+    @include('includes.processing')
 
 </body>
 

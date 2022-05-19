@@ -1,11 +1,11 @@
 var xAxisLabel;
 var yAxisLabel;
 
-async function showChart(transactionHistory) {
+async function showChart(transactionHistory, address, balance) {
   //Get date range
   xAxisLabel = getTransactionDate(transactionHistory);//getDateRange(transactionHistory);
   //Get amount
-  yAxisLabel = getDateAndAmountPair(transactionHistory);
+  yAxisLabel = getDateAndBalPair(transactionHistory, address, balance);//TODO WORK HERE
 
 
   
@@ -108,22 +108,28 @@ async function showChart(transactionHistory) {
   });
 }
 
+function getDateAndBalPair(transactionHistory,address,balance){
+  let today = getDateFormat(new Date());
+  let listOfBalAndDate = [{x: today, y: balance}];
 
-
-function getDateAndAmountPair(transactionHistory){
-  var listOfAmtAndDate = [];
-  for(var i = transactionHistory.length - 1; i>=0; i--){
-    var trx = transactionHistory[i];
+  for(var i = 0; i < transactionHistory.length; i++){
+    let trx = transactionHistory[i];
     //get date
-    var dte = new Date(trx["round-time"] * 1000);
-    var ddate = getDateFormat(dte);
+    let dte = new Date(trx["round-time"] * 1000);
+    let ddate = getDateFormat(dte);
     //get amount
     var amt = (trx["payment-transaction"].amount/1000000)*MULTIPLIER;
-    //save as object to list
-    listOfAmtAndDate.push({x: ddate, y: amt});
+    //Calculate balance
+    let prevBalance = listOfBalAndDate[listOfBalAndDate.length - 1].y;
+    let balAtMoment = 0;
+    if(trx["payment-transaction"].receiver == address){
+      balAtMoment = prevBalance - amt;
+    }else{
+      balAtMoment = prevBalance + amt;
+    }
+    listOfBalAndDate.push({x: ddate, y: balAtMoment});
   }
-
-  return listOfAmtAndDate.slice(Math.max(transactionHistory.length - 17, 0));
+  return listOfBalAndDate.reverse();
 }
 
 function getTransactionDate(transactionHistory){
@@ -133,7 +139,7 @@ function getTransactionDate(transactionHistory){
     let datee = new Date(element["round-time"]*1000);
     arrOfDates.push(getDateFormat(datee));
   }
-  return arrOfDates.slice(Math.max(transactionHistory.length - 17, 0));
+  return arrOfDates;
 }
 
 function getDateFormat(dte){

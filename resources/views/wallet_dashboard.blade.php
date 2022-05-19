@@ -88,11 +88,11 @@
                 @include('includes.ad1')
 
                 <!--start of third table -->
-
+                
                 <!--second section-->
                 <div id="first-dashboard-table" class="mt-4">
                     <div class="row">
-                        <div class=" col-7 col-md-12">
+                        <div class=" col-8 w-100 col-md-10">
                             <h1 class="d-flex justify-content-center"><span
                                     style="margin-right:10px; font-size: large;">
                                     <img alt="dashboard-token-icon" width="15" height="15" src="{{asset('images/dashboard-token-icon.svg')}}"></span>
@@ -113,9 +113,9 @@
                             <div class="d-flex"
                                 style="width: 100%; font-size: large;padding-left: 2%;padding-right: 2%;">
                                 <div class="table-width5" style="padding-left: 9%;">Token</div>
-                                <div class="table-width6 ">Balance</div>
-                                <div class="table-width6" style="margin-left: 10px;">Price<br>({{session('selectedCurrency','Algo')}})</div>
-                                <div class="table-width6"  style="margin-left: 10px;">Value<br>({{session('selectedCurrency','Algo')}})</div>
+                                <div class="table-width4">Balance</div>
+                                <div class="table-width4" style="">Price<br>({{session('selectedCurrency','Algo')}})</div>
+                                <div class="table-width4"  style="">Value<br>({{session('selectedCurrency','Algo')}})</div>
                             </div>
                             <div id="first-dashboard-t-b-l-1" class="table-body-links-1 mt-2">
                                 <span id="no_token_found">Loading Token .......</span>
@@ -179,542 +179,7 @@
                     <!--end of table body-->
                 </div>
                 <!--end of third section-->
-{{-- 
-                <!--fourth section-->
-                <div id="third-dashboard-table" class="mt-3">
-                    <div class="row">
-                        <div class="col-7 col-md-10">
-                            <h1 class="d-flex justify-content-center align-items-center"><img alt="dashboard-plant-icon"
-                                    width="15" height="15" src="static/dashboard-plant-icon.svg"><span
-                                    style="margin-left: 0.5em;">Farms</span></h1>
-                        </div>
-                        <div class="col-5 col-md-2 d-flex justify-content-between">
-                            <span>Total: #4, 792</span>
-                            <button id="third_table_dropdown" class="btn btn-sm table-expand-toggler"
-                                name="third-dashboard-table" onclick="view(this.name)"><i
-                                    id="third_dashboard_table_dropdown_icon" class="fas fa-angle-down"></i></button>
-                        </div>
-                    </div>
-                    <!--table body-->
-                    <div class="mb-3 w-100" style="overflow-x: auto; ">
-                        <div class="pt-1 pb-4 table-body table-body-width" style="border-color: #00ffbb;">
 
-                            <div class="d-flex"
-                                style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
-                                <div class="table-width7" style="padding-left: 5%;">Platform</div>
-                                <div class="table-width8 ">Asset</div>
-                                <div class="table-width8 d-flex justify-content-center">Balance</div>
-                                <div class="d-flex justify-content-center table-width8">Value
-                                </div>
-                            </div>
-                            <div id="third-dashboard-t-b-l-1" class="table-body-links mt-4">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span style="font-size: x-small;" class="w-100">15.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">12.8 XXX</span><br>
-                                        <span style="font-size: x-small;" class="w-100">40.3 XXX</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--end of table body-->
-                </div>
-                <!--end of fourth section-->
-
-                <!--fifth section-->
-                <div id="fourth-dashboard-table" class="mt-3">
-                    <div class="row">
-                        <div class="col-7 col-md-10">
-                            <h1 class="d-flex justify-content-center align-items-center"><img
-                                    alt="dashboard-staking-icon" width="15" height="15"
-                                    src="static/dashboard-staking-icon.svg"><span
-                                    style="margin-left: 0.5em;">Staking</span></h1>
-                        </div>
-                        <div class="col-5 col-md-2 d-flex justify-content-between">
-                            <span>Total: #4, 792</span>
-                            <button id="fourth_table_dropdown-3" class="btn btn-sm table-expand-toggler"
-                                name="fourth-dashboard-table" onclick="view(this.name)"><i
-                                    id="fourth_dashboard_table_dropdown_icon" class="fas fa-angle-down"></i></button>
-                        </div>
-                    </div>
-                    <!--table body-->
-                    <div class="mb-3 w-100" style="overflow-x: auto; ">
-                        <div class="pt-1 pb-4 table-body table-body-width" style="border-color: #00ffbb;">
-
-                            <div class="d-flex"
-                                style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
-                                <div class="table-width7" style="padding-left: 5%;">Platform</div>
-                                <div class="table-width8 ">Name</div>
-                                <div class="table-width8 d-flex justify-content-center">Collateral Ratio</div>
-                                <div class="d-flex justify-content-center table-width8">Value
-                                </div>
-                            </div>
-                            <div id="fourth-dashboard-t-b-l-1" class="table-body-links mt-4">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center flex-wrap justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width7">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width8">
-
-                                        ====
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8 "
-                                        style="line-height: 2px;">
-                                        <span class="body-text2" style="color: #2DB020">+400%</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width8">
-                                        #205
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--end of table body-->
-                </div>
-                <!--end of fifth section-->
-
-
-                <!--sixth section-->
-                <div id="fifth-dashboard-table" class="mt-3">
-                    <div class="row">
-                        <div class="col-7 col-md-10">
-                            <h1 class="d-flex justify-content-center align-items-center"><img
-                                    alt="dashboard-miscellaneous-icon" width="15" height="15"
-                                    src="static/dashboard-miscellaneous-icon.svg"><span
-                                    style="margin-left: 0.5em;">Miscellaneous</span></h1>
-                        </div>
-                        <div class="col-5 col-md-2 d-flex justify-content-between">
-                            <span>Total: #4, 792</span>
-                            <button id="fifth_table_dropdown" class="btn btn-sm table-expand-toggler"
-                                name="fifth-dashboard-table" onclick="view(this.name)"><i
-                                    id="fifth_dashboard_table_dropdown_icon" class="fas fa-angle-down"></i></button>
-                        </div>
-                    </div>
-                    <!--table body-->
-                    <div class="mb-3 w-100" style="overflow-x: auto; ">
-                        <div class="pt-1 pb-4 table-body table-body-width" style="border-color: #00ffbb;">
-
-                            <div class="d-flex"
-                                style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
-                                <div class="table-width1 " style="padding-left: 5%;">Platform</div>
-                                <div class="table-width5 text-center">Name</div>
-
-                                <div class="d-flex justify-content-center table-width1">Value
-                                </div>
-                            </div>
-                            <div id="fifth-dashboard-t-b-l-1" class="table-body-links mt-4">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                                        </div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width5 justify-content-center">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                                <a href="#" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0"
-                                    style="font-size: medium;height: 3em;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div style="margin-left: 5%;margin-right: 5%;"><i
-                                                class="fas fa-angle-down text-dark"></i></div>
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center table-width5">
-                                        ====
-
-                                    </div>
-
-                                    <div class="d-flex align-items-center justify-content-center table-width1">
-                                        #205
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--end of table body-->
-                </div>
-                <!--end of sixth section--> --}}
 
                 <!--mobile add placeholder visible only on small screens-->
                     @include('includes.ad2')
@@ -783,7 +248,7 @@
 
         
         var accountInfo;
-        var listOfAssetsDetails;
+        var listOfAssetsDetails = [];
 
         window.onload = async (event)=>{
             showProcessing("Loading Wallet Details");
@@ -798,13 +263,15 @@
                 ctx.font = "30px Arial";
                 ctx.fillText("No Transaction Yet", 10, 50);
             }else{
-                await showChart(transactionHistory);
+                let blance = accountInfo.account.amount/1000000 * MULTIPLIER;
+                console.log(JSON.stringify(transactionHistory,null,4));
+                await showChart(transactionHistory.slice(0, 16), address, blance);
             }
 
-            listOfAssetsDetails = await getAssetsDetails();
+            await getAssetsDetails();
             if(listOfAssetsDetails.length > 0){
                 await displayAssets(listOfAssetsDetails);
-                console.log(JSON.stringify(accountInfo,null,4));
+                // console.log(JSON.stringify(accountInfo,null,4));
             }
             
             if(noPoolFoundSpan.style.display != 'none'){
@@ -839,10 +306,6 @@
             }
         }
 
-        function truncate(address){
-            return address.substring(0,6)+"............"+address.substring(address.length-7, address.length-1);
-        }
-
         async function getArrayOfTranxHistory() {
             try {
                 let response = await client.searchForTransactions()
@@ -863,9 +326,26 @@
         }
 
         async function getAssetsDetails(){
-            //Get and return assets details of user {name, balance, unitname, price, value}
-            let listOfAssets = [];
+            //Get assets details of user {name, balance, unitname, price, value}
             try {
+                let algoBalance = accountInfo.account.amount/1000000;
+                //Insert algo details first
+                let priceAndPriceChange = await getPrice(0);
+                let price = (await getAlgoPrice()) * MULTIPLIER;//Number.parseFloat().toFixed(8);
+                let priceChange = priceAndPriceChange.price_change_24;
+                let value = algoBalance * price;
+                console.log("VALUE "+value);
+                listOfAssetsDetails.push({
+                    id: 0,
+                    name: "Algo",
+                    balance: algoBalance,
+                    unitName: "ALGO",
+                    priceChange: Number.parseFloat(priceChange).toFixed(0),
+                    price: Number.parseFloat(price).toFixed(8),
+                    value: Number.parseFloat(value).toFixed(8),
+                    url: "www.algorand.com"
+                });
+
                 //loop through assets in accounts
                 console.log(JSON.stringify(accountInfo,null,4));
                 let acctAssets = accountInfo.account.assets;
@@ -878,6 +358,11 @@
                             .index(assetId).do();
                         console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
                         let assetParams = assetInfo.assets[0].params;
+                        //check for nfts
+                        if (assetParams.url.indexOf("ipfs")>-1) {
+                            continue;
+                        }
+
                         let balance = assetIndex.amount/10**assetParams.decimals;
                         let priceAndPriceChange = await getPrice(assetId);
                         let price = priceAndPriceChange.price * MULTIPLIER;//Number.parseFloat().toFixed(8);
@@ -885,7 +370,7 @@
                         let value = balance * price;//Number.parseFloat().toFixed(8);
                         USER_BALANCE = USER_BALANCE + value;
 
-                        listOfAssets.push({
+                        listOfAssetsDetails.push({
                             id: assetId,
                             name: assetParams.name, 
                             balance: balance,
@@ -893,7 +378,9 @@
                             priceChange: Number.parseFloat(priceChange).toFixed(0),
                             price: Number.parseFloat(price).toFixed(8),
                             value: Number.parseFloat(value).toFixed(8),
-                            url: assetParams.url
+                            url: assetParams.url,
+                            totalSupply: assetParams.total,
+                            decimals: assetParams.decimals
                         });
                     }
                 }
@@ -901,28 +388,36 @@
                 console.error(error);
             }
 
-            return listOfAssets;
+            //return listOfAssets;
         }
 
         async function getPrice(assetId){
-            let url = "https://algocharts.net/apiv2/?asset_in="+assetId+"&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
-            //"/price"+assetId;
-            const config = {
-                mode: 'cors',
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json'
+            try {
+                let url = "https://algocharts.net/apiv2/?asset_in="+assetId+"&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
+                //"/price"+assetId;
+                const config = {
+                    // mode: 'cors',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/plain'
+                    }
                 }
+
+                let response = await fetch(url, config);
+                let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
+
+                // console.log("Value from SERVER ABT COIN "+JSON.stringify(data,null,4));
+                //return data[0];//Number.parseFloat().toFixed(5);
+                return {
+                    price: data.data[0],
+                    price_change_24: data.data[1]
+                }
+            } catch (error) {
+                alert("An error occured while fetching the price of some tokens");
             }
-
-            let response = await fetch(url, config);
-            let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
-
-            console.log("Value from SERVER ABT COIN "+JSON.stringify(data,null,4));
-            //return data[0];//Number.parseFloat().toFixed(5);
             return {
-                price: data.data[0],
-                price_change_24: data.data[1]
+                price: 0,
+                price_change_24: 0
             }
         }
 
@@ -981,13 +476,13 @@
                     <div class="img-box t-p-div" style="margin-left: 10px;"></div>
                     <div>`+assetDetail.unitName+`</div>
                 </div>
-                <div class="d-flex align-items-center table-width6">
+                <div class="d-flex align-items-center table-width4" style="margin-right: 15px;">
                     `+formatNumber(assetDetail.balance)+`
                 </div>
-                <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
+                <div class="d-flex align-items-center table-width4" style="margin-right: 10px;">
                     `+assetDetail.price+`
                 </div>
-                <div class="d-flex align-items-center table-width6" style="margin-left: 10px;">
+                <div class="d-flex align-items-center table-width4" style="">
                     `+formatNumber(Number.parseFloat(assetDetail.value).toFixed(8))+`
                 </div>
             </a>`;
@@ -999,11 +494,21 @@
                 return element.id == assetId;
             })[0];
             console.log(JSON.stringify(assetObj,null,4));
-            let detailsBody = assetObj.name+`<br>
-                        <b>ID: </b>  `+assetObj.id+`<br>
-                        <b>Price: </b>  `+assetObj.price+`<br>
-                        <b>Price Change(24H%): </b>  `+assetObj.priceChange+`<br>
+            let detailsBody;
+            if(assetObj.priceChange == 0){
+                detailsBody = assetObj.name+`<br>
+                        <b class="text-secondary">ID: </b>  `+assetObj.id+`<br>
+                        <b class="text-secondary">Price: </b>  `+assetObj.price+`<br>
                         <a  class="text-success" target="_blank" href="https://`+assetObj.url+`">Website</a>`;
+            }else{
+                detailsBody = assetObj.name+`<br>
+                        <b class="text-secondary">ID: </b>  `+assetObj.id+`<br>
+                        <b class="text-secondary">Price: </b>  `+assetObj.price+`{{session('selectedCurrency','Algo')}}<br>
+                        <b class="text-secondary">Price Change(24H%): </b>  `+assetObj.priceChange+`<br>
+                        <b class="text-secondary">Total Supply: </b>  `+assetObj.totalSupply+`<br>
+                        <b class="text-secondary">Decimals: </b>  `+assetObj.decimals+`<br>
+                        <a  class="text-success" target="_blank" href="https://`+assetObj.url+`">Website</a>`;
+            }
             document.getElementById("assetDetailTitle").innerHTML = assetObj.unitName;
             document.getElementById("assetDetailBody").innerHTML = detailsBody;
         }

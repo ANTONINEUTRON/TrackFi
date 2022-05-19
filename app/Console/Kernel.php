@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
             //Add to Db
             DB::table('tokens')->insert($arrayOfTokens);
         })
-        ->everyMinute();
+        ->twiceDaily(1,19);// run at 1am and 7pm
     }
 
     private function getTokensFromTinyChart(){

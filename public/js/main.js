@@ -170,27 +170,34 @@ async function selectedSubjectName() {
       document.getElementById("multiplier").value = MULTIPLIER;
       document.getElementById("subjectName").submit();
 
-      location.reload();
+      setTimeout(function(){
+          location.reload();
+      }, 1200); 
     }
   }
 }
 
 
 async function getAlgoPrice(){
-  let url = "https://algocharts.net/apiv2/?asset_in=0&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
+  try {
+    let url = "https://algocharts.net/apiv2/?asset_in=0&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
 
-  const config = {
-      mode: 'cors',
-      method: 'GET',
-      headers: {
-          'Accept': 'application/json'
-      }
+    const config = {
+        mode: 'cors',
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    }
+  
+    let response = await fetch(url, config);
+    let data = await response.json();//Returns array[ price, 24h price change, USD token value and Algorand to USD value saved for asset:
+  
+    return data.data[3];
+  } catch (error) {
+    alert("An error occured while fetching the Algo price /\n Please reload the Page");
   }
-
-  let response = await fetch(url, config);
-  let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
-
-  return data.data[3];
+  return 1;
 }
 
 //text copy
@@ -213,7 +220,7 @@ function myFunction(e) {
     document.getElementById("myPopup").classList.add("d-none");
   }
 }
-//for getting typed data inside searbar
+//for getting typed data inside searchbar
 function myform() {
   var searchValue = document.getElementById("nav-search").value;
   console.log(searchValue);
@@ -225,4 +232,8 @@ function myform() {
     var form = document.getElementById("search_form");
     form.submit();
   }
+}
+
+function truncate(address){
+  return address.substring(0,6)+"............"+address.substring(address.length-7, address.length-1);
 }

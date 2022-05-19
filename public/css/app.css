@@ -631,6 +631,9 @@ select {
 .visible {
   visibility: visible;
 }
+.static {
+  position: static;
+}
 .fixed {
   position: fixed;
 }
@@ -1688,10 +1691,6 @@ select {
 
   .md\:h-auto {
     height: auto;
-  }
-
-  .md\:pt-60 {
-    padding-top: 15rem;
   }
 }
 @media (min-width: 1024px) {

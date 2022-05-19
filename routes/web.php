@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PresalesController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\StatsController;
+use App\Http\Controllers\NftsController;
 use App\Http\Controllers\GetPriceDetailsController;
 use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\admin\AdvertController;
@@ -26,9 +27,7 @@ Route::get('/', function () {
 });
 Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
 Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard']);
-Route::get('/nfts', function () {
-    return view('nfts');
-});
+Route::get('/nfts',[NftsController::class, 'show']);
 Route::get('/stats', [StatsController::class, 'showStats']);
 Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
