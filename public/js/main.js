@@ -186,7 +186,7 @@ async function getAlgoPrice(){
         mode: 'cors',
         method: 'GET',
         headers: {
-            'Accept': 'application/json'
+            'Accept': 'text/plain'
         }
     }
   

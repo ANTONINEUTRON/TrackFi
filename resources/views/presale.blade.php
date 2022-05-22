@@ -71,23 +71,6 @@
                         <span class="mt-3 body-text2 text-center">
                             If you'd like to participate in our presale, fill the form below to initiate transaction that will receive payment from your My Algo wallet
                         </span>
-                        {{--an Algo wallet address shall be provided
-                            through which you will
-                            process the purchase of your TrackFi token <span class="body-text2 text-center mt-3">
-                            Copy Presale Address here <br>
-
-                        </span> --}}
-                        {{-- <span class="body-text2 w-100 d-flex justify-content-center align-items-center">
-                            <span class="btn " id="presale_address" style="position: relative;"
-                                onclick="myFunction(this.id)">
-                                <span class="popuptext d-none" id="myPopup">Copied</span>
-                                <i style=" font-size: small;" class="far fa-copy text-light"></i>
-                            </span> --}}
-                            {{-- <span class="d-none" id='keyval'> 4B7S3A73Y643XSAYRKTLZFKKYQBFNMHDUHAI4AXHBKGK4576AZ4C3CUBM
-                            </span> --}}
-
-                            {{-- <span class="bg-light text-dark" style="width: 13em;overflow-x: auto;">
-                                4B7S3A73Y643XSA.......BM</span> --}}
                         </span>
 
                         <!--Form starts here  -->
@@ -97,22 +80,11 @@
                                     <form autocomplete="off" id="tranxForm" method="POST" class="form-horizontal mb-5">
                                         {{ csrf_field() }}
                                         <input name="transaction_id" type="hidden" id="trxIdVal" value="">
-                                        {{-- <div class="mb-3  ml-5 mr-5">
-                                             <label class="ml-5 form-label">
-                                                <b>Email</b>
-                                            </label>
-                                            <input name="email" type="email" id="email" class="form-control" placeholder="Email" required>
-                                        </div> --}}
+                                        
                                         <div class="mb-3  ml-5 mr-5">
-                                            {{-- <label class="ml-5 form-label">
-                                                <b>Amount</b> (Algo)
-                                            </label> --}}
-                                            <input  max="5000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
+                                            <input min="50" max="5000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
                                         </div>
                                         <div class="mb-3 ml-5 mr-5">
-                                            {{-- <label class="ml-5 form-label">
-                                                <b>Toolx</b>
-                                            </label> --}}
                                             <input name="toolxAmount" onclick='return false;' type="Number" id="toget" placeholder="Toolx" class="form-control">
                                         </div>
                                         <button type="button" onclick="initiateTranx()" class="btn  btn-lg bg-success text-white">Purchase</button>
@@ -176,182 +148,9 @@
 
     <script>
         var receiver = "{{ $address }}";//THE WALLET TO RECEIVE THE PRESALE ALGO
-        var sender;//iswalletconnected will set the value of user wallet address
-        
-        let token = "";
-        let port = ""
-        let server = "https://node.algoexplorerapi.io";
-        //https://node.algoexplorerapi.io -- mainnet https://api.testnet.algoexplorer.io
-        
-        const client  = new algosdk.Algodv2(token, server, port);//connection client
-
-        var email;
-        var amt;
-        var value;
-        window.onload = async (event)=>{
-            value = await getToolxValueInAlgo();
-        }
-
-        //Get toolx 
-        async function getToolxValueInAlgo() {
-            try {
-                let toolxId = 394014424;
-                //connect to algocharts with toolx id
-                let url = "https://algocharts.net/apiv2/?asset_in="+toolxId+"&asset_out=0";//getting value of token from algocharts !!READ UP DOCS!!
-                
-                const config = {
-                    // 'mode' : 'cors',
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'text/plain'
-                    }
-                }
-
-                let response = await fetch(url, config);
-                let data = await response.json();
-                console.log(data.data[0]);
-                return Number.parseFloat(data.data[0]).toFixed(6);
-            } catch (error) {
-                alert("An error occured while fetching the value of Toolx /\n Please reload the page");
-            }
-            return  1;
-        }
-
-        async function listenForAmount(){
-            //check if input is greater than 0 and update it according to the multiplier of toolx
-            console.log(amt);
-            console.log(value);
-            amt = parseFloat(document.getElementById("amount").value)
-            var toolxValue = amt/value;
-            document.getElementById("toget").value = parseInt(toolxValue);
-        }
-
-        async function performTransaction(){
-            //perform transaction
-            const params = await client.getTransactionParams().do();
-            params.fee = algosdk.ALGORAND_MIN_TX_FEE;
-            params.flatFee = true;
-
-            const enc = new TextEncoder();
-            const note = enc.encode("Toolx Presale");
-
-            const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-                suggestedParams: {
-                    ...params,
-                },
-                from: sender,
-                to: receiver, 
-                amount: amt*1000000,
-                note: note
-            });
-
-            var txId = txn.txID().toString();
-            var responseSpan = document.getElementById("transResponse");
-            try {
-                const myAlgoConnect = new MyAlgoConnect();
-                const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
-                
-                // Submit the transaction
-                await client.sendRawTransaction(signedTxn.blob).do();
-
-                showProcessing("Transaction processing")
-                //show user transaction id with support for copy
-                document.getElementById("processing_section").classList.remove("d-none");
-                document.getElementById("transId").innerHTML = txId;
-
-                // Wait for confirmation
-                let confirmedTxn = await algosdk.waitForConfirmation(client, txId, 4);
-                //Get the completed Transaction
-                console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
-                //TODO 
-                
-                hideProcessing();
-                showMsgSection();
-                //show successful message
-                responseSpan.innerHTML = "Transaction successful!";
-                responseSpan.classList.add("text-success");
-            
-                //send transaction id and email to server
-                document.getElementById("trxIdVal").value = txId;
-                // console.log("Toolx Value "+document.getElementById("toolxAmount").value);
-                document.getElementById("tranxForm").submit();
-            } catch (error) {
-                hideProcessing();
-                showMsgSection();
-                responseSpan.innerHTML = "Transaction Failed!\n "+error.message;
-                responseSpan.classList.add("text-danger");
-            }
-
-            
-            // if(confirmedTxn["confirmed-round"]){
-               
-            // }else{
-                
-            // }
-
-        }
-
-        function showMsgSection(){
-            document.getElementById("processing_section").classList.remove("d-none");
-        }
-        
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function isWalletConnected() {
-            //check for cookie
-            let cookieName = "trackfi_wallet_address"; 
-            sender = getCookie(cookieName);
-            if(sender){
-                return true;
-            }
-
-            return false;
-        }
-
-        async function initiateTranx() {
-            //check if wallet is connected
-            if(isWalletConnected()){
-                if(amt){
-                    await performTransaction();//returns true if transaction is successful
-                }else{
-                    alert("Amount shouldn't be less than 1 Algo");
-                }
-            }else{
-                let text = "You have not connected a wallet. \n You need a connected wallet in order to perform this transaction";
-                if(confirm(text)){
-                    document.getElementById("connect").click();
-                }
-            }
-        }
-
-        function copyTransId() {
-            var copyText = document.getElementById("transId").innerHTML;
-
-            /* Copy the text inside the text field */
-            navigator.clipboard.writeText(copyText);
-
-            /* Alert the copied text */
-            document.getElementById("myPopup").classList.remove("d-none");
-            setTimeout(myFunc, 3000);
-            function myFunc() {
-                document.getElementById("myPopup").classList.add("d-none");
-            }
-        }
     </script>
+
+    <script src="{{ asset('js/presale.js') }}"></script>
 </body>
 
 </html>

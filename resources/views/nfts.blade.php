@@ -98,7 +98,7 @@
         let server = " https://algoindexer.algoexplorerapi.io";
         const client  = new algosdk.Indexer(token, server, port);//connection client
 
-        var address = "{{$address}}";//"PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
+        var address = "";//"{{$address ?: ""}}";//"PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
 
         window.onload = async ()=>{
             await init();
