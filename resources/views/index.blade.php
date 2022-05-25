@@ -53,9 +53,9 @@
         <h1 class="text-center"><img alt="trackfi-header-icon" src="{{asset('images/header-trackfi.svg')}}"></h1>
 
         <span class="text-center body-text1">
-          TrackFi is a DeFi Protocol built under Algorand that <br>
-          offers users full access to their Portfolio, Activites on <br>
-          AMM / LP tracking on any ASA.
+          TrackFi is a DeFi Protocol built under Algorand which offers users full access to their Portfolio, 
+          Activites on AMM / LP tracking on any ASA or address. Users can also pledge their NFT to borrow funds 
+          from a decentralized pool and pay back under a stipulated timeframe.
         </span>
         <div class="w-100 d-flex justify-content-center mt-2">
 
@@ -78,6 +78,7 @@
         <h1 class="text-center">Buy $TrackFi</h1>
         <div class="d-flex justify-content-center">
           <div class="rounded-circle text-secondary text-center m-s-div">
+              <src="{{asset('static/svg/phantom-wallet-icon.svg')}}" />
 
           </div>
           <div class="rounded-circle text-secondary text-center m-s-div">

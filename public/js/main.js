@@ -195,7 +195,8 @@ async function getAlgoPrice(){
   
     return data.data[3];
   } catch (error) {
-    alert("An error occured while fetching the Algo price");
+    console.error(error);
+    //alert("An error occured while fetching the Algo price");
   }
   return 1;
 }
@@ -223,7 +224,6 @@ function myFunction(e) {
 //for getting typed data inside searchbar
 function myform() {
   var searchValue = document.getElementById("nav-search").value;
-  console.log(searchValue);
 
   if (searchValue == "" || searchValue.length < 8) {
     alert("Enter a valid algorand wallet address");

@@ -31,7 +31,6 @@ async function getToolxValueInAlgo() {
 
         let response = await fetch(url, config);
         let data = await response.json();
-        console.log(data.data[0]);
         return Number.parseFloat(data.data[0]).toFixed(6);
     } catch (error) {
         alert("An error occured while fetching the value of Toolx /\n Please reload the page");
@@ -83,7 +82,7 @@ async function performTransaction() {
         // Wait for confirmation
         let confirmedTxn = await algosdk.waitForConfirmation(client, txId, 4);
         //Get the completed Transaction
-        console.log("Transaction " + txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
+        
         //TODO 
 
         hideProcessing();
@@ -94,7 +93,6 @@ async function performTransaction() {
 
         //send transaction id and email to server
         document.getElementById("trxIdVal").value = txId;
-        // console.log("Toolx Value "+document.getElementById("toolxAmount").value);
         document.getElementById("tranxForm").submit();
     } catch (error) {
         hideProcessing();

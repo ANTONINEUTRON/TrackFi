@@ -135,7 +135,6 @@
                         }
                     }
                 }
-                console.log(JSON.stringify(listOfNfts,null,4));
             } catch (error) {
                 console.error(error);
                 alert("couldn't fetch your wallet details, refresh page");
@@ -165,7 +164,7 @@
                 console.error(error);
             }
 
-            return null
+            return null;
         }
 
         async function displayNfts(nftInstance) {

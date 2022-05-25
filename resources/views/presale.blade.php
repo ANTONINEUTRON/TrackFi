@@ -42,9 +42,8 @@
                         <h2 class="text-center"><img alt="header-trackfi" src="{{asset('images/header-trackfi.svg')}}"></h2>
 
                         <span class="text-center body-text2 d-flex justify-content-center">
-                            TrackFi will be launched after presale has been caried out. You're welcome to be an early
-                            investor
-                            . Seed your spot by buying at a fair price.
+                            TrackFi will be launched after presale has been caried out. 
+                             Seed your spot
                         </span>
                         <h1 class="text-center">Presale Statistics</h1>
                         <span class="body-text2 text-center">
@@ -57,19 +56,20 @@
                             Listing price = $0.0016
                         </span>
                         <span class="body-text2 text-center mt-3">
-                            Minimum buy = 50 Algo
+                            Minimum buy = 100 Algo
                         </span>
                         <span class="body-text2 text-center">
-                            Maximum buy = 5000 Algo
+                            Maximum buy = 50000 Algo
                         </span>
                         <span class="body-text2 text-center">
-                            Soft Cap= 50,000 Algo
+                            Soft Cap= 200,000 Algo
                         </span>
                         <span class="body-text2 text-center">
-                            Hard Cap = 150,000 Algo
+                            Hard Cap = 600,000 Algo
                         </span>
                         <span class="mt-3 body-text2 text-center">
-                            If you'd like to participate in our presale, fill the form below to initiate transaction that will receive payment from your My Algo wallet
+                            
+                            
                         </span>
                         </span>
 
@@ -82,10 +82,10 @@
                                         <input name="transaction_id" type="hidden" id="trxIdVal" value="">
                                         
                                         <div class="mb-3  ml-5 mr-5">
-                                            <input min="50" max="5000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
+                                            <input min="100" max="50000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
                                         </div>
                                         <div class="mb-3 ml-5 mr-5">
-                                            <input name="toolxAmount" onclick='return false;' type="Number" id="toget" placeholder="Toolx" class="form-control">
+                                            <input name="TrackFiAmount" onclick='return false;' type="Number" id="toget" placeholder="TrackFi" class="form-control">
                                         </div>
                                         <button type="button" onclick="initiateTranx()" class="btn  btn-lg bg-success text-white">Purchase</button>
                                     </form>
@@ -106,14 +106,14 @@
                         </div>
                         
                         <span class="body-text2 text-center">
-                            Please note that Algo is strictly accepted from an Algo wallet. Exchanges are yet to be
-                            facilitated!
+                            After Participating in the presale, you'll recieve your $TrackFi token and a unique NFT which will grant you access to the borrowing platform. 
+                            This NFT will only be given freely to presale entrants and would not be sold in the secondary market by the team. However, holders of the NFT can 
+                            proceed in listing thiers on any secondary marketplace.
                         </span>
                         <span class="body-text2 text-center mt-3">
-                            Follow our social media handles as all information regarding the presale will be posted
-                            there.
-                            This includes the date and time presale would be held and any further information to be
-                            disseminated.
+                            
+                            
+                            
                         </span>
                     </div>
 

@@ -26,7 +26,6 @@ window.onload = async (event) => {
         ctx.fillText("No Transaction Yet", 10, 50);
     } else {
         let blance = accountInfo.account.amount / 1000000 * MULTIPLIER;
-        console.log(JSON.stringify(transactionHistory, null, 4));
         showChart(transactionHistory.slice(0, 16), address, blance);
     }
 
@@ -142,8 +141,6 @@ async function filterForLiquidityPool(){
         //get asset details
         let assetInfo = await client.searchForAssets()
                 .index(assetId).do();
-
-        console.log("ASSET INF"+JSON.stringify(assetInfo,null,4))
         let params = assetInfo.assets[0].params;
 
         let name = params.name;
@@ -241,7 +238,6 @@ function showLPDetailOnModal(assetId){
     let lpObject = listOfNonTokensDetails.filter(element => {
         return element.id == assetId;
     })[0];
-    console.log("LP LEVEL"+JSON.stringify(lpObject, null, 4));
     let detailsBody = `<h6>` + lpObject.name + `</h6>
                     <b class="text-secondary">ID: </b>  `+ lpObject.id + `<br>
                     <b class="text-secondary">Total Supply: </b> `+ lpObject.totalSupply + `<br>
