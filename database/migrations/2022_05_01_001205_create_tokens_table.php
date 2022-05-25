@@ -14,11 +14,17 @@ class CreateTokensTable extends Migration
     public function up()
     {
         Schema::create('tokens', function (Blueprint $table) {
-            $table->string("token_id",100)->primary();
+            $table->string("id",100)->primary();
             $table->text("name");
-            $table->string("ticker",100);
+            $table->string("unit_name",100);
             $table->double("price",15,8,false);
             $table->double("price_change_24");
+            $table->text("totalSupply");
+            $table->text("url");
+            $table->integer("decimals");
+            $table->double("market_cap");
+            $table->text("circulating_supply");
+            $table->double("volume24h");
         });
     }
 

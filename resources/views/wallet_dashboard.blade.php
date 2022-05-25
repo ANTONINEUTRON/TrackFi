@@ -7,6 +7,7 @@
     <title>TrackFi Dashboard</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     @include('includes.head')
 </head>
@@ -204,7 +205,7 @@
         <div class="modal-dialog">
           <div style="width: 100%;" class="modal-content bg-dark">
             <div class="modal-header">
-              <h5 class="modal-title" id="assetDetailTitle">Modal title</h5>
+              <div class="modal-title" id="assetDetailTitle">Modal title</div>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="assetDetailBody" class="modal-body text-light">

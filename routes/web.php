@@ -32,7 +32,7 @@ Route::get('/stats', [StatsController::class, 'showStats']);
 Route::get('/presale', [PresalesController::class, 'showPresales']);
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
-Route::get('/price/{assetid}',  [GetPriceDetailsController::class, 'getPrice']);
+Route::post('/get_tokens_details',  [GetPriceDetailsController::class, 'getTokensDetails']);
 Route::post('/set_currency_choice', function (Request $request) {
     $value = $request->input('test');
     $mltp = $request->input('multiplier');

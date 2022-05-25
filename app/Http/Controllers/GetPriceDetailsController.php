@@ -7,12 +7,51 @@ use DB;
 
 class GetPriceDetailsController extends Controller
 {
-    function getPrice(Request $request){
-        $walletid = $request->route("assetid");
+    function getTokensDetails(Request $request){
+        $data = $request->json()->all();//returned as a multidimensional array
+
+        $test1 = $data[0]["amount"];
+        $listOfAssetsId = [];
+        $lisOfAssetsDetails = [];//an assoc. array that will help in search speed
+        //Get list of assets id
+        foreach ($data as $assetDetail) {
+            $lisOfAssetsDetails[$assetDetail["asset-id"]] = $assetDetail;
+            array_push($listOfAssetsId, $assetDetail["asset-id"]);
+        }
+        
         //Access Db and fetch
-        $result = DB::select('select price,price_change_24 from tokens where token_id = ?', [$walletid]);
-        //convert to json response
-        //return to user  as response
-        return response()->json($result);
+        $assetsDetails = DB::table('tokens')
+                ->whereIn('id', $listOfAssetsId)
+                ->get();
+
+        //Append balance and value
+        foreach ($assetsDetails as $item){
+            $item->price = $item->price * session('multiplier',1);//moltiplier is defined in route file
+            $balance = $lisOfAssetsDetails[$item->id]["amount"] /10**$item->decimals;//balance came in from the array received in the get request
+            $item->value = $balance * $item->price;
+            $item->balance = $balance;
+        }
+
+        $listOfNonTokensAssets = [];
+        //Append id of assests that are not token
+        foreach ($data as $item) {
+            foreach ($assetsDetails as $aDetail){
+                if($item["asset-id"] == $aDetail->id){
+                    continue 2;
+                }
+            }
+            //a non-token asset
+            //insert the object into the response for frontend to filter
+            // $assetsDetails[] = [];
+            array_push($listOfNonTokensAssets, $item);
+        }
+
+        $returnableList = [
+            "tokens" => $assetsDetails,
+            "nonTokens" => $listOfNonTokensAssets
+        ];
+        
+        //return to user  as json response
+        return response()->json($returnableList);
     }
 }

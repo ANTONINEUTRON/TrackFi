@@ -195,7 +195,7 @@ async function getAlgoPrice(){
   
     return data.data[3];
   } catch (error) {
-    alert("An error occured while fetching the Algo price /\n Please reload the Page");
+    alert("An error occured while fetching the Algo price");
   }
   return 1;
 }

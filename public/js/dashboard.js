@@ -1,6 +1,3 @@
-const noPoolFoundSpan = document.getElementById("no_pool_found");
-const noTokenFoundSpan = document.getElementById("no_token_found");
-
 let token = "";
 let port = ""
 let server = " https://algoindexer.algoexplorerapi.io";
@@ -8,9 +5,12 @@ let USER_BALANCE = 0;
 
 const client = new algosdk.Indexer(token, server, port);//connection client
 
-
 var accountInfo;
-var listOfAssetsDetails = [];
+var listOfAssetsDetails;
+var listOfTokens = [];
+var listOfNonTokens = [];
+var listOfNonTokensDetails = [];
+var algoDetails; //will contain details of algo token
 
 window.onload = async (event) => {
     showProcessing("Loading Wallet Details");
@@ -27,21 +27,24 @@ window.onload = async (event) => {
     } else {
         let blance = accountInfo.account.amount / 1000000 * MULTIPLIER;
         console.log(JSON.stringify(transactionHistory, null, 4));
-        await showChart(transactionHistory.slice(0, 16), address, blance);
+        showChart(transactionHistory.slice(0, 16), address, blance);
     }
 
     await getAssetsDetails();
-    if (listOfAssetsDetails.length > 0) {
-        await displayAssets(listOfAssetsDetails);
-        // console.log(JSON.stringify(accountInfo,null,4));
+    if(listOfTokens.length > 0){
+        displayTokens();
     }
 
-    if (noPoolFoundSpan.style.display != 'none') {
-        noPoolFoundSpan.innerHTML = "No Liquidity Pool Found";
+    if(listOfNonTokens.length > 0){
+        filterForLiquidityPool();
     }
 
-    if (noTokenFoundSpan.style.display != 'none') {
-        noTokenFoundSpan.innerHTML = "No Token Found";
+    if (document.getElementById("no_pool_found").style.display != 'none') {
+        document.getElementById("no_pool_found").innerHTML = "No Liquidity Pool Found";
+    }
+
+    if (document.getElementById("no_token_found").style.display != 'none') {
+        document.getElementById("no_token_found").innerHTML = "No Token Found";
     }
     await displayBalance();
     hideProcessing();
@@ -52,7 +55,7 @@ async function fetchAccountDetails() {
         accountInfo = await client.lookupAccountByID(address).do();
     } catch (error) {
         console.error(error);
-        alert("couldn't fetch your wallet details, refresh page");
+        alert("couldn't fetch your wallet details, enter the address and try again");
     }
 }
 
@@ -61,7 +64,6 @@ async function displayBalance() {
     if (accountInfo) {
         USER_BALANCE = USER_BALANCE + accountInfo.account.amount / 1000000;
         let formattedBalance = formatNumber(Number.parseFloat(USER_BALANCE * MULTIPLIER).toFixed(5))
-        console.log("FORMATED Balan ce " + formattedBalance);
         balanceHold.innerHTML = formattedBalance + " " + selectedCurr;
     } else {
         balanceHold.innerHTML = "Couldn't fetch Account Details";
@@ -92,124 +94,86 @@ async function getAssetsDetails() {
     try {
         let algoBalance = accountInfo.account.amount / 1000000;
         //Insert algo details first
-        let priceAndPriceChange = await getPrice(0);
-        let price = 1 * MULTIPLIER;//await getAlgoPrice();
-        let priceChange = priceAndPriceChange.price_change_24;
+        let price = 1 * MULTIPLIER;
         let value = algoBalance * price;
         console.log("VALUE " + value);
-        listOfAssetsDetails.push({
+        algoDetails = {
             id: 0,
             name: "Algorand",
             balance: algoBalance,
-            unitName: "ALGO",
-            priceChange: Number.parseFloat(priceChange).toFixed(2),
+            unit_name: "ALGO",
             price: Number.parseFloat(price).toFixed(2),
             value: Number.parseFloat(value).toFixed(6),
             url: "www.algorand.com"
-        });
+        };
+        showAssetOnTokenSection(algoDetails);
 
         //loop through assets in accounts
-        console.log(JSON.stringify(accountInfo, null, 4));
         let acctAssets = accountInfo.account.assets;
-        if (acctAssets) {
-            for (var i = 0; i < acctAssets.length; i++) {
-                //Get asset info
-                let assetIndex = acctAssets[i];
-                let assetId = assetIndex["asset-id"];
-                let assetInfo = await client.searchForAssets()
-                    .index(assetId).do();
-                console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
-                let assetParams = assetInfo.assets[0].params;
-                //check for nfts
-                if (assetParams.url) {
-                    if (assetParams.url.includes("ipfs")) {
-                        continue;
-                    }
-                }
-
-
-                let balance = assetIndex.amount / 10 ** assetParams.decimals;
-                let priceAndPriceChange = await getPrice(assetId);
-                let price = priceAndPriceChange.price * MULTIPLIER;//Number.parseFloat().toFixed(8);
-                let priceChange = priceAndPriceChange.price_change_24;
-                let value = balance * price;//Number.parseFloat().toFixed(8);
-                USER_BALANCE = USER_BALANCE + value;
-
-                listOfAssetsDetails.push({
-                    id: assetId,
-                    name: assetParams.name,
-                    balance: balance,
-                    unitName: assetParams['unit-name'],
-                    priceChange: Number.parseFloat(priceChange).toFixed(0),
-                    price: Number.parseFloat(price).toFixed(8),
-                    value: Number.parseFloat(value).toFixed(8),
-                    url: assetParams.url,
-                    totalSupply: assetParams.total,
-                    decimals: assetParams.decimals
-                });
+        
+        if(acctAssets){
+            //AT THIS POINT PASS THE ASSETS TO SERVER FOR PROCESSING AND FETCHING OF DETAILS
+            let url = "/get_tokens_details";
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify(acctAssets)
             }
+
+            let response = await fetch(url, config);
+            let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
+
+            
+            listOfTokens = data.tokens;
+            listOfNonTokens = data.nonTokens;
         }
     } catch (error) {
         console.error(error);
     }
-
-    //return listOfAssets;
 }
 
-async function getPrice(assetId) {
-    try {
-        let url = "https://algocharts.net/apiv2/?asset_in=" + assetId + "&asset_out=0";//getting value of token from algocharts !!READ UP dapp_doc.md!!
-        //"/price"+assetId;
-        const config = {
-            // mode: 'cors',
-            method: 'GET',
-            headers: {
-                'Accept': 'text/plain'
+async function filterForLiquidityPool(){
+    for(var i = 0; i<listOfNonTokens.length; i++){
+        var asset = listOfNonTokens[i];
+        var assetId = asset["asset-id"];
+        //get asset details
+        let assetInfo = await client.searchForAssets()
+                .index(assetId).do();
+
+        console.log("ASSET INF"+JSON.stringify(assetInfo,null,4))
+        let params = assetInfo.assets[0].params;
+
+        let name = params.name;
+        let balance = asset["amount"];
+        if(name.toLowerCase().includes("pool") && balance > 0){
+            if(!params.url.includes("https://")){
+                params.url = "https://"+params.url;
             }
+            let detail = {
+                id : assetId,
+                name : name,
+                unit_name: params["unit-name"],
+                balance : formatNumber(Number.parseFloat(balance).toFixed(3)),
+                value : 0,
+                totalSupply : formatNumber(params.total),
+                url : params.url, 
+                decimals : params.decimals
+            };
+            showAssetOnPoolSection(detail);
+            listOfNonTokensDetails.push(detail);
         }
-
-        let response = await fetch(url, config);
-        let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
-
-        // console.log("Value from SERVER ABT COIN "+JSON.stringify(data,null,4));
-        //return data[0];//Number.parseFloat().toFixed(5);
-        return {
-            price: data.data[0],
-            price_change_24: data.data[1]
-        }
-    } catch (error) {
-        alert("A network error occured while fetching the price of some tokens \\n Please refresh!");
+        // let assetParams = assetInfo.assets[0].params;
+        //check if contains pool
     }
-    return {
-        price: 0,
-        price_change_24: 0
-    }
-}
-
-async function displayAssets(listOfAssetsDetails) {
-    //Filter through list of assets and display to appropriete field
-    for (let index = 0; index < listOfAssetsDetails.length; index++) {
-        const assetDetail = listOfAssetsDetails[index]; //{name, balance, unitname, price, value}
-        if (assetDetail.balance > 0) {
-            if (assetDetail.name.indexOf("-") > -1) {
-                //hide no pool found
-                noPoolFoundSpan.style.display = 'none';
-                // document.getElementById("second-dashboard-table").classList.remove("d-none");
-                showAssetOnPoolSection(assetDetail);
-            } else {
-                //hide no token found
-                noTokenFoundSpan.style.display = 'none';
-                // document.getElementById("first-dashboard-table").classList.remove("d-none");
-                showAssetOnTokenSection(assetDetail);
-            }
-        }
-    }
-
 }
 
 function showAssetOnPoolSection(assetDetail) {
-    let layout = `<a href="" id="` + assetDetail.id + `" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0" data-bs-toggle="modal" data-bs-target="#assetDetailsModal"
-                                    onclick="showAssetDetailOnModal(`+ assetDetail.id + `)" style="font-size: medium;height: 3em;">
+    document.getElementById("no_pool_found").style.display = "none";
+    let layout = `<a href="" id="`+assetDetail.id+`" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0" data-bs-toggle="modal" data-bs-target="#assetDetailsModal"
+                                    onclick="showLPDetailOnModal(`+ assetDetail.id + `)" style="font-size: medium;height: 3em;">
                                     <div class="d-flex align-items-center table-width7">
                                         <div style="margin-left: 5%;margin-right: 5%;"><i
                                                 class="fas fa-angle-down text-dark"></i></div>
@@ -218,62 +182,101 @@ function showAssetOnPoolSection(assetDetail) {
                                     </div>
                                     <div class="d-flex align-items-center table-width8">
                                         <div class="img-box2 t-p-div2"></div>
-                                        `+ assetDetail.unitName + `
+                                        `+ assetDetail.unit_name + `
                                     </div>
                                     <div class="d-flex align-items-center flex-wrap justify-content-center table-width8"
                                         style="line-height: 2px;">
-                                        `+ formatNumber(assetDetail.balance) + `
+                                        `+ assetDetail.balance + `
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center table-width8">
-                                        `+ formatNumber(assetDetail.value) + `
+                                        `+ assetDetail.value + `
                                     </div>
                                 </a>`;
 
     document.getElementById("second-dashboard-t-b-l-1").innerHTML += layout;
 }
 
+function displayTokens(){
+    //hide no token found
+    listOfTokens.forEach(element => {
+        if(element.balance > 0){
+            element.price = formatNumber(Number.parseFloat(element.price).toFixed(7));
+            element.balance = formatNumber(Number.parseFloat(element.balance).toFixed(5));
+            element.price_change_24 = Number.parseFloat(element.price_change_24).toFixed(1);
+            element.value = formatNumber(Number.parseFloat(element.value).toFixed(5));
+            if(!element.url.includes("https://")){
+                element.url = "https://"+element.url;
+            }
+            element.market_cap = formatNumber(element.market_cap);
+            element.circulating_supply = formatNumber(element.circulating_supply);
+            element.totalSupply = formatNumber(element.totalSupply);
+            element.volume24h = Number.parseFloat(element.volume24h).toFixed(6);
+            showAssetOnTokenSection(element);
+        }
+
+    });
+}
 function showAssetOnTokenSection(assetDetail) {
+    document.getElementById("no_token_found").style.display = "none";
     let layout = `<a href="" id="` + assetDetail.id + `" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2"
                 onclick="showAssetDetailOnModal(`+ assetDetail.id + `)" data-bs-toggle="modal" data-bs-target="#assetDetailsModal">
                 <div class="d-flex align-items-center table-width5">
-                    <div style="margin-left: 5%;margin-right: 5%;"><i class="fas fa-angle-down"></i>
-                    </div>
-                    <div class="img-box t-p-div" style="margin-left: 10px;"></div>
-                    <div>`+ assetDetail.unitName + `</div>
+                    <img style="width:25px; height:25px; margin-left: 5%;margin-right: 5%;" src="https://asa-list.tinyman.org/assets/` + assetDetail.id + `/icon.svg" alt="icon" />
+                    <div>`+ assetDetail.unit_name + `</div>
                 </div>
                 <div class="d-flex align-items-center table-width4" style="margin-right: 15px;">
-                    `+ formatNumber(assetDetail.balance) + `
+                    `+ assetDetail.balance + `
                 </div>
                 <div class="d-flex align-items-center table-width4" style="margin-right: 10px;">
                     `+ assetDetail.price + `
                 </div>
                 <div class="d-flex align-items-center table-width4" style="">
-                    `+ formatNumber(assetDetail.value) + `
+                    `+ assetDetail.value + `
                 </div>
             </a>`;
     document.getElementById("first-dashboard-t-b-l-1").innerHTML += layout;
 }
 
-function showAssetDetailOnModal(assetId) {
-    let assetObj = listOfAssetsDetails.filter(element => {
+function showLPDetailOnModal(assetId){
+    let lpObject = listOfNonTokensDetails.filter(element => {
         return element.id == assetId;
     })[0];
-    console.log(JSON.stringify(assetObj, null, 4));
+    console.log("LP LEVEL"+JSON.stringify(lpObject, null, 4));
+    let detailsBody = `<h6>` + lpObject.name + `</h6>
+                    <b class="text-secondary">ID: </b>  `+ lpObject.id + `<br>
+                    <b class="text-secondary">Total Supply: </b> `+ lpObject.totalSupply + `<br>
+                    <b class="text-secondary">Decimals: </b>  `+ lpObject.decimals + `<br>
+                    <a  class="text-success" target="_blank" href="`+ lpObject.url + `">Website</a>`;
+
+    document.getElementById("assetDetailTitle").innerHTML = ' <span class="h3 mx-2">'+lpObject.unit_name+'</span>';
+    document.getElementById("assetDetailBody").innerHTML = detailsBody;
+}
+
+function showAssetDetailOnModal(assetId) {
+    let assetObj = listOfTokens.filter(element => {
+        return element.id == assetId;
+    })[0];
     let detailsBody;
-    if (assetObj.name == "Algorand") {
-        detailsBody = `<h6>` + assetObj.name + `</h6>
-                        <b class="text-secondary">Price: </b>  `+ assetObj.price + `<br>
-                        <a  class="text-success" target="_blank" href="https://`+ assetObj.url + `">Website</a>`;
+    let unitName;
+    if (assetId == 0) {
+        unitName = algoDetails.unit_name;
+        detailsBody = `<h6>` + algoDetails.name + `</h6>
+                        <b class="text-secondary">Price: </b>  `+ algoDetails.price + `<br>
+                        <a  class="text-success" target="_blank" href="https://`+ algoDetails.url + `">Website</a>`;
     } else {
+        unitName = assetObj.unit_name;
         detailsBody = `<h6>` + assetObj.name + `</h6>
                         <b class="text-secondary">ID: </b>  `+ assetObj.id + `<br>
                         <b class="text-secondary">Price: </b>  `+ assetObj.price + `  `+selectedCurr+`<br>
-                        <b class="text-secondary">Price Change(24H%): </b>  `+ assetObj.priceChange + `<br>
-                        <b class="text-secondary">Total Supply: </b> `+ formatNumber(assetObj.totalSupply) + `<br>
+                        <b class="text-secondary">Price Change(24H%): </b>  `+ assetObj.price_change_24 + `<br>
+                        <b class="text-secondary">Volume Traded(24H%): </b>  `+assetObj.volume24h+ `<br>
+                        <b class="text-secondary">Total Supply: </b> `+assetObj.totalSupply + `<br>
+                        <b class="text-secondary">Circulating Supply: </b> `+ formatNumber(assetObj.circulating_supply) + `<br>
+                        <b class="text-secondary">Market Cap: </b>  `+ formatNumber(Number.parseFloat(assetObj.market_cap).toFixed(4)) + `<br>
                         <b class="text-secondary">Decimals: </b>  `+ assetObj.decimals + `<br>
-                        <a  class="text-success" target="_blank" href="https://`+ assetObj.url + `">Website</a>`;//{{session('selectedCurrency','Algo')}}
+                        <a  class="text-success" target="_blank" href="`+ assetObj.url + `">Website</a>`;
     }
-    document.getElementById("assetDetailTitle").innerHTML = assetObj.unitName;
+    document.getElementById("assetDetailTitle").innerHTML = '<img style="width:50px; height:50px;" src="https://asa-list.tinyman.org/assets/' + assetId + '/icon.svg" alt="icon" /> <span class="h3 mx-2">'+unitName+'</span>';
     document.getElementById("assetDetailBody").innerHTML = detailsBody;
 }
 
