@@ -11,7 +11,7 @@ var email;
 var amt;
 var value;
 window.onload = async (event) => {
-    value = 0.025;//50 algo == 2000 trackdefi
+    value = 100/41600;//100 algo == 41,600 trackdefi
 }
 
 //Get toolx 

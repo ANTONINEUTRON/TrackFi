@@ -85,7 +85,7 @@
                                             <input min="100" max="50000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
                                         </div>
                                         <div class="mb-3 ml-5 mr-5">
-                                            <input name="TrackFiAmount" onclick='return false;' type="Number" id="toget" placeholder="TrackFi" class="form-control">
+                                            <input name="tokenAmt" onclick="return false;" onkeydown="return false;" type="Number" id="toget" placeholder="TrackFi" class="form-control">
                                         </div>
                                         <button type="button" onclick="initiateTranx()" class="btn  btn-lg bg-success text-white">Purchase</button>
                                     </form>

@@ -12,14 +12,17 @@ class PresalesController extends Controller
 {
     function showPresales(Request $request){
         $res = DB::select('select wallet_address from wallet limit 1');
-        $receiving_address = $res[0]->wallet_address;
+        $receiving_address = "No receiving address yet";
+        if(!empty($res)){
+            $receiving_address = $res[0]->wallet_address;
+        }
 
         return view('presale')->with('address',$receiving_address);
     }
 
     function acknowledgeTranx(Request $request){
         $transactionId = $request->input('transaction_id');
-        $toolxAmount = $request->input("toolxAmount");
+        $toolxAmount = $request->input("tokenAmt");
         $algoAmount = $request->input("amount"); //Algos
     
         //save to database
