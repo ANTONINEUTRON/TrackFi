@@ -54,7 +54,7 @@ async function fetchAccountDetails() {
         accountInfo = await client.lookupAccountByID(address).do();
     } catch (error) {
         console.error(error);
-        alert("couldn't fetch your wallet details, enter the address and try again");
+        alert("couldn't fetch your wallet details, refresh this page to try again");
     }
 }
 
@@ -123,8 +123,7 @@ async function getAssetsDetails() {
             }
 
             let response = await fetch(url, config);
-            let data = await response.json();//Returns array[price, price change 24h] price, 24h price change, USD token value and Algorand to USD value saved for asset:
-
+            let data = await response.json();
             
             listOfTokens = data.tokens;
             listOfNonTokens = data.nonTokens;
@@ -178,7 +177,7 @@ function showAssetOnPoolSection(assetDetail) {
                                         `+ assetDetail.name + `
                                     </div>
                                     <div class="d-flex align-items-center table-width8">
-                                        <div class="img-box2 t-p-div2"></div>
+                                        
                                         `+ assetDetail.unit_name + `
                                     </div>
                                     <div class="d-flex align-items-center flex-wrap justify-content-center table-width8"
@@ -218,7 +217,7 @@ function showAssetOnTokenSection(assetDetail) {
     let layout = `<a href="" id="` + assetDetail.id + `" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2"
                 onclick="showAssetDetailOnModal(`+ assetDetail.id + `)" data-bs-toggle="modal" data-bs-target="#assetDetailsModal">
                 <div class="d-flex align-items-center table-width5">
-                    <img style="width:25px; height:25px; margin-left: 5%;margin-right: 5%;" src="https://asa-list.tinyman.org/assets/` + assetDetail.id + `/icon.svg" alt="icon" />
+                    <img style="width:25px; height:25px; margin-left: 5%;margin-right: 5%;" src="https://asa-list.tinyman.org/assets/` + assetDetail.id + `/icon.svg" />
                     <div>`+ assetDetail.unit_name + `</div>
                 </div>
                 <div class="d-flex align-items-center table-width4" style="margin-right: 15px;">
@@ -272,7 +271,7 @@ function showAssetDetailOnModal(assetId) {
                         <b class="text-secondary">Decimals: </b>  `+ assetObj.decimals + `<br>
                         <a  class="text-success" target="_blank" href="`+ assetObj.url + `">Website</a>`;
     }
-    document.getElementById("assetDetailTitle").innerHTML = '<img style="width:50px; height:50px;" src="https://asa-list.tinyman.org/assets/' + assetId + '/icon.svg" alt="icon" /> <span class="h3 mx-2">'+unitName+'</span>';
+    document.getElementById("assetDetailTitle").innerHTML = '<img style="width:50px; height:50px;" src="https://asa-list.tinyman.org/assets/' + assetId + '/icon.svg" /> <span class="h3 mx-2">'+unitName+'</span>';
     document.getElementById("assetDetailBody").innerHTML = detailsBody;
 }
 

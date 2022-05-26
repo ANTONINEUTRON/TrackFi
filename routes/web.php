@@ -42,6 +42,7 @@ Route::post('/set_currency_choice', function (Request $request) {
     ]);
 })->name('set_currency_choice');
 
+
 Route::get('dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');

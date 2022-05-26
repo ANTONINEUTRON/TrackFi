@@ -50,7 +50,7 @@
 
                 <div class="row">
                     <!--First table-->
-                    <div class="col-md-6 col-xs-12 mb-3" id="first_table">
+                    <div class="mb-3" id="first_table">
                         <div class="row">
                             <div class="col-9">
                                 <h3 class="d-flex align-items-center"><span style="margin-right: 10px;">Biggest
@@ -80,10 +80,11 @@
                                 @for($i=0; $i < 10; $i++)
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
-                                    <span class="d-flex align-items-center" style="width: 22%">
-                                    {{$result[$i]->unit_name ?: $result[$i]->name}}
+                                    <span class="d-flex align-items-center" style="width: 10%">
+                                        <img style="width:25px; height:25px; margin: 5%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg" />
+                                        {{$result[$i]->unit_name ?: $result[$i]->name}}
                                     </span><span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>
-                                    <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
+                                    <span style="width: 10%">{{$result[$i]->price_change_24}}</span><img
                                             alt="gains-line-up" width="10" height="10"
                                             src="{{asset('images/gains-line-up.svg')}}"></span>
                                 </a>
@@ -99,7 +100,7 @@
 
 
                     <!--Start of second table-->
-                    <div class="col-md-6 col-xs-12 mb-3" id="second_table">
+                    <div class="mb-3" id="second_table">
                         <div class="row">
                             <div class="col-9">
                                 <h3 class="d-flex align-items-center"><span style="margin-right: 10px;">Biggest
@@ -122,11 +123,12 @@
                                 @for($i= (count($result)-1); $i >= (count($result)-10); $i--)
                                     <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
                                         style="font-size: small;padding-right: 10px;">
-                                        <span class="d-flex align-items-center" style="width: 22%">
-                                        {{$result[$i]->unit_name ?: $result[$i]->name}}
+                                        <span class="d-flex align-items-center" style="width: 10%">
+                                            <img style="width:25px; height:25px; margin-left: 2%;margin-right: 2%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg" />
+                                            {{$result[$i]->unit_name ?: $result[$i]->name}}
                                         </span>
                                         <span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>
-                                        <span style="width: 40%">{{$result[$i]->price_change_24}}</span><img
+                                        <span style="width: 10%">{{$result[$i]->price_change_24}}</span><img
                                                 alt="lossess-line-down" width="10" height="10"
                                                 src="{{asset('images/losses-line-down.svg')}}"></span>
                                     </a>
@@ -142,7 +144,7 @@
                 @include('includes.ad1')
 
                 <!--start of third table -->
-                <div id="third_table">
+                {{-- <div id="third_table">
                     <h3>Pools</h3>
                     <div class="row">
                         <div class="col-10">
@@ -167,7 +169,7 @@
                             </div>
                             <div id="third-table-body-links-1" class="table-body-links">
                                 UNABLE TO READ DATA
-                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
+                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
                                         Platform
@@ -184,7 +186,7 @@
                                                 alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
                                     </div>
                                 </a>
-                                 --}}
+                                
                             </div>
 
                         </div>
@@ -219,8 +221,7 @@
                                 </div>
                             </div>
                             <div id="fourth-table-body-links-1" class="table-body-links">
-                                UNABLE TO READ DATA
-                                {{-- <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
+                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
                                     <div class="d-flex align-items-center table-width1">
                                         <div class="img-box t-p-div"></div>
                                         Platform
@@ -237,13 +238,13 @@
                                                 alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
                                     </div>
                                 </a>
-                                --}}
+                               
                             </div>
 
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
 
                 <!--End of fourth table-->
                 <!--mobile add placeholder-->
