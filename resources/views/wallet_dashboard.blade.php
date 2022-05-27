@@ -70,7 +70,7 @@
                         <div class="h-50 d-flex justify-content-center align-items-center">
                             <span class="body-text1"><img style="height: 20px;width: 20px;" alt="history-icon"
                                     src="{{asset('images/history-icon.svg')}}">
-                                History</span>
+                                History<img style="width:30px; height:30px; margin:10px;" src="https://asa-list.tinyman.org/assets/0/icon.svg"  onerror="this.style.display = 'none'"/></span>
                         </div>
                     </div>
                     <div style="position: relative;height: 30vh;" class="pt-5">

@@ -63,10 +63,10 @@
                                         class="fas fa-angle-down"></i></button></div>
                         </div>
                         <div class="pt-1 pb-4 table-body">
-                            <div class="d-flex justify-content-between" style="font-size: 0.8em;">
+                            <div class="d-flex  justify-content-between" style="font-size: 0.8em;">
                                 <span style="width: 40%">Token</span>
-                                <span style="width: 32%">Price<br>({{session('selectedCurrency','Algo')}})</span>
-                                <span style="width: 10%">24H%</span>
+                                <span style="width: 30%;" class="pl-5">Price<br>({{session('selectedCurrency','Algo')}})</span>
+                                <span style="width: 9%">24H%</span>
                             </div>
                             <div id="first-table-body-links-1" class="table-body-links-1">
                                 {{-- <a href="#" class="d-flex justify-content-between mb-1 btn active pb-0 pt-0"
@@ -80,8 +80,10 @@
                                 @for($i=0; $i < 10; $i++)
                                 <a href="#" class="d-flex justify-content-between btn pb-0 pt-0 table-a">
 
-                                    <span class="d-flex align-items-center" style="width: 10%">
-                                        <img style="width:25px; height:25px; margin: 5%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg" />
+                                    <span class="d-flex align-items-center" style="width: 15%">
+                                        <div style="width:25px; height:25px; margin-left: 2%;margin-right: 2%;">
+                                            <img style="width:25px; height:25px; margin: 5%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg"  onerror="this.style.display = 'none'"/>
+                                        </div>
                                         {{$result[$i]->unit_name ?: $result[$i]->name}}
                                     </span><span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>
                                     <span style="width: 10%">{{$result[$i]->price_change_24}}</span><img
@@ -116,15 +118,17 @@
                         <div class="pt-1 pb-4 table-body">
                             <div class="d-flex justify-content-between" style="font-size: 0.8em;">
                                 <span style="width: 40%">Token</span>
-                                <span style="width: 32%">Price<br>({{session('selectedCurrency','Algo')}})</span>
-                                <span style="width: 10%">24H%</span>
+                                <span style="width: 30%">Price<br>({{session('selectedCurrency','Algo')}})</span>
+                                <span style="width: 9%">24H%</span>
                             </div>
                             <div id="second-table-body-links-1" class="table-body-links-1">
                                 @for($i= (count($result)-1); $i >= (count($result)-10); $i--)
                                     <a href="#" class="d-flex justify-content-between table-a btn pb-0 pt-0"
                                         style="font-size: small;padding-right: 10px;">
-                                        <span class="d-flex align-items-center" style="width: 10%">
-                                            <img style="width:25px; height:25px; margin-left: 2%;margin-right: 2%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg" />
+                                        <span class="d-flex align-items-center" style="width: 14%">
+                                            <div style="width:25px; height:25px; margin-left: 2%;margin-right: 2%;">
+                                                <img  style="width:25px; height:25px; margin-left: 2%;margin-right: 2%;" src="https://asa-list.tinyman.org/assets/{{$result[$i]->id}}/icon.svg" onerror="this.style.display = 'none'"/>
+                                            </div>
                                             {{$result[$i]->unit_name ?: $result[$i]->name}}
                                         </span>
                                         <span style="width: 32%">@php(printf("%.9f", $result[$i]->price * session('multiplier',1)))</span><span>

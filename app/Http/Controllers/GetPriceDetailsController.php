@@ -30,6 +30,9 @@ class GetPriceDetailsController extends Controller
             $balance = $lisOfAssetsDetails[$item->id]["amount"] /10**$item->decimals;//balance came in from the array received in the get request
             $item->value = $balance * $item->price;
             $item->balance = $balance;
+            //edit circulating supply'
+            $item->circulating_supply = $item->circulating_supply / 10**$item->decimals;
+            $item->market_cap = $item->market_cap * session('multiplier',1);
         }
 
         $listOfNonTokensAssets = [];

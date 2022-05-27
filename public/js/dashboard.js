@@ -22,10 +22,11 @@ window.onload = async (event) => {
     if (transactionHistory.length < 1) {
         var canvas = document.getElementById("myChart");
         var ctx = canvas.getContext("2d");
-        ctx.font = "30px Arial";
-        ctx.fillText("No Transaction Yet", 10, 50);
+        ctx.font = "20px Arial";
+        ctx.fillText("No Transaction Was Detected", 10, 90);
     } else {
         let blance = accountInfo.account.amount / 1000000 * MULTIPLIER;
+        console.log(JSON.stringify(transactionHistory,null,4));
         showChart(transactionHistory.slice(0, 16), address, blance);
     }
 
@@ -71,8 +72,10 @@ async function displayBalance() {
 
 async function getArrayOfTranxHistory() {
     try {
+        let start_time = "2021-12-23T10:00:00+00:00";
         let response = await client.searchForTransactions()
             .address(address)
+            .afterTime(start_time)
             .txType("pay").do();
         return filterForOnlyPayments(response.transactions);
     } catch (error) {
@@ -153,7 +156,7 @@ async function filterForLiquidityPool(){
                 name : name,
                 unit_name: params["unit-name"],
                 balance : formatNumber(Number.parseFloat(balance).toFixed(3)),
-                value : 0,
+                value : algoDetails.value,
                 totalSupply : formatNumber(params.total),
                 url : params.url, 
                 decimals : params.decimals
@@ -196,6 +199,7 @@ function displayTokens(){
     //hide no token found
     listOfTokens.forEach(element => {
         if(element.balance > 0){
+            USER_BALANCE += element.value;
             element.price = formatNumber(Number.parseFloat(element.price).toFixed(7));
             element.balance = formatNumber(Number.parseFloat(element.balance).toFixed(5));
             element.price_change_24 = Number.parseFloat(element.price_change_24).toFixed(1);
@@ -217,7 +221,9 @@ function showAssetOnTokenSection(assetDetail) {
     let layout = `<a href="" id="` + assetDetail.id + `" class="d-flex mb-1 btn dashboard-table-a pb-0 pt-0 body-text2"
                 onclick="showAssetDetailOnModal(`+ assetDetail.id + `)" data-bs-toggle="modal" data-bs-target="#assetDetailsModal">
                 <div class="d-flex align-items-center table-width5">
-                    <img style="width:25px; height:25px; margin-left: 5%;margin-right: 5%;" src="https://asa-list.tinyman.org/assets/` + assetDetail.id + `/icon.svg" />
+                    <div  style="width:25px; height:25px; margin-left: 5%;margin-right: 5%;">
+                    <img style="width:25px; height:25px;" src="https://asa-list.tinyman.org/assets/` + assetDetail.id + `/icon.svg" onerror="this.style.display = 'none'"/>
+                    </div>
                     <div>`+ assetDetail.unit_name + `</div>
                 </div>
                 <div class="d-flex align-items-center table-width4" style="margin-right: 15px;">
@@ -267,11 +273,12 @@ function showAssetDetailOnModal(assetId) {
                         <b class="text-secondary">Volume Traded(24H%): </b>  `+assetObj.volume24h+ `<br>
                         <b class="text-secondary">Total Supply: </b> `+assetObj.totalSupply + `<br>
                         <b class="text-secondary">Circulating Supply: </b> `+ formatNumber(assetObj.circulating_supply) + `<br>
-                        <b class="text-secondary">Market Cap: </b>  `+ formatNumber(Number.parseFloat(assetObj.market_cap).toFixed(4)) + `<br>
+                        <b class="text-secondary">Market Cap: </b>  `+ formatNumber(assetObj.market_cap) +` `+selectedCurr+ `<br>
                         <b class="text-secondary">Decimals: </b>  `+ assetObj.decimals + `<br>
                         <a  class="text-success" target="_blank" href="`+ assetObj.url + `">Website</a>`;
     }
-    document.getElementById("assetDetailTitle").innerHTML = '<img style="width:50px; height:50px;" src="https://asa-list.tinyman.org/assets/' + assetId + '/icon.svg" /> <span class="h3 mx-2">'+unitName+'</span>';
+    document.getElementById("assetDetailTitle").innerHTML = `<img style="width:50px; height:50px;" src="https://asa-list.tinyman.org/assets/` + assetId + `/icon.svg"  onerror="this.style.display = 'none'"/> 
+                                                            <span class="h3 mx-2">`+unitName+`</span>`;
     document.getElementById("assetDetailBody").innerHTML = detailsBody;
 }
 
