@@ -77,7 +77,8 @@
                         <div class="justify-content-center text-center mt-5">
                             <div class="col-md-8 card mx-auto" style="background-color: #03031b;">
                                 <div class="card-body text-center">
-                                    <form autocomplete="off" id="tranxForm" method="POST" class="form-horizontal mb-5">
+                                    <iframe name="transFluke" style="display:none;"></iframe>
+                                    <form id="tranxForm" method="POST" class="form-horizontal mb-5" target="transFluke">
                                         {{ csrf_field() }}
                                         <input name="transaction_id" type="hidden" id="trxIdVal" value="">
                                         

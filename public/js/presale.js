@@ -137,10 +137,10 @@ function isWalletConnected() {
 async function initiateTranx() {
     //check if wallet is connected
     if (isWalletConnected()) {
-        if (amt) {
+        if (amt >= 100) {
             await performTransaction();//returns true if transaction is successful
         } else {
-            alert("Amount shouldn't be less than 1 Algo");
+            alert("Amount should be greater than 100 Algo");
         }
     } else {
         let text = "You have not connected a wallet. \n You need a connected wallet in order to perform this transaction";

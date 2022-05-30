@@ -200,7 +200,7 @@
         
         <!--End of right sidebar-->
     </div>
-    <!-- Modal -->
+    <!--Token Details Modal -->
     <div class="modal fade" id="assetDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div style="width: 100%;" class="modal-content bg-dark">

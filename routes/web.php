@@ -24,7 +24,7 @@ use App\Http\Controllers\admin\AdvertController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('/');
 Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
 Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard']);
 Route::get('/nfts',[NftsController::class, 'show']);
@@ -43,9 +43,9 @@ Route::post('/set_currency_choice', function (Request $request) {
 })->name('set_currency_choice');
 
 
-Route::get('dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 Route::get('wallet', [AdminWalletController::class,'display'])
 ->middleware(['auth'])->name('wallet');

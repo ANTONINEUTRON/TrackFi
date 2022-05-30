@@ -16,7 +16,7 @@
                                 <tr>
                                     <th class="bg-blue-100 border text-left px-8 py-4">Transaction Address</th>
                                     <th class="bg-blue-100 border text-left px-8 py-4">Algorand Paid</th>
-                                    <th class="bg-blue-100 border text-left px-8 py-4">Toolx Received</th>
+                                    <th class="bg-blue-100 border text-left px-8 py-4">Trackfi Received</th>
                                 </tr>
                                 @for($i=0; $i < count($data); $i++)
                                     <tr>

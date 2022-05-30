@@ -23,10 +23,8 @@
                                 <hr>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 ">
                                     <div class="md:col-span-1"> 
-                                        <span id="organization" class="font-semibold font-serif text-3xl">{{$item->organization}}</span><br>
-                                        <span id="email"><b>Email: </b>{{$item->email}}</span><br>
                                         <span id="email"><b>Landing Page: </b><a target="_blank" class="text-blue-500 hover:text-blue-800" href="{{$item->url}}">{{$item->url}}</a></span>
-                                        <hr>
+                                        <br><br>
                                         {{-- <x-button class="m-3">
                                             {{ __('Edit') }}
                                         </x-button> --}}
@@ -34,17 +32,29 @@
                                             @csrf
                                             <input type="hidden" value="{{$item->id}}" name="id"/>
                                             <input type="hidden" value="{{'public/images/ads/'.$item->large_banner_url}}" name="big_filepath"/>
-                                            <input type="hidden" value="{{'public/images/ads/'.$item->small_banner_url}}" name="small_filepath"/>
+                                            <input type="hidden" value="{{'public/images/ads/'.$item->small_banner1_url}}" name="small_filepath1"/>
+                                            <input type="hidden" value="{{'public/images/ads/'.$item->small_banner2_url}}" name="small_filepath2"/>
                                             <x-button class="m-3 bg-red-500">
                                                 {{ __('Delete') }}
                                             </x-button>
                                         </form>
                                     </div>
+                                    @if (!empty($item->large_banner_url))
+                                        <div class="md:col-span-1">
+                                            <b>Large Banner</b><br>
+                                            <img id="big_banner" style="width: 350px; height:500px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->large_banner_url)}}"/>
+                                        </div>
+                                    @endif
                                     <div class="md:col-span-1">
-                                    <img id="big_banner" style="width: 350px; height:600px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->large_banner_url)}}" />
-                                    </div>
-                                    <div class="md:col-span-1">
-                                    <img id="small_banner" style="width: 350px; height:100px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->small_banner_url)}}" />
+                                        @if (!empty($item->small_banner1_url))
+                                            <b>Top Banner</b><br>
+                                            <img id="small_banner1" style="width: 350px; height:100px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->small_banner1_url)}}" />
+                                        @endif
+                                        
+                                        @if (!empty($item->small_banner2_url))
+                                            <b>Bottom Banner</b><br>
+                                            <img id="small_banner2" style="width: 350px; height:100px;" class="p-2 inline" src="{{url('public/images/ads/'.$item->small_banner2_url)}}" />
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
@@ -81,20 +91,6 @@
                         @csrf
 
                         <div>
-                            <label for="organization" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                Organization</label>
-                            <input type="text" name="organization" id="organization"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Organization Name" required="">
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                email</label>
-                            <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="name@company.com" required="">
-                        </div>
-                        <div>
                             <label for="url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                 Link to landing page</label>
                             <input type="url" name="url" id="url"
@@ -105,26 +101,20 @@
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="big_banner">Upload Large Banner (350 width x 600 height)</label>
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="big_banner" id="big_banner" name="big_banner" type="file" required>
+                            aria-describedby="big_banner" id="big_banner" name="big_banner" type="file">
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="big_banner_help">Ensure the banner fit the specified resolution in order to avoid issues</div>
                         
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="small_banner">Upload Small Banner (350 width x 100 height)</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="small_banner1">Upload Small Banner - Top (350 width x 100 height)</label>
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="small_banner" id="small_banner" name="small_banner" type="file" required>
+                            aria-describedby="small_banner1" id="small_banner1" name="small_banner1" type="file">
+                        
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="small_banner2">Upload Small Banner - Bottom (350 width x 100 height)</label>
+                        <input
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                            aria-describedby="small_banner2" id="small_banner2" name="small_banner2" type="file">
                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="small_banner_help">Ensure the banner fit the specified resolution in order to avoid issues</div>
-                        {{-- <div class="flex justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="remember" type="checkbox" value=""
-                                        class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-                                        required="">
-                                </div>
-                                <label for="remember"
-                                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
-                            </div>
-                            <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
-                        </div> --}}
+                        
                         <button type="submit"
                             class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Submit</button>

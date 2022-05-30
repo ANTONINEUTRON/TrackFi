@@ -15,10 +15,9 @@ class CreateAdvertsTable extends Migration
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
-            $table->text("organization");
-            $table->string("email",150);
-            $table->text("large_banner_url");
-            $table->text("small_banner_url");
+            $table->text("large_banner_url")->nullable();
+            $table->text("small_banner1_url")->nullable();
+            $table->text("small_banner2_url")->nullable();
             $table->text("url");
         });
     }

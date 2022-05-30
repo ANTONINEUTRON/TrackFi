@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('/') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
@@ -15,14 +15,14 @@
                     {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link> --}}
-                    <x-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
-                        {{ __('Wallet') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('view_presale')" :active="request()->routeIs('view_presale')">
                         {{ __('Presale') }}
                     </x-nav-link>
                     <x-nav-link :href="route('advert')" :active="request()->routeIs('advert')">
                         {{ __('Adverts') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
+                        {{ __('Set Wallet') }}
                     </x-nav-link>
                     {{-- <x-nav-link :href="route('tokens')" :active="request()->routeIs('dashboard')">
                         {{ __('Tokens') }}
@@ -75,17 +75,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            {{-- <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
-                {{ __('Wallet') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> --}}
             <x-responsive-nav-link :href="route('view_presale')" :active="request()->routeIs('view_presale')">
                 {{ __('Presale') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('advert')" :active="request()->routeIs('advert')">
                 {{ __('Adverts') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
+                {{ __('Wallet') }}
             </x-responsive-nav-link>
         </div>
 

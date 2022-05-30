@@ -32,6 +32,7 @@ class GetPriceDetailsController extends Controller
             $item->balance = $balance;
             //edit circulating supply'
             $item->circulating_supply = $item->circulating_supply / 10**$item->decimals;
+            $item->totalSupply = $item->totalSupply / 10**$item->decimals;
             $item->market_cap = $item->market_cap * session('multiplier',1);
         }
 

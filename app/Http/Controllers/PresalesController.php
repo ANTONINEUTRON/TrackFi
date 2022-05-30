@@ -10,14 +10,15 @@ use DB;
 
 class PresalesController extends Controller
 {
+    private $receiving_address = "No receiving address yet";
+        
     function showPresales(Request $request){
         $res = DB::select('select wallet_address from wallet limit 1');
-        $receiving_address = "No receiving address yet";
         if(!empty($res)){
-            $receiving_address = $res[0]->wallet_address;
+            $this->receiving_address = $res[0]->wallet_address;
         }
 
-        return view('presale')->with('address',$receiving_address);
+        return view('presale')->with('address',$this->receiving_address);
     }
 
     function acknowledgeTranx(Request $request){
