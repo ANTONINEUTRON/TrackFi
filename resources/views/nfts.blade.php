@@ -106,7 +106,7 @@
 
         async function init() {
             showProcessing("Loading NFTs Details");
-            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Change</button>";
+            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Enter Address</button>";
 
             let listOfNfts = await getNftsDetails();
             if (listOfNfts.length > 0) {

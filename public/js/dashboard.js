@@ -72,10 +72,8 @@ async function displayBalance() {
 
 async function getArrayOfTranxHistory() {
     try {
-        let start_time = "2021-12-23T10:00:00+00:00";
         let response = await client.searchForTransactions()
             .address(address)
-            .afterTime(start_time)
             .txType("pay").do();
         return filterForOnlyPayments(response.transactions);
     } catch (error) {
