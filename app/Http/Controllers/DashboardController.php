@@ -9,7 +9,7 @@ class DashboardController extends Controller
         //Get address
         $address = $request->input('address');
         $currentUserAddress = $request->cookie('trackfi_wallet_address');
-        // die($currentUserAddress);
+        
         //Check address
         if(!empty($address)){
             return view('wallet_dashboard')->with('address',$address);

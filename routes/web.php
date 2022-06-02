@@ -26,7 +26,6 @@ Route::get('/', function () {
     return view('index');
 })->name('/');
 Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
-Route::post('/wallet_dashboard', [DashboardController::class, 'showDashboard']);
 Route::get('/nfts',[NftsController::class, 'show']);
 Route::get('/stats', [StatsController::class, 'showStats']);
 Route::get('/presale', [PresalesController::class, 'showPresales']);
@@ -40,6 +39,7 @@ Route::post('/set_currency_choice', function (Request $request) {
         'selectedCurrency' => $value,
         'multiplier' => $mltp
     ]);
+    return redirect()->back();
 })->name('set_currency_choice');
 
 Route::get('banner-ads', function(){

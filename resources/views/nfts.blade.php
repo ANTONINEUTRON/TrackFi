@@ -40,12 +40,12 @@
             <div class="d-flex flex-wrap flex-column justify-content-center" style="height: 90%;">
 
                 <div class="card mx-5 my-4">
-                    <div id="change_wallet_section" class="text-center py-2 d-none" style=" background-color: #05052e;">
+                    <div id="change_wallet_section" class="text-center py-2" style=" background-color: #05052e;">
                         
                         <input type="text" id="walletAddress" placeholder="Wallet Address" class="form-control">
                         <button class='btn btn-success m-3' onclick="showWalletDetails()" type="button">Fetch NFTs</button>
                     </div>
-                    <div id="address_bar" class="card-body text-white text-center" style=" background-color: #05052e;">
+                    <div id="address_bar" class="card-body text-white text-center d-none" style=" background-color: #05052e;">
                         
                     </div>
                 </div>
@@ -96,16 +96,15 @@
         let server = " https://algoindexer.algoexplorerapi.io";
         const client  = new algosdk.Indexer(token, server, port);//connection client
 
-        var address = "{{Cookie::get('trackfi_wallet_address')}}";//"{{$address ?: ""}}";//"PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
+        var address = "";//""PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
 
         window.onload = async ()=>{
-            await init();
+            //await init();
         }
 
         async function init() {
             showProcessing("Loading NFTs Details");
 
-            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Enter Address</button>";
             let listOfNfts = await getNftsDetails();
             if (listOfNfts.length > 0) {
                 for (const element of listOfNfts) {
@@ -186,8 +185,8 @@
         }
 
         function showChangeWallet(){
-            addressBarSection.classList.add('d-none');
-            changeWalletSection.classList.remove('d-none');
+            addressBarSection.classList.toggle('d-none');
+            changeWalletSection.classList.toggle('d-none');
         }
 
         async function showWalletDetails(){
@@ -195,6 +194,7 @@
             displaySection.innerHTML = "";
             addressBarSection.classList.remove('d-none');
             changeWalletSection.classList.add('d-none');
+            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Change Address</button>";
             await init();
         }
     </script>

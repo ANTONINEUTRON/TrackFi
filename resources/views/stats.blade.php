@@ -23,6 +23,7 @@
                     </div>
                     
                     @include('includes.navbar')
+                    @include('includes.wallet')
                     <!-- modal -->
                     <!-- //left modal -->
 

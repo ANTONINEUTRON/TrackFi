@@ -1,9 +1,8 @@
 <div class="col-5 d-flex justify-content-end">
     <!--algo and usd buttons-->
 
-    <iframe name="fluke" style="display:none;"></iframe>
     <form method="post" action="{{route('set_currency_choice')}}" id="subjectName" name="abi" 
-        class="select" target="fluke" tabindex="1" onchange="selectedSubjectName()">
+        class="select" tabindex="1" onchange="selectedSubjectName()">
         @csrf
         <input type="hidden" id="multiplier" name="multiplier" value="1" />
         <input class="option-select selectopt" id="algo_radio" name="test" type="radio" id="opt2"

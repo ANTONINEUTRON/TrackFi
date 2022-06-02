@@ -41,6 +41,7 @@
 
                     </div>
                     @include('includes.navbar')
+                    @include('includes.wallet')
                    <!-- modal-dialog -->
                     <!-- modal -->
                     <!-- //left modal -->

@@ -169,10 +169,6 @@ async function selectedSubjectName() {
       // only one radio can be logically checked, don't check the rest
       document.getElementById("multiplier").value = MULTIPLIER;
       document.getElementById("subjectName").submit();
-
-      setTimeout(function(){
-          location.reload();
-      }, 1200); 
     }
   }
 }
@@ -264,4 +260,35 @@ function myform() {
 
 function truncate(address){
   return address.substring(0,6)+"............"+address.substring(address.length-7, address.length-1);
+}
+
+//handle showing connected
+var cookieName = 'trackfi_wallet_address';
+var connectedWallet = getCookie();
+
+function getCookie(){
+    return document.cookie.split(';').some(c => {
+        return c.trim().startsWith(cookieName + '=');
+    });
+}
+
+function deleteCookie() {
+    let path = "/";
+    let domain = window.location.hostname;
+    if( connectedWallet ) {
+        document.cookie = cookieName + "=" +
+        ((path) ? ";path="+path:"")+
+        ((domain)?";domain="+domain:"") +
+        ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    }
+    location.reload();
+}
+
+if(connectedWallet){//wallet is connected
+  document.getElementById("connStatus").innerHTML = "<b>Connected!</b>";
+  document.getElementById("modal_title").style.display = "none";
+  document.getElementById("connectMyA").style.display = "none";
+}else{
+  document.getElementById("disconnectWallet").style.display  = "none";
+  document.getElementById("connStatus").innerHTML = "Connect Wallet";
 }

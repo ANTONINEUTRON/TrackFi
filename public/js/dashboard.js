@@ -63,10 +63,10 @@ async function displayBalance() {
     var balanceHold = document.getElementById("balance");
     if (accountInfo) {
         USER_BALANCE = USER_BALANCE + accountInfo.account.amount / 1000000;
-        let formattedBalance = formatNumber(Number.parseFloat(USER_BALANCE * MULTIPLIER).toFixed(5))
+        let formattedBalance = formatNumber(USER_BALANCE * MULTIPLIER);
         balanceHold.innerHTML = formattedBalance + " " + selectedCurr;
     } else {
-        balanceHold.innerHTML = "Couldn't fetch Account Details";
+        balanceHold.innerHTML = "--------------------";
     }
 }
 
@@ -155,8 +155,8 @@ async function filterForLiquidityPool(){
                 id : assetId,
                 name : name,
                 unit_name: params["unit-name"],
-                balance : formatNumber(Number.parseFloat(balance).toFixed(3)),
-                value : algoDetails.value,
+                balance : formatNumber(balance),
+                value : formatNumber(algoDetails.value),
                 totalSupply : formatNumber(params.total),
                 url : params.url, 
                 decimals : params.decimals
@@ -201,9 +201,9 @@ function displayTokens(){
         if(element.balance > 0){
             USER_BALANCE += element.value;
             element.price = formatNumber(Number.parseFloat(element.price).toFixed(7));
-            element.balance = formatNumber(Number.parseFloat(element.balance).toFixed(5));
+            element.balance = formatNumber(element.balance);
             element.price_change_24 = Number.parseFloat(element.price_change_24).toFixed(1);
-            element.value = formatNumber(Number.parseFloat(element.value).toFixed(5));
+            element.value = formatNumber(element.value);
             if(!element.url.includes("https://")){
                 element.url = "https://"+element.url;
             }

@@ -85,11 +85,4 @@
             break;
         }
     }
-    //handle showing connected
-    var connectedWallet = "{{Cookie::get('trackfi_wallet_address')}}";
-    if(connectedWallet){
-        document.getElementById("connStatus").innerHTML = "<b>Connected!</b>";
-    }else{
-        document.getElementById("connStatus").innerHTML = "Connect Wallet";
-    }
 </script>
