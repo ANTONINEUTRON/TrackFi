@@ -73,6 +73,7 @@
                         </span>
                         </span>
 
+                        @include('includes.ad1')    
                         <!--Form starts here  -->
                         <div class="justify-content-center text-center mt-5">
                             <div class="col-md-8 card mx-auto" style="background-color: #03031b;">

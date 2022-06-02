@@ -96,10 +96,14 @@
                         </div>
 
                     </div>
+                    <div style="padding-left: 3%;padding-right: 3%;"> 
+                        
+                    </div>
                     <!--End of first table-->
 
-                    @include('includes.wallet')
-
+                    
+                <!--mobile add placeholder-->
+                @include('includes.ad1')
 
                     <!--Start of second table-->
                     <div class="mb-3" id="second_table">
@@ -144,111 +148,6 @@
                     </div>
                     <!--End of second table-->
                 </div>
-                <!--mobile add placeholder-->
-                @include('includes.ad1')
-
-                <!--start of third table -->
-                {{-- <div id="third_table">
-                    <h3>Pools</h3>
-                    <div class="row">
-                        <div class="col-10">
-                            <h3><span style="margin-right:10px">Biggest Gainers</span><img width="10" height="10"
-                                    alt="chart-up-icon" src="{{asset('images/chart-up-icon.svg')}}"></h3>
-                        </div>
-                        <div class="col-2 d-flex justify-content-center"><button id="third_table_dropdown"
-                                class="btn btn-sm table-expand-toggler" name="third_table" onclick="view(this.name)"><i
-                                    id="third_table_dropdown_icon" class="fas fa-angle-down"></i></button></div>
-                    </div>
-                    <div class="mb-3 w-100" style="background-color: #478A78;overflow-x: auto;">
-
-
-                        <div class="pt-1 pb-4 table-body table-body-width">
-                            <div class="d-flex"
-                                style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
-                                <div class="table-width1" style="margin-right: 10px;">Platform</div>
-                                <div class="table-width2">Pool</div>
-                                <div class="table-width3">TVL</div>
-                                <div class="table-width4 d-flex justify-content-end" style="padding-right: 13px;">24H%
-                                </div>
-                            </div>
-                            <div id="third-table-body-links-1" class="table-body-links">
-                                UNABLE TO READ DATA
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width2">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center table-width3">
-                                        $1.67M
-                                    </div>
-                                    <div class="d-flex align-items-center table-width4 justify-content-end">
-                                        <span><span style="margin-right: 5px;">10%</span><img width="10" height="10"
-                                                alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
-                                    </div>
-                                </a>
-                                
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <!--end of third table -->
-
-                <!--Start of fourth table-->
-                <div id="fourth_table">
-                    <h3>Farms</h3>
-                    <div class="row">
-                        <div class="col-10">
-                            <h3><span style="margin-right:10px">Biggest Gainers</span><img width="10" height="10"
-                                    alt="chart-up-icon" src="{{asset('images/chart-up-icon.svg')}}"></h3>
-                        </div>
-                        <div class="col-2 d-flex justify-content-center"><button id="fourth_table_dropdown"
-                                class="btn btn-sm table-expand-toggler" name="fourth_table" onclick="view(this.name)"><i
-                                    id="fourth_table_dropdown_icon" class="fas fa-angle-down"></i></button></div>
-                    </div>
-                    <div class="mb-3 w-100" style="background-color: #478A78;overflow-x: auto;">
-
-
-                        <div class="pt-1 pb-4 table-body table-body-width">
-                            <div class="d-flex"
-                                style="width: 100%; font-size: medium;padding-left: 2%;padding-right: 2%;">
-                                <div class="table-width1" style="margin-right: 10px;">Platform</div>
-                                <div class="table-width2">Pool</div>
-                                <div class="table-width3">TVL</div>
-                                <div class="table-width4 d-flex justify-content-end" style="margin-right: 13px;">24H%
-                                </div>
-                            </div>
-                            <div id="fourth-table-body-links-1" class="table-body-links">
-                                <a href="#" class="d-flex mb-1 btn active pb-0 pt-0" style="font-size: medium;">
-                                    <div class="d-flex align-items-center table-width1">
-                                        <div class="img-box t-p-div"></div>
-                                        Platform
-                                    </div>
-                                    <div class="d-flex align-items-center table-width2">
-                                        <div class="img-box2 t-p-div2"></div>
-                                        RAY-SOL-PSOL
-                                    </div>
-                                    <div class="d-flex align-items-center table-width3">
-                                        $1.67M
-                                    </div>
-                                    <div class="d-flex align-items-center table-width4 justify-content-end">
-                                        <span><span style="margin-right: 5px;">10%</span><img width="10" height="10"
-                                                alt="gains-line-up" src="{{asset('images/gains-line-up.svg')}}"></span>
-                                    </div>
-                                </a>
-                               
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div> --}}
 
                 <!--End of fourth table-->
                 <!--mobile add placeholder-->

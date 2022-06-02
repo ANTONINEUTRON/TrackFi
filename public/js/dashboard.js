@@ -72,8 +72,10 @@ async function displayBalance() {
 
 async function getArrayOfTranxHistory() {
     try {
+        let start_time = "2021-12-23T10:00:00+00:00";
         let response = await client.searchForTransactions()
             .address(address)
+            .afterTime(start_time)
             .txType("pay").do();
         return filterForOnlyPayments(response.transactions);
     } catch (error) {
@@ -281,5 +283,5 @@ function showAssetDetailOnModal(assetId) {
 }
 
 function formatNumber(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    return x.toLocaleString('en-US');//x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }

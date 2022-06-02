@@ -14,7 +14,7 @@
 <body class="pt-1">
     <!--main body section-->
     <div id="main" class="row g-0" style="height: 95%;">
-        <div class="col-md-9 col-lg-9 align-content-around h-100">
+        <div class="col-md-9 col-lg-9 align-content-around h-100 p-3">
             <nav class="navbar navbar-light " style="padding-right: 10%;padding-left: 3%;">
                 <div class="container row g-0">
                     <div class="col-2 ">
@@ -34,17 +34,15 @@
                     </h1>
                 </div>
                 
-                @include('includes.ad1')
             </nav>
 
+            @include('includes.ad1')
             <div class="d-flex flex-wrap flex-column justify-content-center" style="height: 90%;">
 
-                <div class="card mx-5">
+                <div class="card mx-5 my-4">
                     <div id="change_wallet_section" class="text-center py-2 d-none" style=" background-color: #05052e;">
-                        {{-- <label class="ml-5 form-label">
-                            <b>Toolx</b>
-                        </label> --}}
-                        <input type="text" id="walletAddress" placeholder="New Wallet Address" class="form-control">
+                        
+                        <input type="text" id="walletAddress" placeholder="Wallet Address" class="form-control">
                         <button class='btn btn-success m-3' onclick="showWalletDetails()" type="button">Fetch NFTs</button>
                     </div>
                     <div id="address_bar" class="card-body text-white text-center" style=" background-color: #05052e;">
@@ -98,7 +96,7 @@
         let server = " https://algoindexer.algoexplorerapi.io";
         const client  = new algosdk.Indexer(token, server, port);//connection client
 
-        var address = "";//"{{$address ?: ""}}";//"PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
+        var address = "{{Cookie::get('trackfi_wallet_address')}}";//"{{$address ?: ""}}";//"PLJUNVIN6WSWRRWVUQI72QFPGUEOHCBKJK4Y42ZFBYNF4CVEQYYFDVI2KU";//
 
         window.onload = async ()=>{
             await init();
@@ -106,8 +104,8 @@
 
         async function init() {
             showProcessing("Loading NFTs Details");
-            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Enter Address</button>";
 
+            addressBarSection.innerHTML = truncate(address)+"<button class='btn btn-success mx-3' onclick='showChangeWallet()'>Enter Address</button>";
             let listOfNfts = await getNftsDetails();
             if (listOfNfts.length > 0) {
                 for (const element of listOfNfts) {
@@ -137,7 +135,7 @@
                 }
             } catch (error) {
                 console.error(error);
-                alert("couldn't fetch your wallet details, refresh page");
+                // alert("couldn't fetch your wallet details, refresh page");
             }
 
             return listOfNfts;

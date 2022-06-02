@@ -79,19 +79,19 @@
         <div class="d-flex justify-content-center">
           <div class="rounded-circle text-secondary text-center m-s-div">
               <src="{{asset('static/svg/phantom-wallet-icon.svg')}}" />
-
+            <a href="https://app.tinyman.org/#/swap?asset_in=0&asset_out=580431573"><img src="icons/tinyman.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-s-div">
-
+            <a href="https://app.algostake.org/"><img src="icons/algostake.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-s-div">
-
+            <a href="https://tinychart.org/asset/580431573"><img src="icons/tinychart.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-s-div">
-
+            <a href="https://algoexplorer.io/asset/580431573"><img src="icons/explorer.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-s-div">
-
+            <a href="#"><img src="icons/yield.jpeg"></a>
           </div>
         </div>
         <!--manage portfolio section-->
@@ -99,127 +99,128 @@
         <h1 class="text-center mt-2">Manage Portfolio</h1>
         <div class="d-flex justify-content-center">
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/defly.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/opulus.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/zone.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div ">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
         </div>
 
         <div class="d-flex justify-content-center mt-1">
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/algostake.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/tinychart.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-        </div>
-        <div class="d-flex justify-content-center mt-1">
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-
+<a href="#"><img src="icons/yield.jpeg"></a>
           </div>
         </div>
         
-        {{-- @include('includes.ad2') --}}
+        <div class="d-flex justify-content-center mt-1">
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/algogems.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+          <div class="rounded-circle text-secondary text-center m-p-div">
+<a href="#"><img src="icons/yield.jpeg"></a>
+          </div>
+       
+        </div>
+        
       </div>
     </div>
 
@@ -228,6 +229,7 @@
     @include('includes.ad_banner')
     <!--end of right navbar-->
   </div>
+  @include('includes.ad2')
   @include('includes.footer')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

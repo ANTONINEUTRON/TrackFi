@@ -177,6 +177,34 @@ async function selectedSubjectName() {
   }
 }
 
+//  copy this part for new js for pages
+
+function selectedDuration() {
+  
+  var radios = document.getElementsByName("days");
+  
+  for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+      // do whatever you want with the checked radio
+      console.log(radios[i].value);
+
+      // only one radio can be logically checked, don't check the rest
+      break;
+    }
+  }
+}
+
+function popups(e){
+  console.log(e)
+  document.getElementById(e).classList.remove("d-none");
+  setTimeout(myFunc, 3000);
+  function myFunc() {
+    document.getElementById(e).classList.add("d-none");
+  }
+}
+
+//end of new js for pages 
+
 
 async function getAlgoPrice(){
   try {

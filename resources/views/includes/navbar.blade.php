@@ -15,7 +15,7 @@
                         <a href="#" id="connect" data-bs-toggle="modal" data-bs-target="#modal1"
                             class="navii w-100 g-0 text-light btn btn-block d-flex justify-content-center mt-2">
                             <div class="d-flex align-items-center" style="width: 100%;"><i
-                                    class="fas fa-wallet" style="margin-right: 0.5em;"></i><span
+                                    class="fas fa-wallet" style="margin-right: 0.5em;"></i><span id="connStatus"
                                     class="ml-3">Connect Wallet</span></div>
                         </a>
                         <a href="/wallet_dashboard"
@@ -45,6 +45,25 @@
                                     class="fas fa-tag" style="margin-right: 0.5em;"></i><span
                                     class="ml-3">PreSale</span></div>
                         </a>
+                        <a href="/banner-ads"
+                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                                                <div class="d-flex align-items-center" style="width: 100%;"><i
+                                                        class="fas fa-globe" style="margin-right: 0.5em;"></i><span
+                                                        class="ml-3">Ads</span></div>
+                                            </a>
+
+                                            <a href="/borrow-platform"
+                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                                                <div class="d-flex align-items-center" style="width: 100%;"><img alt="borrowing-icon"
+                                                    src="{{asset('images/undo-icon.png')}}" style="margin-right: 0.5em; width: 20px;"><span
+                                                        class="ml-3">Borrowing</span></div>
+                                            </a>
+                                            <a href="#"
+                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                                                <div class="d-flex align-items-center" style="width: 100%;"><img class="h-50" alt="whitepaper-icon"
+                                                        src="{{asset('images/whitepaper-icon.svg')}}" style="margin-right: 0.5em;"><span
+                                                        class="ml-3">White paper</span></div>
+                                            </a>
 
                     </div>
                 </div>
@@ -65,5 +84,12 @@
             navItems[i].classList.add("active");
             break;
         }
+    }
+    //handle showing connected
+    var connectedWallet = "{{Cookie::get('trackfi_wallet_address')}}";
+    if(connectedWallet){
+        document.getElementById("connStatus").innerHTML = "<b>Connected!</b>";
+    }else{
+        document.getElementById("connStatus").innerHTML = "Connect Wallet";
     }
 </script>

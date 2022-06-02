@@ -97,7 +97,7 @@ async function performTransaction() {
     } catch (error) {
         hideProcessing();
         showMsgSection();
-        responseSpan.innerHTML = "Transaction Failed!\n " + error.message;
+        responseSpan.innerHTML = "<h2>Transaction Failed!</h2><br>Something went wrong!<br>Ensure you fund your account,<br>have a strong network connection<br>and Try Again";
         responseSpan.classList.add("text-danger");
     }
 

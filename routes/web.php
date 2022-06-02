@@ -42,6 +42,22 @@ Route::post('/set_currency_choice', function (Request $request) {
     ]);
 })->name('set_currency_choice');
 
+Route::get('banner-ads', function(){
+    return view('banner_ads');
+})->name("banner-ads");
+
+Route::get('borrow-platform', function(){
+    return view('borrow_platform');
+})->name("borrow-platform");
+
+Route::get('unverified-ads', function(){
+    return view('unverified_ads');
+})->name("unverified-ads");
+
+Route::get('verified-ads', function(){
+    return view('verified_ads');
+})->name("verified-ads");
+
 
 // Route::get('dashboard', function () {
 //     return view('admin.dashboard');
@@ -68,5 +84,4 @@ Route::post('/add_adverts', [AdvertController::class, 'createNewAdvert'])
 
 Route::post('/delete_advert', [AdvertController::class, 'deleteAdvert'])
 ->middleware(['auth'])->name("delete.ads");
-
 require __DIR__.'/auth.php';

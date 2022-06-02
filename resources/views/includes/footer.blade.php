@@ -4,9 +4,9 @@
     <div class="h1 d-flex justify-content-around footer-icons align-items-center h-100">
       <a href="#">
         <i class="fab fa-reddit-square"></i></a>
-      <a href="#">
+      <a href="http://twitter.com/trackfi_">
         <i class="fab fa-twitter-square"></i></a>
-      <a href="#">
+      <a href="https://t.me/trackdefi">
         <div class="d-flex justify-content-center align-items-center"
           style="width: 0.85em;height: 0.85em; background-color: #03031b;position: relative;">
           <i class='fab fa-telegram tel-sty'></i>
