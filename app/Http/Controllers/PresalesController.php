@@ -23,14 +23,14 @@ class PresalesController extends Controller
 
     function acknowledgeTranx(Request $request){
         $transactionId = $request->input('transaction_id');
-        $toolxAmount = $request->input("tokenAmt");
+        $trackfiAmount = $request->input("tokenAmt");
         $algoAmount = $request->input("amount"); //Algos
     
         //save to database
-        DB::insert('insert into presales values (?,?, ?)', [$transactionId,$algoAmount,$toolxAmount]);
+        DB::insert('insert into presales values (?,?, ?)', [$transactionId,$algoAmount,$trackfiAmount]);
 
         //send message to the specified email address
-        // Mail::to($email)->send(new PresalesMail($transactionId, $algoAmount, $toolxAmount));
+        // Mail::to($email)->send(new PresalesMail($transactionId, $algoAmount, $trackfiAmount));
         
         return view('presale')->with('address',$this->receiving_address);
     }

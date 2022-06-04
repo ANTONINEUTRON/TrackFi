@@ -26,7 +26,6 @@ window.onload = async (event) => {
         ctx.fillText("No Transaction Was Detected", 10, 90);
     } else {
         let blance = accountInfo.account.amount / 1000000 * MULTIPLIER;
-        console.log(JSON.stringify(transactionHistory,null,4));
         showChart(transactionHistory.slice(0, 16), address, blance);
     }
 
@@ -56,14 +55,16 @@ async function fetchAccountDetails() {
     } catch (error) {
         console.error(error);
         alert("couldn't fetch your wallet details, refresh this page to try again");
+        hideProcessing();
     }
 }
 
 async function displayBalance() {
     var balanceHold = document.getElementById("balance");
     if (accountInfo) {
-        USER_BALANCE = USER_BALANCE + accountInfo.account.amount / 1000000;
-        let formattedBalance = formatNumber(USER_BALANCE * MULTIPLIER);
+        let b = accountInfo.account.amount / 1000000 * MULTIPLIER;
+        USER_BALANCE = USER_BALANCE + b;
+        let formattedBalance = formatNumber(USER_BALANCE);
         balanceHold.innerHTML = formattedBalance + " " + selectedCurr;
     } else {
         balanceHold.innerHTML = "--------------------";
@@ -72,10 +73,8 @@ async function displayBalance() {
 
 async function getArrayOfTranxHistory() {
     try {
-        let start_time = "2021-12-23T10:00:00+00:00";
         let response = await client.searchForTransactions()
             .address(address)
-            .afterTime(start_time)
             .txType("pay").do();
         return filterForOnlyPayments(response.transactions);
     } catch (error) {
@@ -98,7 +97,6 @@ async function getAssetsDetails() {
         //Insert algo details first
         let price = 1 * MULTIPLIER;
         let value = algoBalance * price;
-        console.log("VALUE " + value);
         algoDetails = {
             id: 0,
             name: "Algorand",

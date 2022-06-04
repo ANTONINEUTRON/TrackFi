@@ -14,36 +14,12 @@ window.onload = async (event) => {
     value = 100/41600;//100 algo == 41,600 trackdefi
 }
 
-//Get toolx 
-async function getToolxValueInAlgo() {
-    try {
-        let toolxId = 394014424;
-        //connect to algocharts with toolx id
-        let url = "https://algocharts.net/apiv2/?asset_in=" + toolxId + "&asset_out=0";//getting value of token from algocharts !!READ UP DOCS!!
-
-        const config = {
-            // 'mode' : 'cors',
-            method: 'GET',
-            headers: {
-                'Accept': 'text/plain'
-            }
-        }
-
-        let response = await fetch(url, config);
-        let data = await response.json();
-        return Number.parseFloat(data.data[0]).toFixed(6);
-    } catch (error) {
-        alert("An error occured while fetching the value of Toolx /\n Please reload the page");
-    }
-    return 1;
-}
-
 async function listenForAmount() {
-    //check if input is greater than 0 and update it according to the multiplier of toolx
+    //check if input is greater than 0 and update it according to the multiplier of trackFi
     
     amt = parseFloat(document.getElementById("amount").value)
-    var toolxValue = amt / value;
-    document.getElementById("toget").value = parseInt(toolxValue);
+    var trackFiValue = amt / value;
+    document.getElementById("toget").value = parseInt(trackFiValue);
 }
 
 async function performTransaction() {
@@ -53,7 +29,7 @@ async function performTransaction() {
     params.flatFee = true;
 
     const enc = new TextEncoder();
-    const note = enc.encode("Toolx Presale");
+    const note = enc.encode("trackFi Presale");
 
     const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
         suggestedParams: {

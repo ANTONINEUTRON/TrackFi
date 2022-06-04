@@ -25,16 +25,43 @@ use App\Http\Controllers\admin\AdvertController;
 Route::get('/', function () {
     return view('index');
 })->name('/');
+
 Route::get('/wallet_dashboard',[DashboardController::class, 'showDashboard']);
+
 Route::get('/nfts',[NftsController::class, 'show']);
+
 Route::get('/stats', [StatsController::class, 'showStats']);
+
 Route::get('/presale', [PresalesController::class, 'showPresales']);
+
 Route::post('/presale', [PresalesController::class, 'acknowledgeTranx']);
+
 Route::get('/save_wallet/{address}', [WalletController::class, 'saveWallet']);
+
 Route::post('/get_tokens_details',  [GetPriceDetailsController::class, 'getTokensDetails']);
+
+Route::get('remove-wallet', function(){
+    $cookie = \Cookie::forget('trackfi_wallet_address');
+    // $response = new Response;
+    // $response->withCookie($cookie);
+
+    return response("deleted")->cookie($cookie);
+});
+
 Route::post('/set_currency_choice', function (Request $request) {
-    $value = $request->input('test');
     $mltp = $request->input('multiplier');
+    $value = $request->input('test');
+    if($mltp == 1 && $value != "Algo"){
+        $url = "https://algocharts.net/apiv2/?asset_in=0&asset_out=0";
+        $response = Http::get($url);
+        $data = json_decode($response->body());
+        if(is_numeric($data->data[3])){
+            $mltp = $data->data[3];
+        }
+    }
+    //var_dump();//
+    // die($mltp);
+    
     session([
         'selectedCurrency' => $value,
         'multiplier' => $mltp

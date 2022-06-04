@@ -220,7 +220,7 @@ async function getAlgoPrice(){
     return data.data[3];
   } catch (error) {
     console.error(error);
-    //alert("An error occured while fetching the Algo price");
+    // alert("An error occured while fetching the Algo price");
   }
   return 1;
 }
@@ -272,14 +272,12 @@ function getCookie(){
     });
 }
 
-function deleteCookie() {
-    let path = "/";
-    let domain = window.location.hostname;
-    if( connectedWallet ) {
-        document.cookie = cookieName + "=" +
-        ((path) ? ";path="+path:"")+
-        ((domain)?";domain="+domain:"") +
-        ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+async function deleteCookie() {
+    try {
+      let url = "/remove-wallet";
+      let response = await fetch(url);
+    } catch (error) {
+      console.error(error);
     }
     location.reload();
 }
