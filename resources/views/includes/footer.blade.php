@@ -12,7 +12,7 @@
           <i class='fab fa-telegram tel-sty'></i>
         </div>
       </a>
-      <a href="mailto:trackdefi@gmail.com">
+      <a href="mailto:support@trackdefi.net">
         <i class="fas fa-envelope-square"></i></a>
       <a href="#">
         <i class="fab fa-discord"></i></a>

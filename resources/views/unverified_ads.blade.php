@@ -87,14 +87,13 @@
 
                 </div>
 
-                <h2 class="second-heading mt-2">UNVERIFIED ADDS</h2>
+                <h2 class="second-heading mt-2">UNVERIFIED ADS</h2>
                 <div class="row">
                     <div class="col-12 col-md-9">
                         <div class="mt-2">
                             <p>The Un-verified (Explorer or Algorand Inc.) list will place all new submissions to top
-                                ads thereby pushing the rest down.</p>
-                            <p>You can promote the same token as many times as you want, putting it back to the top of
-                                the list.
+                                ads section.</p>
+                            <p>You can promote the same token as many times as you want.
                             </p>
 
                             @include('includes.ad1')
@@ -102,7 +101,12 @@
                             <p>If your token is pushed off the top- 10 most recent ads, it will no longer be on this
                                 list and you will have to subscribe again to get it back to the top. </p>
                             <p>This is non - refundable.</p>
-                            <p>See <a href="#">here</a> for our Prices and Ads Duration.</p>
+                            <p>
+                    Submit your ads to <a href="mailto:support@trackdefi.net">support@trackdefi.net</a> with the dimensions 350px by 100 px
+                    in png or GIF (can be animated) formats. The display banner will be cycled each time the page
+                    is loaded.
+                </p>
+                            <p>Click <a href="#">here</a> for our Prices and Ads Duration.</p>
                         </div>
                     </div>
                 </div>
@@ -128,15 +132,15 @@
         <div class="h1 d-flex justify-content-around footer-icons align-items-center h-100">
             <a href="#">
                 <i class="fab fa-reddit-square"></i></a>
-            <a href="#">
+            <a href="http://twitter.com/trackfi_">
                 <i class="fab fa-twitter-square"></i></a>
-            <a href="#">
+            <a href="https://t.me/trackdefi#">
                 <div class="d-flex justify-content-center align-items-center"
                     style="width: 0.85em;height: 0.85em; background-color: #03031b;position: relative;">
                     <i class='fab fa-telegram tel-sty'></i>
                 </div>
             </a>
-            <a href="#">
+            <a href="mailto:support@trackdefi.net">
                 <i class="fas fa-envelope-square"></i></a>
             <a href="#">
                 <i class="fab fa-discord"></i></a>

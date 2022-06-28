@@ -111,44 +111,21 @@
 <a href="#"><img src="icons/yield.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/alchemon.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/algofund.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/asastats.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/birdbox.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/casino.jpeg"></a>
           </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div ">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
+          
         </div>
 
         <div class="d-flex justify-content-center mt-1">
@@ -156,67 +133,44 @@
 <a href="#"><img src="icons/algostake.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/choicecoin.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/dex.jpeg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/weblen.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
 <a href="#"><img src="icons/tinychart.jpg"></a>
           </div>
+          
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/akita.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/algomint.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/algonut.jpg"></a>
           </div>
         </div>
         
         <div class="d-flex justify-content-center mt-1">
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/nexus.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/smile.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/tree.jpg"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/octorand.png"></a>
           </div>
           <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/algogems.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
-          </div>
-          <div class="rounded-circle text-secondary text-center m-p-div">
-<a href="#"><img src="icons/yield.jpeg"></a>
+<a href="#"><img src="icons/headline.png"></a>
           </div>
        
         </div>

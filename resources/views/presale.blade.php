@@ -41,81 +41,90 @@
                     <div class="col-10 d-grid">
                         <h2 class="text-center"><img alt="header-trackfi" src="{{asset('images/header-trackfi.svg')}}"></h2>
 
-                        <span class="text-center body-text2 d-flex justify-content-center">
-                            TrackFi will be launched after presale has been caried out. 
-                             Seed your spot
-                        </span>
-                        <h1 class="text-center">Presale Statistics</h1>
-                        <span class="body-text2 text-center">
-                            Presale allocation = 250,000,000
-                        </span>
-                        <span class="body-text2 text-center">
-                            Presale price 1TrackFi = $0.0012
-                        </span>
-                        <span class="body-text2 text-center">
-                            Listing price = $0.0016
-                        </span>
-                        <span class="body-text2 text-center mt-3">
-                            Minimum buy = 100 Algo
-                        </span>
-                        <span class="body-text2 text-center">
-                            Maximum buy = 50000 Algo
-                        </span>
-                        <span class="body-text2 text-center">
-                            Soft Cap= 200,000 Algo
-                        </span>
-                        <span class="body-text2 text-center">
-                            Hard Cap = 600,000 Algo
-                        </span>
-                        <span class="mt-3 body-text2 text-center">
+                        <!--<span class="text-center body-text2 d-flex justify-content-center">-->
+                        <!--    TrackFi will be launched after presale has been caried out. -->
+                        <!--     Seed your spot-->
+                        <!--</span>-->
+                        <!--<h1 class="text-center">Presale Statistics</h1>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Presale allocation = 250,000,000-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Presale price 1TrackFi = $0.0012-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Listing price = $0.0016-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center mt-3">-->
+                        <!--    Minimum buy = 100 Algo-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Maximum buy = 50000 Algo-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Soft Cap= 200,000 Algo-->
+                        <!--</span>-->
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    Hard Cap = 600,000 Algo-->
+                        <!--</span>-->
+                        <!--<span class="mt-3 body-text2 text-center">-->
                             
                             
-                        </span>
-                        </span>
+                        <!--</span>-->
+                        <!--</span>-->
 
-                        @include('includes.ad1')    
+                        @include('includes.ad1')
                         <!--Form starts here  -->
-                        <div class="justify-content-center text-center mt-5">
-                            <div class="col-md-8 card mx-auto" style="background-color: #03031b;">
-                                <div class="card-body text-center">
-                                    <iframe name="transFluke" style="display:none;"></iframe>
-                                    <form id="tranxForm" method="POST" class="form-horizontal mb-5" target="transFluke">
-                                        {{ csrf_field() }}
-                                        <input name="transaction_id" type="hidden" id="trxIdVal" value="">
+                        <!--<div class="justify-content-center text-center mt-5">-->
+                        <!--    <div class="col-md-8 card mx-auto" style="background-color: #03031b;">-->
+                        <!--        <div class="card-body text-center">-->
+                        <!--            <iframe name="transFluke" style="display:none;"></iframe>-->
+                        <!--            <form id="tranxForm" method="POST" class="form-horizontal mb-5" target="transFluke">-->
+                        <!--                {{ csrf_field() }}-->
+                        <!--                <input name="transaction_id" type="hidden" id="trxIdVal" value="">-->
                                         
-                                        <div class="mb-3  ml-5 mr-5">
-                                            <input min="100" max="50000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>
-                                        </div>
-                                        <div class="mb-3 ml-5 mr-5">
-                                            <input name="tokenAmt" onclick="return false;" onkeydown="return false;" type="Number" id="toget" placeholder="TrackFi" class="form-control">
-                                        </div>
-                                        <button type="button" onclick="initiateTranx()" class="btn  btn-lg bg-success text-white">Purchase</button>
-                                    </form>
-                                    <div id="processing_section" class="d-none">
-                                        <span class="btn mt-3" style="position: relative;" onclick="copyTransId()">
-                                            <span class="popuptext d-none" id="myPopup">Copied</span>
-                                            <i style=" font-size: small;" class="far fa-copy text-light"></i>
-                                        </span>
-                                        <span id="transId" class="mt-3 text-white">
-                                            No Transaction ID yet
-                                        </span><br>
-                                        <span id="transResponse" class="mt-3">
-
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--                <div class="mb-3  ml-5 mr-5">-->
+                        <!--                    <input min="100" max="50000" oninput="listenForAmount()" placeholder="Amount (Algo)" name="amount" type="number" id="amount" class="form-control" required>-->
+                        <!--                </div>-->
+                        <!--                <div class="mb-3 ml-5 mr-5">-->
+                        <!--                    <input name="tokenAmt" onclick="return false;" onkeydown="return false;" type="Number" id="toget" placeholder="TrackFi" class="form-control">-->
+                        <!--                </div>-->
+                        <!--                <button type="button" onclick="initiateTranx()" class="btn  btn-lg bg-success text-white">Purchase</button>-->
+                        <!--            </form>-->
+                        <!--            <div id="processing_section" class="d-none">-->
+                        <!--                <span class="btn mt-3" style="position: relative;" onclick="copyTransId()">-->
+                        <!--                    <span class="popuptext d-none" id="myPopup">Copied</span>-->
+                        <!--                    <i style=" font-size: small;" class="far fa-copy text-light"></i>-->
+                        <!--                </span>-->
+                        <!--                <span id="transId" class="mt-3 text-white">-->
+                        <!--                    No Transaction ID yet-->
+                        <!--                </span><br>-->
+                        <!--                <span id="transResponse" class="mt-3">-->
+                                        
+                        <!--                </span>-->
+                        <!--            </div>-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--</div>-->
                         
-                        <span class="body-text2 text-center">
-                            After Participating in the presale, you'll recieve your $TrackFi token and a unique NFT which will grant you access to the borrowing platform. 
-                            This NFT will only be given freely to presale entrants and would not be sold in the secondary market by the team. However, holders of the NFT can 
-                            proceed in listing thiers on any secondary marketplace.
-                        </span>
+                        <!--<span class="body-text2 text-center">-->
+                        <!--    After Participating in the presale, you'll recieve your $TrackFi token and a unique NFT which will grant you access to the borrowing platform. -->
+                        <!--    This NFT will only be given freely to presale entrants and would not be sold in the secondary market by the team. However, holders of the NFT can -->
+                        <!--    proceed in listing thiers on any secondary marketplace.-->
+                        <!--</span>-->
                         <span class="body-text2 text-center mt-3">
-                            
-                            
-                            
+                            <p>Presale hasn't commenced. Please check back later</p>
+                            <p>Endeavor to opt-in to TrackFi ASA ID</p>
+                            <div>
+                                <span class="btn" style="position: relative;" onclick="copyoptInId()">
+                                    <span class="popuptext d-none" id="cPopup">Copied</span>
+                                    <i style=" font-size: small;" class="far fa-copy text-light"></i>
+                                </span>
+                                <span id="optInId" class="mt-3 text-white">
+                                    580431573
+                                </span>
+                            </div>
+                            <p></p>
                         </span>
                     </div>
 
@@ -135,7 +144,10 @@
         <!--end of right navbar-->
     </div>
     <!--footer section-->
-    @include('includes.footer')
+    <div class="fixed-bottom">
+        @include('includes.footer')
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -153,6 +165,21 @@
     </script>
 
     <script src="{{ asset('js/presale.js') }}"></script>
+    <script>
+        function copyoptInId(){
+            var copyText = document.getElementById("optInId").innerHTML;
+        
+            /* Copy the text inside the text field */
+            navigator.clipboard.writeText(copyText);
+        
+            /* Alert the copied text */
+            document.getElementById("cPopup").classList.remove("d-none");
+            setTimeout(myFunc, 3000);
+            function myFunc() {
+                document.getElementById("cPopup").classList.add("d-none");
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ class CreatePresalesTable extends Migration
         Schema::create('presales', function (Blueprint $table) {
             $table->string("transaction_addr",220)->primary();
             $table->float("algo_amount");
-            $table->float("toolx_amount_received");
+            $table->float("TrackFi_amount_received");
         });
     }
 

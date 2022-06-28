@@ -279,7 +279,7 @@ async function deleteCookie() {
     } catch (error) {
       console.error(error);
     }
-    location.reload();
+    window.location = "/";
 }
 
 if(connectedWallet){//wallet is connected

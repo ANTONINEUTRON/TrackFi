@@ -86,20 +86,20 @@
 
                 </div>
 
-                <h2 class="second-heading mt-2">VERIFIED ADDS</h2>
-                <h3 class="third-heading mt-1 ">Requirements for ASA adds approval</h3>
+                <h2 class="second-heading mt-2">VERIFIED ADS</h2>
+                <h3 class="third-heading mt-1 ">Requirements for ASA ads approval</h3>
                 <ul>
                     <li>Your ASA must have a website and have the detials uploaded to explorer or Algoran INC.</li>
                 </ul>
                 @include('includes.ad1')
                 <ul>
                     <li>If a token fails the requirements, it will not be approved and there will be no refund of
-                        deposit fee. Email us @info@trackdefi.net and ask in advance.</li>
+                        deposit fee. Email us at support@trackdefi.net and ask in advance.</li>
                     <li>Display your banner</li>
                 </ul>
                 <p>
-                    You must submit a website url and image to @info@trackdefi.net with the dimensions 320px by 100 px
-                    in jpg., png. or GIF (can be animated) formats. The display banner will be cycled each time the page
+                    You must submit a website url and image to <a href="mailto:support@trackdefi.net">support@trackdefi.net</a> with the dimensions 350px by 600 px
+                    in png or GIF (can be animated) formats. The display banner will be cycled each time the page
                     is loaded.
                 </p>
                 <div class="row">
@@ -112,7 +112,7 @@
                             <p>The chance that your banner is displayed multiple times depends on your subscription
                                 rate.</p>
                             <p>You can also display your website and telegram links when your ads are being viewed.</p>
-                            <p>See <a href="#">here</a> for our Prices and Adds Duration.</p>
+                            <p>Click <a href="#">here</a> for our Prices and Ads Duration.</p>
                         </div>
                     </div>
                 </div>
@@ -137,15 +137,15 @@
         <div class="h1 d-flex justify-content-around footer-icons align-items-center h-100">
             <a href="#">
                 <i class="fab fa-reddit-square"></i></a>
-            <a href="#">
+            <a href="http://twitter.com/trackfi_">
                 <i class="fab fa-twitter-square"></i></a>
-            <a href="#">
+            <a href="https://t.me/trackdefi">
                 <div class="d-flex justify-content-center align-items-center"
                     style="width: 0.85em;height: 0.85em; background-color: #03031b;position: relative;">
                     <i class='fab fa-telegram tel-sty'></i>
                 </div>
             </a>
-            <a href="#">
+            <a href="mailto:support@trackdefi.net">
                 <i class="fas fa-envelope-square"></i></a>
             <a href="#">
                 <i class="fab fa-discord"></i></a>

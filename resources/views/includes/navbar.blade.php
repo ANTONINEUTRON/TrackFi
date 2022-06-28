@@ -58,7 +58,7 @@
                                                     src="{{asset('images/undo-icon.png')}}" style="margin-right: 0.5em; width: 20px;"><span
                                                         class="ml-3">Borrowing</span></div>
                                             </a>
-                                            <a href="#"
+                                            <a href="Whitepaper.pdf"
                                                 class="w-100 g-0 text-light btn btn-block d-flex mt-2">
                                                 <div class="d-flex align-items-center" style="width: 100%;"><img class="h-50" alt="whitepaper-icon"
                                                         src="{{asset('images/whitepaper-icon.svg')}}" style="margin-right: 0.5em;"><span
@@ -84,5 +84,12 @@
             navItems[i].classList.add("active");
             break;
         }
+    }
+    //handle showing connected
+    var connectedWallet = "{{Cookie::get('trackfi_wallet_address')}}";
+    if(connectedWallet){
+        document.getElementById("connStatus").innerHTML = "<b>Connected!</b>";
+    }else{
+        document.getElementById("connStatus").innerHTML = "Connect Wallet";
     }
 </script>

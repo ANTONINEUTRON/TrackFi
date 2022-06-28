@@ -87,16 +87,11 @@
                         <form id="subjectName" name="abi" class="select" tabindex="1" onchange="selectedSubjectName()">
                             <input checked class=" option-select selectopt" name="test" type="radio" id="opt1"
                                 value="placeholder1">
-                            <label for="opt1" class="option d-flex justify-content-around">placehr1</label>
+                            <label for="opt1" class="option d-flex justify-content-around">NFT</label>
                             <input class="option-select selectopt" name="test" type="radio" id="opt2"
                                 value="placeholder2">
-                            <label for="opt2" class="option d-flex justify-content-around">placehr2</label>
-                            <input class="option-select selectopt" name="test" type="radio" id="opt3"
-                                value="placeholder3">
-                            <label for="opt3" class="option d-flex justify-content-around">placehr3</label>
-                            <input class="option-select selectopt" name="test" type="radio" id="opt4"
-                                value="placeholder4">
-                            <label for="opt4" class="option d-flex justify-content-around">placehr4</label>
+                            <label for="opt2" class="option d-flex justify-content-around">NFT</label>
+                            
 
                         </form>
                     </div>
@@ -128,13 +123,10 @@
                         <form id="days" name="abi2" class="select" tabindex="1" onchange="selectedDuration()">
                             <input checked class=" option-select selectopt" name="days" type="radio" id="opt-1"
                                 value="10 days">
-                            <label for="opt-1" class="option d-flex justify-content-around">10 days</label>
+                            <label for="opt-1" class="option d-flex justify-content-around">7 days</label>
                             <input class="option-select selectopt" name="days" type="radio" id="opt-2" value="20 days">
-                            <label for="opt-2" class="option d-flex justify-content-around">20 days</label>
-                            <input class="option-select selectopt" name="days" type="radio" id="opt-3" value="30 days">
-                            <label for="opt-3" class="option d-flex justify-content-around">30 days</label>
-                            <input class="option-select selectopt" name="days" type="radio" id="opt-4" value="40 days">
-                            <label for="opt-4" class="option d-flex justify-content-around">40 days</label>
+                            <label for="opt-2" class="option d-flex justify-content-around">14 days</label>
+                            
 
                         </form>
                     </div>
@@ -155,14 +147,21 @@
                     <div class="col-12 col-md-8">
                         <h3 class="second-heading mt-2 p-2">DISCLAIMER</h3>
                         <p class="body-text2 p-2">
-                            Facilisi urna, praesent in et. Quis rhoncus venenatis pellentesque sit ac
-                            ipsum. Nibh interdum eget sit faucibus nulla odio pharetra egestas sed. Tempor
-                            sollicitudin orci egestas eu lectus aliquam interdum risus pellentesque.Facilisi
-                            urna, praesent in et. Quis rhoncus venenatis pellentesque sit ac ipsum. Nibh interdum
-                            eget sit faucibus nulla odio pharetra egestas sed.
-                            Tempor sollicitudin orci egestas eu lectus aliquam interdum risus pellentesque.
+                            $TrackFi NFT will grant you access to our borrow platform. You can pledge your NFT for a specific timeframe 
+                            and borrow Algo or USDC from our pool.  
+                            </p>
+                        <p class="body-text2 p-2">
+                            Floor Price is gotten from the last traded $TrackFi NFT on the secondary market.
+                            </p>
+                        <p class="body-text2 p-2">
+                            This transaction will incure a 5% charge.
                         </p>
-
+                        <p class="body-text2 p-2">
+                             Once the borrow timeframe is due, please payback the algo collected or your NFT will be forfieted.
+                            </p>
+                            <p class="body-text2 p-2">
+                                 Forfieted NFTs are collected and sent to a dead address.
+                            </p>
                     </div>
 
                 </div>
@@ -187,15 +186,15 @@
         <div class="h1 d-flex justify-content-around footer-icons align-items-center h-100">
             <a href="#">
                 <i class="fab fa-reddit-square"></i></a>
-            <a href="#">
+            <a href="http://twitter.com/trackfi_">
                 <i class="fab fa-twitter-square"></i></a>
-            <a href="#">
+            <a href="https://t.me/trackdefi">
                 <div class="d-flex justify-content-center align-items-center"
                     style="width: 0.85em;height: 0.85em; background-color: #03031b;position: relative;">
                     <i class='fab fa-telegram tel-sty'></i>
                 </div>
             </a>
-            <a href="#">
+            <a href="mailto:support@trackdefi.net">
                 <i class="fas fa-envelope-square"></i></a>
             <a href="#">
                 <i class="fab fa-discord"></i></a>
