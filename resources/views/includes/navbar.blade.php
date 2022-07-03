@@ -45,25 +45,31 @@
                                     class="fas fa-tag" style="margin-right: 0.5em;"></i><span
                                     class="ml-3">PreSale</span></div>
                         </a>
+                        <a href="/airdrop"
+                            class="navii w-100 g-0 text-light btn btn-block d-flex mt-2">
+                            <div class="d-flex align-items-center" style="width: 100%;"><i
+                                    class="fas fa-tag" style="margin-right: 0.5em;"></i><span
+                                    class="ml-3">Airdrop</span></div>
+                        </a>
                         <a href="/banner-ads"
-                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><i
-                                                        class="fas fa-globe" style="margin-right: 0.5em;"></i><span
-                                                        class="ml-3">Ads</span></div>
-                                            </a>
+                            class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                            <div class="d-flex align-items-center" style="width: 100%;"><i
+                                    class="fas fa-globe" style="margin-right: 0.5em;"></i><span
+                                    class="ml-3">Ads</span></div>
+                        </a>
 
-                                            <a href="/borrow-platform"
-                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><img alt="borrowing-icon"
-                                                    src="{{asset('images/undo-icon.png')}}" style="margin-right: 0.5em; width: 20px;"><span
-                                                        class="ml-3">Borrowing</span></div>
-                                            </a>
-                                            <a href="Whitepaper.pdf"
-                                                class="w-100 g-0 text-light btn btn-block d-flex mt-2">
-                                                <div class="d-flex align-items-center" style="width: 100%;"><img class="h-50" alt="whitepaper-icon"
-                                                        src="{{asset('images/whitepaper-icon.svg')}}" style="margin-right: 0.5em;"><span
-                                                        class="ml-3">White paper</span></div>
-                                            </a>
+                        <a href="/borrow-platform"
+                            class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                            <div class="d-flex align-items-center" style="width: 100%;"><img alt="borrowing-icon"
+                                src="{{asset('images/undo-icon.png')}}" style="margin-right: 0.5em; width: 20px;"><span
+                                    class="ml-3">Borrowing</span></div>
+                        </a>
+                        <a href="Whitepaper.pdf"
+                            class="w-100 g-0 text-light btn btn-block d-flex mt-2">
+                            <div class="d-flex align-items-center" style="width: 100%;"><img class="h-50" alt="whitepaper-icon"
+                                    src="{{asset('images/whitepaper-icon.svg')}}" style="margin-right: 0.5em;"><span
+                                    class="ml-3">White paper</span></div>
+                        </a>
 
                     </div>
                 </div>

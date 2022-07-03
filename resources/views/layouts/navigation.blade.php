@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
                         {{ __('Set Wallet') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('airdrops')" :active="request()->routeIs('airdrops')">
+                        {{ __('Airdrops') }}
+                    </x-nav-link>
                     {{-- <x-nav-link :href="route('tokens')" :active="request()->routeIs('dashboard')">
                         {{ __('Tokens') }}
                     </x-nav-link> --}}
@@ -86,6 +89,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('wallet')" :active="request()->routeIs('wallet')">
                 {{ __('Wallet') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('airdrops')" :active="request()->routeIs('airdrops')">
+                {{ __('Airdrops') }}
             </x-responsive-nav-link>
         </div>
 

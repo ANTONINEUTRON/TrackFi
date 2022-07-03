@@ -12,8 +12,25 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style>
+            /* tooltip styles*/
+            .popuptext {
+            width: 70px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -30px;
+            }
+
+        </style>
         
-        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+        <link rel="stylesheet" href="{{asset('css/fontawesome-free/css/all.min.css')}}" />
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>

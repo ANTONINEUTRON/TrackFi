@@ -8,6 +8,7 @@ use App\Http\Controllers\WalletController;
 use App\Http\Controllers\StatsController;
 use App\Http\Controllers\NftsController;
 use App\Http\Controllers\GetPriceDetailsController;
+use App\Http\Controllers\AirDropController;
 use App\Http\Controllers\admin\AdminWalletController;
 use App\Http\Controllers\admin\AdvertController;
 
@@ -85,10 +86,9 @@ Route::get('verified-ads', function(){
     return view('verified_ads');
 })->name("verified-ads");
 
+Route::get('airdrop', [AirdropController::class, 'showAirdropPage'])->name("airdrop");
 
-// Route::get('dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware(['auth'])->name('dashboard');
+Route::post('airdrop', [AirdropController::class, 'saveAssetOptin'])->name("airdrop");
 
 Route::get('wallet', [AdminWalletController::class,'display'])
 ->middleware(['auth'])->name('wallet');
@@ -105,10 +105,15 @@ Route::get('tokens', function () {
 Route::post('set_wallet', [AdminWalletController::class,'setWallet'])
 ->middleware(['auth'])->name('set_wallet');
 
-
 Route::post('/add_adverts', [AdvertController::class, 'createNewAdvert'])
 ->middleware(['auth'])->name("add.advert");
 
 Route::post('/delete_advert', [AdvertController::class, 'deleteAdvert'])
 ->middleware(['auth'])->name("delete.ads");
+
+Route::get('/airdrops', [AirdropController::class, 'showAdminView'])
+->middleware(['auth'])->name("airdrops");
+Route::post('/delete_airdrop', [AirdropController::class, 'deleteAirdrop'])
+->middleware(['auth'])->name("delete_airdrop");
+
 require __DIR__.'/auth.php';
