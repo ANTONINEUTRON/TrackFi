@@ -33,7 +33,7 @@ async function processTransaction(){
             type: 'axfer',
             from: sender,
             to: rec,
-            assetIndex: 394014424,
+            assetIndex: 580431573,
             amount: 0,
             note: enc.encode(handles)
         });
@@ -57,7 +57,3 @@ async function processTransaction(){
     }
     //alert user
 }
-
-//prepare transfer object
-
-//pass input to sdk
